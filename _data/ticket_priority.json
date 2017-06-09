@@ -1,7 +1,7 @@
 {
   "name": "ticket_priority",
   "routes": {
-    "/wpas-api/v1/ticket-priority": {
+    "/wpas-api/v1/ticket_priority": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -143,6 +143,10 @@
               "required": false,
               "description": "Meta fields.",
               "type": "object"
+            },
+            "color": {
+              "required": false,
+              "type": "string"
             }
           }
         }
@@ -249,15 +253,24 @@
             "properties": [
 
             ]
+          },
+          "color": {
+            "descriptions": "The color for this priority",
+            "type": "string",
+            "context": [
+              "view",
+              "embed",
+              "edit"
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/ticket-priority"
+        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/ticket_priority"
       },
-      "nicename": "/wpas-api/v1/ticket-priority"
+      "nicename": "/wpas-api/v1/ticket_priority"
     },
-    "/wpas-api/v1/ticket-priority/<id>": {
+    "/wpas-api/v1/ticket_priority/<id>": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -326,6 +339,10 @@
               "required": false,
               "description": "Meta fields.",
               "type": "object"
+            },
+            "color": {
+              "required": false,
+              "type": "string"
             }
           }
         },
@@ -450,10 +467,19 @@
             "properties": [
 
             ]
+          },
+          "color": {
+            "descriptions": "The color for this priority",
+            "type": "string",
+            "context": [
+              "view",
+              "embed",
+              "edit"
+            ]
           }
         }
       },
-      "nicename": "/wpas-api/v1/ticket-priority/&lt;id&gt;"
+      "nicename": "/wpas-api/v1/ticket_priority/&lt;id&gt;"
     }
   },
   "schema": {
@@ -557,6 +583,15 @@
         ],
         "properties": [
 
+        ]
+      },
+      "color": {
+        "descriptions": "The color for this priority",
+        "type": "string",
+        "context": [
+          "view",
+          "embed",
+          "edit"
         ]
       }
     }

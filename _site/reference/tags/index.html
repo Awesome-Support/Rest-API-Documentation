@@ -591,6 +591,93 @@
 
 <section class="route">
 	<div class="primary">
+		<h2>Create a Ticket Tag</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>HTML description of the term.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>HTML title for the term.</p>
+					
+					
+						<p class="required">
+							Required: true
+						</p>
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the term unique to its type.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>POST /wpas-api/v1/ticket-tag</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
 		<h2>Retrieve a Ticket Tag</h2>
 		
 		
@@ -647,6 +734,167 @@
 		<h3>Example Request</h3>
 
 		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/ticket-tag/&lt;id&gt;</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Update a Ticket Tag</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>id</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Unique identifier for the term.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>HTML description of the term.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>HTML title for the term.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the term unique to its type.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>POST /wpas-api/v1/ticket-tag/&lt;id&gt;</code>
+
+		<h3>Example Request</h3>
+		
+
+		<code>$ curl -X POST http://awesomesupport.dev/wp-json -d '{"title":"My New Title"}'
+</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Delete a Ticket Tag</h2>
+
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>id</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Unique identifier for the term.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>force</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Required to be true, as terms do not support trashing.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>DELETE /wpas-api/v1/ticket-tag/&lt;id&gt;</code>
+
+		<h3>Example Request</h3>
+
+		<code>$ curl -X DELETE http://demo.getawesomesupport.com/wp-json/wpas-api/v1/ticket-tag/&lt;id&gt;</code>
 	</div>
 </section>
 

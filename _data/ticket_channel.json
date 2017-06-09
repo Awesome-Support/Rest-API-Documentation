@@ -1,7 +1,7 @@
 {
   "name": "ticket_channel",
   "routes": {
-    "/wpas-api/v1/ticket-channel": {
+    "/wpas-api/v1/ticket_channel": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -253,11 +253,11 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/ticket-channel"
+        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/ticket_channel"
       },
-      "nicename": "/wpas-api/v1/ticket-channel"
+      "nicename": "/wpas-api/v1/ticket_channel"
     },
-    "/wpas-api/v1/ticket-channel/<id>": {
+    "/wpas-api/v1/ticket_channel/<id>": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -453,7 +453,7 @@
           }
         }
       },
-      "nicename": "/wpas-api/v1/ticket-channel/&lt;id&gt;"
+      "nicename": "/wpas-api/v1/ticket_channel/&lt;id&gt;"
     }
   },
   "schema": {

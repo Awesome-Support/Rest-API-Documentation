@@ -366,21 +366,6 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-password">
-			<td>
-				<code>password</code><br />
-				<span class="type">
-					string
-				</span>
-			</td>
-			<td>
-				<p>A password to protect access to the content and excerpt.</p>
-				
-				<p class="context">Context: <code>edit</code></p>
-				
-			</td>
-		</tr>
-	
 		<tr id="schema-title">
 			<td>
 				<code>title</code><br />
@@ -411,23 +396,6 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-template">
-			<td>
-				<code>template</code><br />
-				<span class="type">
-					string
-				</span>
-			</td>
-			<td>
-				<p>The theme file to use to display the object.</p>
-				
-				<p class="context">Context: <code>view</code>, <code>edit</code></p>
-				
-					<p>One of: <code></code></p>
-				
-			</td>
-		</tr>
-	
 		<tr id="schema-ticket-tag">
 			<td>
 				<code>ticket-tag</code><br />
@@ -447,7 +415,7 @@
 			<td>
 				<code>product</code><br />
 				<span class="type">
-					array
+					string
 				</span>
 			</td>
 			<td>
@@ -462,7 +430,7 @@
 			<td>
 				<code>department</code><br />
 				<span class="type">
-					array
+					string
 				</span>
 			</td>
 			<td>
@@ -473,11 +441,11 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-ticket-priority">
+		<tr id="schema-ticket_priority">
 			<td>
-				<code>ticket-priority</code><br />
+				<code>ticket_priority</code><br />
 				<span class="type">
-					array
+					string
 				</span>
 			</td>
 			<td>
@@ -488,15 +456,212 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-ticket-channel">
+		<tr id="schema-ticket_channel">
 			<td>
-				<code>ticket-channel</code><br />
+				<code>ticket_channel</code><br />
 				<span class="type">
-					array
+					string
 				</span>
 			</td>
 			<td>
 				<p>The terms assigned to the object in the ticket_channel taxonomy.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-state">
+			<td>
+				<code>state</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Limit result set to tickets in the specified state.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-author">
+			<td>
+				<code>author</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The ID for the author of the object.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-assignee">
+			<td>
+				<code>assignee</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The agent assigned to this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-secondary-assignee">
+			<td>
+				<code>secondary-assignee</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The secondary assignee for this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-tertiary-assignee">
+			<td>
+				<code>tertiary-assignee</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The tertiary assignee for this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-customer-reply-count">
+			<td>
+				<code>customer-reply-count</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The number of customer replies to this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-agent-reply-count">
+			<td>
+				<code>agent-reply-count</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The number of agent replies to this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-total-reply-count">
+			<td>
+				<code>total-reply-count</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The number of total replies to this ticket</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-time-calculated">
+			<td>
+				<code>time-calculated</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The gross time calculated for ticket in minutes</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-time-adjustments">
+			<td>
+				<code>time-adjustments</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The time adjustments for ticket in minutes</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-time-final">
+			<td>
+				<code>time-final</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The final adjusted time for ticket in minutes</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-time-adjustments-type">
+			<td>
+				<code>time-adjustments-type</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The type of time adjustment, positive or negative.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-time-notes">
+			<td>
+				<code>time-notes</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The notes for the time</p>
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
@@ -890,12 +1055,12 @@
 			<tr>
 				<td>
 					
-						<code>ticket-priority</code><br />
+						<code>ticket_priority</code><br />
 					
 				</td>
 				<td>
 					
-						<p>Limit result set to all items that have the specified term assigned in the ticket-priority taxonomy.</p>
+						<p>Limit result set to all items that have the specified term assigned in the ticket_priority taxonomy.</p>
 					
 					
 					
@@ -910,12 +1075,12 @@
 			<tr>
 				<td>
 					
-						<code>ticket-priority_exclude</code><br />
+						<code>ticket_priority_exclude</code><br />
 					
 				</td>
 				<td>
 					
-						<p>Limit result set to all items except those that have the specified term assigned in the ticket-priority taxonomy.</p>
+						<p>Limit result set to all items except those that have the specified term assigned in the ticket_priority taxonomy.</p>
 					
 					
 					
@@ -930,12 +1095,12 @@
 			<tr>
 				<td>
 					
-						<code>ticket-channel</code><br />
+						<code>ticket_channel</code><br />
 					
 				</td>
 				<td>
 					
-						<p>Limit result set to all items that have the specified term assigned in the ticket-channel taxonomy.</p>
+						<p>Limit result set to all items that have the specified term assigned in the ticket_channel taxonomy.</p>
 					
 					
 					
@@ -950,37 +1115,17 @@
 			<tr>
 				<td>
 					
-						<code>ticket-channel_exclude</code><br />
+						<code>ticket_channel_exclude</code><br />
 					
 				</td>
 				<td>
 					
-						<p>Limit result set to all items except those that have the specified term assigned in the ticket-channel taxonomy.</p>
+						<p>Limit result set to all items except those that have the specified term assigned in the ticket_channel taxonomy.</p>
 					
 					
 					
 						<p class="default">
 							Default: <code></code>
-						</p>
-					
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>assignee</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Limit result set to tickets assigned to this user id.</p>
-					
-					
-					
-						<p class="default">
-							Default: <code>0</code>
 						</p>
 					
 					
@@ -1001,6 +1146,46 @@
 					
 						<p class="default">
 							Default: <code>open</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>author</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The ID for the author of the object.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>The ID of the current logged in client if applicable.</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The agent assigned to this ticket</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>The ID of the current logged in agent if applicable.</code>
 						</p>
 					
 					
@@ -1064,22 +1249,6 @@
 					
 					
 						<p>One of: <code>view</code>, <code>embed</code>, <code>edit</code></p>
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>The password for the post if it is password protected.</p>
-					
-					
-					
 					
 				</td>
 			</tr>
@@ -1167,24 +1336,12 @@
 					
 					
 					
+						<p class="default">
+							Default: <code>queued</code>
+						</p>
+					
 					
 						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>A password to protect access to the content and excerpt.</p>
-					
-					
-					
 					
 				</td>
 			</tr>
@@ -1199,6 +1356,10 @@
 					
 						<p>The title for the object.</p>
 					
+					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
 					
@@ -1216,25 +1377,11 @@
 						<p>The content for the object.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>template</code><br />
-					
-				</td>
-				<td>
-					
-						<p>The theme file to use to display the object.</p>
-					
-					
-					
-					
-						<p>One of: <code></code></p>
 					
 				</td>
 			</tr>
@@ -1290,7 +1437,7 @@
 			<tr>
 				<td>
 					
-						<code>ticket-priority</code><br />
+						<code>ticket_priority</code><br />
 					
 				</td>
 				<td>
@@ -1306,12 +1453,216 @@
 			<tr>
 				<td>
 					
-						<code>ticket-channel</code><br />
+						<code>ticket_channel</code><br />
 					
 				</td>
 				<td>
 					
 						<p>The terms assigned to the object in the ticket_channel taxonomy.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>web-service-api</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>state</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to tickets in the specified state.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>open</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>author</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The ID for the author of the object.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The agent assigned to this ticket</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>6</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>secondary-assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The secondary assignee for this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>tertiary-assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The tertiary assignee for this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>customer-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of customer replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>agent-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of agent replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>total-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of total replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-calculated</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The gross time calculated for ticket in minutes</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-adjustments</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The time adjustments for ticket in minutes</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-adjustments-type</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The type of time adjustment, positive or negative.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-notes</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The notes for the time</p>
 					
 					
 					
@@ -1423,22 +1774,6 @@
 			<tr>
 				<td>
 					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>A password to protect access to the content and excerpt.</p>
-					
-					
-					
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
 						<code>title</code><br />
 					
 				</td>
@@ -1464,24 +1799,6 @@
 					
 					
 					
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>template</code><br />
-					
-				</td>
-				<td>
-					
-						<p>The theme file to use to display the object.</p>
-					
-					
-					
-					
-						<p>One of: <code></code></p>
 					
 				</td>
 			</tr>
@@ -1537,7 +1854,7 @@
 			<tr>
 				<td>
 					
-						<code>ticket-priority</code><br />
+						<code>ticket_priority</code><br />
 					
 				</td>
 				<td>
@@ -1553,12 +1870,204 @@
 			<tr>
 				<td>
 					
-						<code>ticket-channel</code><br />
+						<code>ticket_channel</code><br />
 					
 				</td>
 				<td>
 					
 						<p>The terms assigned to the object in the ticket_channel taxonomy.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>state</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to tickets in the specified state.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>author</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The ID for the author of the object.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The agent assigned to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>secondary-assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The secondary assignee for this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>tertiary-assignee</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The tertiary assignee for this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>customer-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of customer replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>agent-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of agent replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>total-reply-count</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The number of total replies to this ticket</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-calculated</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The gross time calculated for ticket in minutes</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-adjustments</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The time adjustments for ticket in minutes</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-adjustments-type</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The type of time adjustment, positive or negative.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>time-notes</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The notes for the time</p>
 					
 					
 					

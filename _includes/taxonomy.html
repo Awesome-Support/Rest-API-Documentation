@@ -17,7 +17,10 @@
 
 {% assign route=include.data.routes[page.route_path] %}
 {% include reference-parts/list-item.html route=route %}
+{% include reference-parts/create-item.html route=route %}
 
 {% assign path=page.route_path | append: '/<id>' %}
 {% assign route=include.data.routes[path] %}
 {% include reference-parts/get-item.html route=route %}
+{% include reference-parts/update-item.html route=route %}
+{% include reference-parts/delete-item.html route=route %}

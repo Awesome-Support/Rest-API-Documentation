@@ -196,69 +196,74 @@
                 "type": "integer"
               }
             },
-            "ticket-priority": {
+            "ticket_priority": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items that have the specified term assigned in the ticket-priority taxonomy.",
+              "description": "Limit result set to all items that have the specified term assigned in the ticket_priority taxonomy.",
               "type": "array",
               "items": {
                 "type": "integer"
               }
             },
-            "ticket-priority_exclude": {
+            "ticket_priority_exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items except those that have the specified term assigned in the ticket-priority taxonomy.",
+              "description": "Limit result set to all items except those that have the specified term assigned in the ticket_priority taxonomy.",
               "type": "array",
               "items": {
                 "type": "integer"
               }
             },
-            "ticket-channel": {
+            "ticket_channel": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items that have the specified term assigned in the ticket-channel taxonomy.",
+              "description": "Limit result set to all items that have the specified term assigned in the ticket_channel taxonomy.",
               "type": "array",
               "items": {
                 "type": "integer"
               }
             },
-            "ticket-channel_exclude": {
+            "ticket_channel_exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items except those that have the specified term assigned in the ticket-channel taxonomy.",
+              "description": "Limit result set to all items except those that have the specified term assigned in the ticket_channel taxonomy.",
               "type": "array",
               "items": {
                 "type": "integer"
               }
-            },
-            "assignee": {
-              "required": false,
-              "default": 0,
-              "description": "Limit result set to tickets assigned to this user id.",
-              "type": "integer"
             },
             "state": {
               "required": false,
               "default": "open",
               "description": "Limit result set to tickets in the specified state.",
-              "type": "array",
+              "type": "string",
               "items": {
                 "enum": [
                   "open",
                   "closed",
                   "any"
-                ],
-                "type": "string"
+                ]
               }
+            },
+            "author": {
+              "required": false,
+              "default": "The ID of the current logged in client if applicable.",
+              "description": "The ID for the author of the object.",
+              "type": "integer"
+            },
+            "assignee": {
+              "required": false,
+              "default": "The ID of the current logged in agent if applicable.",
+              "description": "The agent assigned to this ticket",
+              "type": "integer"
             }
           }
         },
@@ -284,6 +289,7 @@
             },
             "status": {
               "required": false,
+              "default": "queued",
               "enum": [
                 "publish",
                 "future",
@@ -299,28 +305,15 @@
               "description": "A named status for the object.",
               "type": "string"
             },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the content and excerpt.",
-              "type": "string"
-            },
             "title": {
-              "required": false,
+              "required": true,
               "description": "The title for the object.",
               "type": "object"
             },
             "content": {
-              "required": false,
+              "required": true,
               "description": "The content for the object.",
               "type": "object"
-            },
-            "template": {
-              "required": false,
-              "enum": [
-                ""
-              ],
-              "description": "The theme file to use to display the object.",
-              "type": "string"
             },
             "ticket-tag": {
               "required": false,
@@ -333,34 +326,98 @@
             "product": {
               "required": false,
               "description": "The terms assigned to the object in the product taxonomy.",
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "type": "string"
             },
             "department": {
               "required": false,
               "description": "The terms assigned to the object in the department taxonomy.",
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "type": "string"
             },
-            "ticket-priority": {
+            "ticket_priority": {
               "required": false,
               "description": "The terms assigned to the object in the ticket_priority taxonomy.",
-              "type": "array",
+              "type": "string"
+            },
+            "ticket_channel": {
+              "required": false,
+              "default": "web-service-api",
+              "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+              "type": "string"
+            },
+            "state": {
+              "required": false,
+              "default": "open",
+              "description": "Limit result set to tickets in the specified state.",
+              "type": "string",
               "items": {
-                "type": "integer"
+                "enum": [
+                  "open",
+                  "closed",
+                  "any"
+                ]
               }
             },
-            "ticket-channel": {
+            "author": {
               "required": false,
-              "description": "The terms assigned to the object in the ticket_channel taxonomy.",
-              "type": "array",
+              "description": "The ID for the author of the object.",
+              "type": "integer"
+            },
+            "assignee": {
+              "required": false,
+              "default": 6,
+              "description": "The agent assigned to this ticket",
+              "type": "integer"
+            },
+            "secondary-assignee": {
+              "required": false,
+              "description": "The secondary assignee for this ticket",
+              "type": "integer"
+            },
+            "tertiary-assignee": {
+              "required": false,
+              "description": "The tertiary assignee for this ticket",
+              "type": "integer"
+            },
+            "customer-reply-count": {
+              "required": false,
+              "description": "The number of customer replies to this ticket",
+              "type": "integer"
+            },
+            "agent-reply-count": {
+              "required": false,
+              "description": "The number of agent replies to this ticket",
+              "type": "integer"
+            },
+            "total-reply-count": {
+              "required": false,
+              "description": "The number of total replies to this ticket",
+              "type": "integer"
+            },
+            "time-calculated": {
+              "required": false,
+              "description": "The gross time calculated for ticket in minutes",
+              "type": "integer"
+            },
+            "time-adjustments": {
+              "required": false,
+              "description": "The time adjustments for ticket in minutes",
+              "type": "integer"
+            },
+            "time-adjustments-type": {
+              "required": false,
+              "description": "The type of time adjustment, positive or negative.",
+              "type": "string",
               "items": {
-                "type": "integer"
+                "enum": [
+                  "+",
+                  "-"
+                ]
               }
+            },
+            "time-notes": {
+              "required": false,
+              "description": "The notes for the time",
+              "type": "string"
             }
           }
         }
@@ -497,13 +554,6 @@
             ],
             "readonly": true
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
-          },
           "title": {
             "description": "The title for the object.",
             "type": "object",
@@ -568,17 +618,6 @@
               }
             }
           },
-          "template": {
-            "description": "The theme file to use to display the object.",
-            "type": "string",
-            "enum": [
-              ""
-            ],
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
           "ticket-tag": {
             "description": "The terms assigned to the object in the ticket-tag taxonomy.",
             "type": "array",
@@ -592,10 +631,7 @@
           },
           "product": {
             "description": "The terms assigned to the object in the product taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
@@ -603,36 +639,192 @@
           },
           "department": {
             "description": "The terms assigned to the object in the department taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "ticket-priority": {
+          "ticket_priority": {
             "description": "The terms assigned to the object in the ticket_priority taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "ticket-channel": {
+          "ticket_channel": {
             "description": "The terms assigned to the object in the ticket_channel taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
+          },
+          "state": {
+            "default": "open",
+            "description": "Limit result set to tickets in the specified state.",
+            "type": "string",
+            "query_cb": [
+              {
+              },
+              "query_state"
+            ],
+            "update_cb": [
+              {
+              },
+              "update_state"
+            ],
+            "field_key": "status",
+            "items": {
+              "enum": [
+                "open",
+                "closed",
+                "any"
+              ]
+            }
+          },
+          "author": {
+            "description": "The ID for the author of the object.",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "query_cb": true
+          },
+          "assignee": {
+            "description": "The agent assigned to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "field_key": "assignee",
+            "update_cb": [
+              {
+              },
+              "update_assignee"
+            ],
+            "query_cb": [
+              {
+              },
+              "query_assignee"
+            ]
+          },
+          "secondary-assignee": {
+            "description": "The secondary assignee for this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "secondary_assignee"
+          },
+          "tertiary-assignee": {
+            "description": "The tertiary assignee for this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "tertiary_assignee"
+          },
+          "customer-reply-count": {
+            "description": "The number of customer replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies_by_customer"
+          },
+          "agent-reply-count": {
+            "description": "The number of agent replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies_by_agent"
+          },
+          "total-reply-count": {
+            "description": "The number of total replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies"
+          },
+          "time-calculated": {
+            "description": "The gross time calculated for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_calculated_time_spent_on_ticket",
+            "sanitize_cb": [
+              {
+              },
+              "format_time"
+            ]
+          },
+          "time-adjustments": {
+            "description": "The time adjustments for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_adjustments_to_time_spent_on_ticket",
+            "sanitize_cb": [
+              {
+              },
+              "format_time"
+            ]
+          },
+          "time-final": {
+            "description": "The final adjusted time for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true,
+            "field_key": "final_time_spent_on_ticket"
+          },
+          "time-adjustments-type": {
+            "description": "The type of time adjustment, positive or negative.",
+            "type": "string",
+            "items": {
+              "enum": [
+                "+",
+                "-"
+              ]
+            },
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "time_adjustments_pos_or_neg",
+            "sanitize_cb": [
+              {
+              },
+              "setup_time_calculate"
+            ]
+          },
+          "time-notes": {
+            "description": "The notes for the time",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "time_notes"
           }
         }
       },
@@ -670,11 +862,6 @@
                 "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response.",
-              "type": "string"
-            },
-            "password": {
-              "required": false,
-              "description": "The password for the post if it is password protected.",
               "type": "string"
             }
           }
@@ -723,11 +910,6 @@
               "description": "A named status for the object.",
               "type": "string"
             },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the content and excerpt.",
-              "type": "string"
-            },
             "title": {
               "required": false,
               "description": "The title for the object.",
@@ -737,14 +919,6 @@
               "required": false,
               "description": "The content for the object.",
               "type": "object"
-            },
-            "template": {
-              "required": false,
-              "enum": [
-                ""
-              ],
-              "description": "The theme file to use to display the object.",
-              "type": "string"
             },
             "ticket-tag": {
               "required": false,
@@ -757,34 +931,95 @@
             "product": {
               "required": false,
               "description": "The terms assigned to the object in the product taxonomy.",
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "type": "string"
             },
             "department": {
               "required": false,
               "description": "The terms assigned to the object in the department taxonomy.",
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "type": "string"
             },
-            "ticket-priority": {
+            "ticket_priority": {
               "required": false,
               "description": "The terms assigned to the object in the ticket_priority taxonomy.",
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "type": "string"
             },
-            "ticket-channel": {
+            "ticket_channel": {
               "required": false,
               "description": "The terms assigned to the object in the ticket_channel taxonomy.",
-              "type": "array",
+              "type": "string"
+            },
+            "state": {
+              "required": false,
+              "description": "Limit result set to tickets in the specified state.",
+              "type": "string",
               "items": {
-                "type": "integer"
+                "enum": [
+                  "open",
+                  "closed",
+                  "any"
+                ]
               }
+            },
+            "author": {
+              "required": false,
+              "description": "The ID for the author of the object.",
+              "type": "integer"
+            },
+            "assignee": {
+              "required": false,
+              "description": "The agent assigned to this ticket",
+              "type": "integer"
+            },
+            "secondary-assignee": {
+              "required": false,
+              "description": "The secondary assignee for this ticket",
+              "type": "integer"
+            },
+            "tertiary-assignee": {
+              "required": false,
+              "description": "The tertiary assignee for this ticket",
+              "type": "integer"
+            },
+            "customer-reply-count": {
+              "required": false,
+              "description": "The number of customer replies to this ticket",
+              "type": "integer"
+            },
+            "agent-reply-count": {
+              "required": false,
+              "description": "The number of agent replies to this ticket",
+              "type": "integer"
+            },
+            "total-reply-count": {
+              "required": false,
+              "description": "The number of total replies to this ticket",
+              "type": "integer"
+            },
+            "time-calculated": {
+              "required": false,
+              "description": "The gross time calculated for ticket in minutes",
+              "type": "integer"
+            },
+            "time-adjustments": {
+              "required": false,
+              "description": "The time adjustments for ticket in minutes",
+              "type": "integer"
+            },
+            "time-adjustments-type": {
+              "required": false,
+              "description": "The type of time adjustment, positive or negative.",
+              "type": "string",
+              "items": {
+                "enum": [
+                  "+",
+                  "-"
+                ]
+              }
+            },
+            "time-notes": {
+              "required": false,
+              "description": "The notes for the time",
+              "type": "string"
             }
           }
         },
@@ -939,13 +1174,6 @@
             ],
             "readonly": true
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
-          },
           "title": {
             "description": "The title for the object.",
             "type": "object",
@@ -1010,17 +1238,6 @@
               }
             }
           },
-          "template": {
-            "description": "The theme file to use to display the object.",
-            "type": "string",
-            "enum": [
-              ""
-            ],
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
           "ticket-tag": {
             "description": "The terms assigned to the object in the ticket-tag taxonomy.",
             "type": "array",
@@ -1034,10 +1251,7 @@
           },
           "product": {
             "description": "The terms assigned to the object in the product taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
@@ -1045,36 +1259,192 @@
           },
           "department": {
             "description": "The terms assigned to the object in the department taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "ticket-priority": {
+          "ticket_priority": {
             "description": "The terms assigned to the object in the ticket_priority taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "ticket-channel": {
+          "ticket_channel": {
             "description": "The terms assigned to the object in the ticket_channel taxonomy.",
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
+          },
+          "state": {
+            "default": "open",
+            "description": "Limit result set to tickets in the specified state.",
+            "type": "string",
+            "query_cb": [
+              {
+              },
+              "query_state"
+            ],
+            "update_cb": [
+              {
+              },
+              "update_state"
+            ],
+            "field_key": "status",
+            "items": {
+              "enum": [
+                "open",
+                "closed",
+                "any"
+              ]
+            }
+          },
+          "author": {
+            "description": "The ID for the author of the object.",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "query_cb": true
+          },
+          "assignee": {
+            "description": "The agent assigned to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "field_key": "assignee",
+            "update_cb": [
+              {
+              },
+              "update_assignee"
+            ],
+            "query_cb": [
+              {
+              },
+              "query_assignee"
+            ]
+          },
+          "secondary-assignee": {
+            "description": "The secondary assignee for this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "secondary_assignee"
+          },
+          "tertiary-assignee": {
+            "description": "The tertiary assignee for this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "tertiary_assignee"
+          },
+          "customer-reply-count": {
+            "description": "The number of customer replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies_by_customer"
+          },
+          "agent-reply-count": {
+            "description": "The number of agent replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies_by_agent"
+          },
+          "total-reply-count": {
+            "description": "The number of total replies to this ticket",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_replies"
+          },
+          "time-calculated": {
+            "description": "The gross time calculated for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_calculated_time_spent_on_ticket",
+            "sanitize_cb": [
+              {
+              },
+              "format_time"
+            ]
+          },
+          "time-adjustments": {
+            "description": "The time adjustments for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "ttl_adjustments_to_time_spent_on_ticket",
+            "sanitize_cb": [
+              {
+              },
+              "format_time"
+            ]
+          },
+          "time-final": {
+            "description": "The final adjusted time for ticket in minutes",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true,
+            "field_key": "final_time_spent_on_ticket"
+          },
+          "time-adjustments-type": {
+            "description": "The type of time adjustment, positive or negative.",
+            "type": "string",
+            "items": {
+              "enum": [
+                "+",
+                "-"
+              ]
+            },
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "time_adjustments_pos_or_neg",
+            "sanitize_cb": [
+              {
+              },
+              "setup_time_calculate"
+            ]
+          },
+          "time-notes": {
+            "description": "The notes for the time",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "field_key": "time_notes"
           }
         }
       },
@@ -1213,13 +1583,6 @@
         ],
         "readonly": true
       },
-      "password": {
-        "description": "A password to protect access to the content and excerpt.",
-        "type": "string",
-        "context": [
-          "edit"
-        ]
-      },
       "title": {
         "description": "The title for the object.",
         "type": "object",
@@ -1284,17 +1647,6 @@
           }
         }
       },
-      "template": {
-        "description": "The theme file to use to display the object.",
-        "type": "string",
-        "enum": [
-          ""
-        ],
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
       "ticket-tag": {
         "description": "The terms assigned to the object in the ticket-tag taxonomy.",
         "type": "array",
@@ -1308,10 +1660,7 @@
       },
       "product": {
         "description": "The terms assigned to the object in the product taxonomy.",
-        "type": "array",
-        "items": {
-          "type": "integer"
-        },
+        "type": "string",
         "context": [
           "view",
           "edit"
@@ -1319,36 +1668,192 @@
       },
       "department": {
         "description": "The terms assigned to the object in the department taxonomy.",
-        "type": "array",
-        "items": {
-          "type": "integer"
-        },
+        "type": "string",
         "context": [
           "view",
           "edit"
         ]
       },
-      "ticket-priority": {
+      "ticket_priority": {
         "description": "The terms assigned to the object in the ticket_priority taxonomy.",
-        "type": "array",
-        "items": {
-          "type": "integer"
-        },
+        "type": "string",
         "context": [
           "view",
           "edit"
         ]
       },
-      "ticket-channel": {
+      "ticket_channel": {
         "description": "The terms assigned to the object in the ticket_channel taxonomy.",
-        "type": "array",
-        "items": {
-          "type": "integer"
-        },
+        "type": "string",
         "context": [
           "view",
           "edit"
         ]
+      },
+      "state": {
+        "default": "open",
+        "description": "Limit result set to tickets in the specified state.",
+        "type": "string",
+        "query_cb": [
+          {
+          },
+          "query_state"
+        ],
+        "update_cb": [
+          {
+          },
+          "update_state"
+        ],
+        "field_key": "status",
+        "items": {
+          "enum": [
+            "open",
+            "closed",
+            "any"
+          ]
+        }
+      },
+      "author": {
+        "description": "The ID for the author of the object.",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "query_cb": true
+      },
+      "assignee": {
+        "description": "The agent assigned to this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "field_key": "assignee",
+        "update_cb": [
+          {
+          },
+          "update_assignee"
+        ],
+        "query_cb": [
+          {
+          },
+          "query_assignee"
+        ]
+      },
+      "secondary-assignee": {
+        "description": "The secondary assignee for this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "secondary_assignee"
+      },
+      "tertiary-assignee": {
+        "description": "The tertiary assignee for this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "tertiary_assignee"
+      },
+      "customer-reply-count": {
+        "description": "The number of customer replies to this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "ttl_replies_by_customer"
+      },
+      "agent-reply-count": {
+        "description": "The number of agent replies to this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "ttl_replies_by_agent"
+      },
+      "total-reply-count": {
+        "description": "The number of total replies to this ticket",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "ttl_replies"
+      },
+      "time-calculated": {
+        "description": "The gross time calculated for ticket in minutes",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "ttl_calculated_time_spent_on_ticket",
+        "sanitize_cb": [
+          {
+          },
+          "format_time"
+        ]
+      },
+      "time-adjustments": {
+        "description": "The time adjustments for ticket in minutes",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "ttl_adjustments_to_time_spent_on_ticket",
+        "sanitize_cb": [
+          {
+          },
+          "format_time"
+        ]
+      },
+      "time-final": {
+        "description": "The final adjusted time for ticket in minutes",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "readonly": true,
+        "field_key": "final_time_spent_on_ticket"
+      },
+      "time-adjustments-type": {
+        "description": "The type of time adjustment, positive or negative.",
+        "type": "string",
+        "items": {
+          "enum": [
+            "+",
+            "-"
+          ]
+        },
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "time_adjustments_pos_or_neg",
+        "sanitize_cb": [
+          {
+          },
+          "setup_time_calculate"
+        ]
+      },
+      "time-notes": {
+        "description": "The notes for the time",
+        "type": "string",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "field_key": "time_notes"
       }
     }
   }

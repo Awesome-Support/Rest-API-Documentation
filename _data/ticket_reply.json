@@ -14,7 +14,7 @@
           ],
           "args": {
             "ticket_id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the ticket.",
               "type": "integer"
             },
@@ -23,7 +23,6 @@
               "default": "view",
               "enum": [
                 "view",
-                "template",
                 "embed",
                 "edit"
               ],
@@ -38,7 +37,7 @@
             },
             "per_page": {
               "required": false,
-              "default": 10,
+              "default": 100,
               "description": "Maximum number of items to be returned in result set.",
               "type": "integer"
             },
@@ -141,7 +140,7 @@
           ],
           "args": {
             "ticket_id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the ticket.",
               "type": "integer"
             },
@@ -157,33 +156,22 @@
             },
             "status": {
               "required": false,
+              "default": "unread",
               "enum": [
-                "publish",
-                "future",
-                "draft",
-                "pending",
-                "private",
-                "queued",
-                "processing",
-                "hold",
                 "read",
                 "unread"
               ],
               "description": "A named status for the object.",
               "type": "string"
             },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the content and excerpt.",
-              "type": "string"
-            },
             "content": {
-              "required": false,
+              "required": true,
               "description": "The content for the object.",
               "type": "object"
             },
             "author": {
               "required": false,
+              "default": 0,
               "description": "The ID for the author of the object.",
               "type": "integer"
             }
@@ -272,18 +260,20 @@
             ],
             "readonly": true
           },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "status": {
             "description": "A named status for the object.",
             "type": "string",
             "enum": [
-              "publish",
-              "future",
-              "draft",
-              "pending",
-              "private",
-              "queued",
-              "processing",
-              "hold",
               "read",
               "unread"
             ],
@@ -302,20 +292,12 @@
             ],
             "readonly": true
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
-          },
           "content": {
             "description": "The content for the object.",
             "type": "object",
             "context": [
               "view",
-              "edit",
-              "embed"
+              "edit"
             ],
             "properties": {
               "raw": {
@@ -330,8 +312,7 @@
                 "type": "string",
                 "context": [
                   "view",
-                  "edit",
-                  "embed"
+                  "edit"
                 ],
                 "readonly": true
               },
@@ -353,9 +334,20 @@
             "context": [
               "view",
               "edit",
-              "embed",
-              "template"
+              "embed"
             ]
+          },
+          "parent": {
+            "description": "The ID for the ticket of the reply.",
+            "type": "integer",
+            "readonly": true,
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "title": {
+            "readonly": true
           }
         }
       },
@@ -377,12 +369,12 @@
           ],
           "args": {
             "ticket_id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the ticket.",
               "type": "integer"
             },
             "id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the reply.",
               "type": "integer"
             },
@@ -391,16 +383,10 @@
               "default": "view",
               "enum": [
                 "view",
-                "template",
                 "embed",
                 "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response.",
-              "type": "string"
-            },
-            "password": {
-              "required": false,
-              "description": "The password for the post if it is password protected.",
               "type": "string"
             }
           }
@@ -413,12 +399,12 @@
           ],
           "args": {
             "ticket_id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the ticket.",
               "type": "integer"
             },
             "id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the reply.",
               "type": "integer"
             },
@@ -435,23 +421,10 @@
             "status": {
               "required": false,
               "enum": [
-                "publish",
-                "future",
-                "draft",
-                "pending",
-                "private",
-                "queued",
-                "processing",
-                "hold",
                 "read",
                 "unread"
               ],
               "description": "A named status for the object.",
-              "type": "string"
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the content and excerpt.",
               "type": "string"
             },
             "content": {
@@ -472,12 +445,12 @@
           ],
           "args": {
             "ticket_id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the ticket.",
               "type": "integer"
             },
             "id": {
-              "required": false,
+              "required": true,
               "description": "Unique identifier for the reply.",
               "type": "integer"
             },
@@ -572,18 +545,20 @@
             ],
             "readonly": true
           },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "status": {
             "description": "A named status for the object.",
             "type": "string",
             "enum": [
-              "publish",
-              "future",
-              "draft",
-              "pending",
-              "private",
-              "queued",
-              "processing",
-              "hold",
               "read",
               "unread"
             ],
@@ -602,20 +577,12 @@
             ],
             "readonly": true
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
-          },
           "content": {
             "description": "The content for the object.",
             "type": "object",
             "context": [
               "view",
-              "edit",
-              "embed"
+              "edit"
             ],
             "properties": {
               "raw": {
@@ -630,8 +597,7 @@
                 "type": "string",
                 "context": [
                   "view",
-                  "edit",
-                  "embed"
+                  "edit"
                 ],
                 "readonly": true
               },
@@ -653,9 +619,20 @@
             "context": [
               "view",
               "edit",
-              "embed",
-              "template"
+              "embed"
             ]
+          },
+          "parent": {
+            "description": "The ID for the ticket of the reply.",
+            "type": "integer",
+            "readonly": true,
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "title": {
+            "readonly": true
           }
         }
       },
@@ -744,18 +721,20 @@
         ],
         "readonly": true
       },
+      "slug": {
+        "description": "An alphanumeric identifier for the object unique to its type.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
       "status": {
         "description": "A named status for the object.",
         "type": "string",
         "enum": [
-          "publish",
-          "future",
-          "draft",
-          "pending",
-          "private",
-          "queued",
-          "processing",
-          "hold",
           "read",
           "unread"
         ],
@@ -774,20 +753,12 @@
         ],
         "readonly": true
       },
-      "password": {
-        "description": "A password to protect access to the content and excerpt.",
-        "type": "string",
-        "context": [
-          "edit"
-        ]
-      },
       "content": {
         "description": "The content for the object.",
         "type": "object",
         "context": [
           "view",
-          "edit",
-          "embed"
+          "edit"
         ],
         "properties": {
           "raw": {
@@ -802,8 +773,7 @@
             "type": "string",
             "context": [
               "view",
-              "edit",
-              "embed"
+              "edit"
             ],
             "readonly": true
           },
@@ -825,9 +795,20 @@
         "context": [
           "view",
           "edit",
-          "embed",
-          "template"
+          "embed"
         ]
+      },
+      "parent": {
+        "description": "The ID for the ticket of the reply.",
+        "type": "integer",
+        "readonly": true,
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "title": {
+        "readonly": true
       }
     }
   }

@@ -125,8 +125,7 @@
               "items": {
                 "enum": [
                   "read",
-                  "unread",
-                  "any"
+                  "unread"
                 ],
                 "type": "string"
               }

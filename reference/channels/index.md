@@ -1,7 +1,7 @@
 ---
 title: Channels API Reference
 has_superbar: Yes
-route_path: /wpas-api/v1/ticket-channel
+route_path: /wpas-api/v1/ticket_channel
 resource: Channel
 ---
 

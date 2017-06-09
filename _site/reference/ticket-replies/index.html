@@ -298,6 +298,23 @@
 			</td>
 		</tr>
 	
+		<tr id="schema-slug">
+			<td>
+				<code>slug</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>An alphanumeric identifier for the object unique to its type.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
 		<tr id="schema-status">
 			<td>
 				<code>status</code><br />
@@ -310,7 +327,7 @@
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
-					<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
+					<p>One of: <code>read</code>, <code>unread</code></p>
 				
 			</td>
 		</tr>
@@ -332,21 +349,6 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-password">
-			<td>
-				<code>password</code><br />
-				<span class="type">
-					string
-				</span>
-			</td>
-			<td>
-				<p>A password to protect access to the content and excerpt.</p>
-				
-				<p class="context">Context: <code>edit</code></p>
-				
-			</td>
-		</tr>
-	
 		<tr id="schema-content">
 			<td>
 				<code>content</code><br />
@@ -357,7 +359,7 @@
 			<td>
 				<p>The content for the object.</p>
 				
-				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
 			</td>
 		</tr>
@@ -372,7 +374,41 @@
 			<td>
 				<p>The ID for the author of the object.</p>
 				
-				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code>, <code>template</code></p>
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-parent">
+			<td>
+				<code>parent</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The ID for the ticket of the reply.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-title">
+			<td>
+				<code>title</code><br />
+				<span class="type">
+					
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code></code></p>
 				
 			</td>
 		</tr>
@@ -406,6 +442,10 @@
 						<p>Unique identifier for the ticket.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
+					
 					
 					
 				</td>
@@ -428,7 +468,7 @@
 						</p>
 					
 					
-						<p>One of: <code>view</code>, <code>template</code>, <code>embed</code>, <code>edit</code></p>
+						<p>One of: <code>view</code>, <code>embed</code>, <code>edit</code></p>
 					
 				</td>
 			</tr>
@@ -466,7 +506,7 @@
 					
 					
 						<p class="default">
-							Default: <code>10</code>
+							Default: <code>100</code>
 						</p>
 					
 					
@@ -691,6 +731,10 @@
 						<p>Unique identifier for the ticket.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
+					
 					
 					
 				</td>
@@ -706,6 +750,10 @@
 					
 						<p>Unique identifier for the reply.</p>
 					
+					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
 					
@@ -729,23 +777,7 @@
 						</p>
 					
 					
-						<p>One of: <code>view</code>, <code>template</code>, <code>embed</code>, <code>edit</code></p>
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>The password for the post if it is password protected.</p>
-					
-					
-					
+						<p>One of: <code>view</code>, <code>embed</code>, <code>edit</code></p>
 					
 				</td>
 			</tr>
@@ -784,6 +816,10 @@
 						<p>Unique identifier for the ticket.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
+					
 					
 					
 				</td>
@@ -833,24 +869,12 @@
 					
 					
 					
-					
-						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>A password to protect access to the content and excerpt.</p>
+						<p class="default">
+							Default: <code>unread</code>
+						</p>
 					
 					
-					
+						<p>One of: <code>read</code>, <code>unread</code></p>
 					
 				</td>
 			</tr>
@@ -865,6 +889,10 @@
 					
 						<p>The content for the object.</p>
 					
+					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
 					
@@ -882,6 +910,10 @@
 						<p>The ID for the author of the object.</p>
 					
 					
+					
+						<p class="default">
+							Default: <code>0</code>
+						</p>
 					
 					
 				</td>
@@ -917,6 +949,10 @@
 						<p>Unique identifier for the ticket.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
+					
 					
 					
 				</td>
@@ -932,6 +968,10 @@
 					
 						<p>Unique identifier for the reply.</p>
 					
+					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
 					
@@ -983,23 +1023,7 @@
 					
 					
 					
-						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
-						<code>password</code><br />
-					
-				</td>
-				<td>
-					
-						<p>A password to protect access to the content and excerpt.</p>
-					
-					
-					
+						<p>One of: <code>read</code>, <code>unread</code></p>
 					
 				</td>
 			</tr>
@@ -1073,6 +1097,10 @@
 						<p>Unique identifier for the ticket.</p>
 					
 					
+						<p class="required">
+							Required: true
+						</p>
+					
 					
 					
 				</td>
@@ -1088,6 +1116,10 @@
 					
 						<p>Unique identifier for the reply.</p>
 					
+					
+						<p class="required">
+							Required: true
+						</p>
 					
 					
 					

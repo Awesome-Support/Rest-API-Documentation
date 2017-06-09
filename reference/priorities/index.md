@@ -1,7 +1,7 @@
 ---
 title: Priorities API Reference
 has_superbar: Yes
-route_path: /wpas-api/v1/ticket-priority
+route_path: /wpas-api/v1/ticket_priority
 resource: Priority
 ---
 

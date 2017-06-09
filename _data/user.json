@@ -205,8 +205,8 @@
                 "back",
                 "ask"
               ],
-              "description": "Where do you want to go after replying to a ticket?",
-              "type": "text"
+              "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
+              "type": "string"
             }
           }
         }
@@ -420,35 +420,35 @@
             ]
           },
           "wpas_can_be_assigned": {
-            "description": "Can the system assign new tickets to this user?",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "Can the system assign new tickets to this user?"
           },
           "wpas_smart_tickets_order": {
-            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top."
           },
           "wpas_after_reply": {
-            "description": "Where do you want to go after replying to a ticket?",
-            "type": "text",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "enum": [
               "stay",
               "back",
               "ask"
-            ],
-            "context": [
-              "embed",
-              "view",
-              "edit"
             ]
           }
         }
@@ -592,8 +592,8 @@
                 "back",
                 "ask"
               ],
-              "description": "Where do you want to go after replying to a ticket?",
-              "type": "text"
+              "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
+              "type": "string"
             }
           }
         },
@@ -830,35 +830,35 @@
             ]
           },
           "wpas_can_be_assigned": {
-            "description": "Can the system assign new tickets to this user?",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "Can the system assign new tickets to this user?"
           },
           "wpas_smart_tickets_order": {
-            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top."
           },
           "wpas_after_reply": {
-            "description": "Where do you want to go after replying to a ticket?",
-            "type": "text",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "enum": [
               "stay",
               "back",
               "ask"
-            ],
-            "context": [
-              "embed",
-              "view",
-              "edit"
             ]
           }
         }
@@ -989,8 +989,8 @@
                 "back",
                 "ask"
               ],
-              "description": "Where do you want to go after replying to a ticket?",
-              "type": "text"
+              "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
+              "type": "string"
             }
           }
         },
@@ -1222,35 +1222,35 @@
             ]
           },
           "wpas_can_be_assigned": {
-            "description": "Can the system assign new tickets to this user?",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "Can the system assign new tickets to this user?"
           },
           "wpas_smart_tickets_order": {
-            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "type": "boolean",
             "context": [
               "embed",
               "view",
               "edit"
-            ]
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top."
           },
           "wpas_after_reply": {
-            "description": "Where do you want to go after replying to a ticket?",
-            "type": "text",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
             "enum": [
               "stay",
               "back",
               "ask"
-            ],
-            "context": [
-              "embed",
-              "view",
-              "edit"
             ]
           }
         }
@@ -1470,35 +1470,35 @@
         ]
       },
       "wpas_can_be_assigned": {
-        "description": "Can the system assign new tickets to this user?",
         "type": "boolean",
         "context": [
           "embed",
           "view",
           "edit"
-        ]
+        ],
+        "description": "Can the system assign new tickets to this user?"
       },
       "wpas_smart_tickets_order": {
-        "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
         "type": "boolean",
         "context": [
           "embed",
           "view",
           "edit"
-        ]
+        ],
+        "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top."
       },
       "wpas_after_reply": {
-        "description": "Where do you want to go after replying to a ticket?",
-        "type": "text",
+        "type": "string",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ],
+        "description": "If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.",
         "enum": [
           "stay",
           "back",
           "ask"
-        ],
-        "context": [
-          "embed",
-          "view",
-          "edit"
         ]
       }
     }
