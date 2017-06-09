@@ -1,0 +1,46 @@
+- title: Introduction
+  items:
+    - title: Introduction
+      page: reference/index.md
+
+    - title: Global Parameters
+      page: reference/global.md
+
+- title: General
+  items:
+    - title: Users
+      page: reference/users/index.md
+
+    - title: User Passwords
+      page: reference/passwords/index.md
+
+    - title: Settings
+      page: reference/settings/index.md
+
+- title: Post Types
+  items:
+    - title: Tickets
+      page: reference/tickets/index.md
+
+    - title: Ticket Replies
+      page: reference/ticket-replies/index.md
+
+    - title: Ticket History
+      page: reference/ticket-history/index.md
+
+- title: Taxonomies
+  items:
+    - title: Departments
+      page: reference/departments/index.md
+
+    - title: Products
+      page: reference/products/index.md
+
+    - title: Tags
+      page: reference/tags/index.md
+
+    - title: Channels
+      page: reference/channels/index.md
+
+    - title: Priorities
+      page: reference/priorities/index.md

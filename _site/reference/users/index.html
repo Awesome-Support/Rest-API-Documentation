@@ -1,0 +1,1580 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Users API Reference | WP REST API v2 Documentation</title>
+
+<link rel="stylesheet" href="/assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="WP REST API v2 Documentation" property="og:title" />
+<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+
+	</head>
+	<body class="has-superbar">
+		<header id="nav-bar">
+	<h1><a href="/">Awesome Support REST API</a></h1>
+	<nav>
+		<ul>
+			<li><a class="button download" href="https://getawesomesupport.com/">Download Awesome Support</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+		<section id="sidebar">
+			
+			<nav>
+
+	
+
+		
+
+			<h3>Introduction</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/">Introduction</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>General</h3>
+			<ul>
+				
+
+					
+
+					<li  class="active"  >
+						<a href="/reference/users/">Users</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/passwords/">User Passwords</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/settings/">Settings</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Post Types</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/tickets/">Tickets</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-replies/">Ticket Replies</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-history/">Ticket History</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Taxonomies</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/departments/">Departments</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/products/">Products</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/tags/">Tags</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/channels/">Channels</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/priorities/">Priorities</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+</nav>
+
+		</section>
+
+		<section id="content">
+			<div class="background"><div class="primary"></div><div class="secondary"></div></div>
+
+			<section class="route">
+	<div class="primary">
+		<h2>Schema</h2>
+<p>The schema defines all the fields that exist for a user object.</p>
+<table class="attributes">
+	
+		<tr id="schema-id">
+			<td>
+				<code>id</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>Unique identifier for the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-username">
+			<td>
+				<code>username</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Login name for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-name">
+			<td>
+				<code>name</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Display name for the user.</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-first_name">
+			<td>
+				<code>first_name</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>First name for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-last_name">
+			<td>
+				<code>last_name</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Last name for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-email">
+			<td>
+				<code>email</code><br />
+				<span class="type">
+					string, 
+							email
+					
+				</span>
+			</td>
+			<td>
+				<p>The email address for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-url">
+			<td>
+				<code>url</code><br />
+				<span class="type">
+					string, 
+							uri
+						
+				</span>
+			</td>
+			<td>
+				<p>URL of the user.</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-description">
+			<td>
+				<code>description</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Description of the user.</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-link">
+			<td>
+				<code>link</code><br />
+				<span class="type">
+					string, 
+							uri
+						
+				</span>
+			</td>
+			<td>
+				<p>Author URL of the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-locale">
+			<td>
+				<code>locale</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Locale for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+					<p>One of: <code></code>, <code>en_US</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-nickname">
+			<td>
+				<code>nickname</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The nickname for the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-slug">
+			<td>
+				<code>slug</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>An alphanumeric identifier for the user.</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-registered_date">
+			<td>
+				<code>registered_date</code><br />
+				<span class="type">
+					string, 
+							datetime (ISO8601)
+						
+				</span>
+			</td>
+			<td>
+				<p>Registration date for the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-roles">
+			<td>
+				<code>roles</code><br />
+				<span class="type">
+					array
+				</span>
+			</td>
+			<td>
+				<p>Roles assigned to the user.</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-password">
+			<td>
+				<code>password</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Password for the user (never included).</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-capabilities">
+			<td>
+				<code>capabilities</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>All capabilities assigned to the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-extra_capabilities">
+			<td>
+				<code>extra_capabilities</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>Any extra capabilities assigned to the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-avatar_urls">
+			<td>
+				<code>avatar_urls</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>Avatar URLs for the user.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-meta">
+			<td>
+				<code>meta</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>Meta fields.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-wpas_can_be_assigned">
+			<td>
+				<code>wpas_can_be_assigned</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Can the system assign new tickets to this user?</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-wpas_smart_tickets_order">
+			<td>
+				<code>wpas_smart_tickets_order</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-wpas_after_reply">
+			<td>
+				<code>wpas_after_reply</code><br />
+				<span class="type">
+					text
+				</span>
+			</td>
+			<td>
+				<p>Where do you want to go after replying to a ticket?</p>
+				
+				<p class="context">Context: <code>embed</code>, <code>view</code>, <code>edit</code></p>
+				
+					<p>One of: <code>stay</code>, <code>back</code>, <code>ask</code></p>
+				
+			</td>
+		</tr>
+	
+</table>
+
+	</div>
+	<div class="secondary">
+		<h3>Example Request</h3>
+
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json/wpas-api/v1/users</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>List Users</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>context</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Scope under which the request is made; determines fields present in response.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>view</code>
+						</p>
+					
+					
+						<p>One of: <code>view</code>, <code>embed</code>, <code>edit</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>page</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Current page of the collection.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>1</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>per_page</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Maximum number of items to be returned in result set.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>10</code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>search</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit results to those matching a string.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>exclude</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Ensure result set excludes specific IDs.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>include</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to specific IDs.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>offset</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Offset the result set by a specific number of items.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>order</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Order sort attribute ascending or descending.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>asc</code>
+						</p>
+					
+					
+						<p>One of: <code>asc</code>, <code>desc</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>orderby</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Sort collection by object attribute.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>name</code>
+						</p>
+					
+					
+						<p>One of: <code>id</code>, <code>include</code>, <code>name</code>, <code>registered_date</code>, <code>slug</code>, <code>email</code>, <code>url</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to users with one or more specific slugs.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>roles</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to users matching at least one specific role provided. Accepts csv list or single role.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>GET /wpas-api/v1/users</code>
+
+		<h3>Example Request</h3>
+
+		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/users</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Retrieve a User</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>id</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Unique identifier for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>context</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Scope under which the request is made; determines fields present in response.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code>view</code>
+						</p>
+					
+					
+						<p>One of: <code>view</code>, <code>embed</code>, <code>edit</code></p>
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>GET /wpas-api/v1/users/&lt;id&gt;</code>
+
+		<h3>Example Request</h3>
+
+		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/users/&lt;id&gt;</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Create a User</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>username</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Login name for the user.</p>
+					
+					
+						<p class="required">
+							Required: true
+						</p>
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Display name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>first_name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>First name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>last_name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Last name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>email</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The email address for the user.</p>
+					
+					
+						<p class="required">
+							Required: true
+						</p>
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>url</code><br />
+					
+				</td>
+				<td>
+					
+						<p>URL of the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Description of the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>locale</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Locale for the user.</p>
+					
+					
+					
+					
+						<p>One of: <code></code>, <code>en_US</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>nickname</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The nickname for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>roles</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Roles assigned to the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>password</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Password for the user (never included).</p>
+					
+					
+						<p class="required">
+							Required: true
+						</p>
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_can_be_assigned</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Can the system assign new tickets to this user?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_smart_tickets_order</code><br />
+					
+				</td>
+				<td>
+					
+						<p>If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_after_reply</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Where do you want to go after replying to a ticket?</p>
+					
+					
+					
+					
+						<p>One of: <code>stay</code>, <code>back</code>, <code>ask</code></p>
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>POST /wpas-api/v1/users</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Update a User</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>id</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Unique identifier for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>username</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Login name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Display name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>first_name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>First name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>last_name</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Last name for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>email</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The email address for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>url</code><br />
+					
+				</td>
+				<td>
+					
+						<p>URL of the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Description of the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>locale</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Locale for the user.</p>
+					
+					
+					
+					
+						<p>One of: <code></code>, <code>en_US</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>nickname</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The nickname for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>roles</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Roles assigned to the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>password</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Password for the user (never included).</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_can_be_assigned</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Can the system assign new tickets to this user?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_smart_tickets_order</code><br />
+					
+				</td>
+				<td>
+					
+						<p>If Smart Tickets Order is enabled, Awesome Support will display tickets that need immediate attention at the top.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>wpas_after_reply</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Where do you want to go after replying to a ticket?</p>
+					
+					
+					
+					
+						<p>One of: <code>stay</code>, <code>back</code>, <code>ask</code></p>
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>POST /wpas-api/v1/users/&lt;id&gt;</code>
+
+		<h3>Example Request</h3>
+		
+
+		<code>$ curl -X POST http://awesomesupport.dev/wp-json -d '{"title":"My New Title"}'
+</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Delete a User</h2>
+
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code>id</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Unique identifier for the user.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>force</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Required to be true, as users do not support trashing.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>reassign</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Reassign the deleted user's posts and links to this user ID.</p>
+					
+					
+						<p class="required">
+							Required: true
+						</p>
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>DELETE /wpas-api/v1/users/&lt;id&gt;</code>
+
+		<h3>Example Request</h3>
+
+		<code>$ curl -X DELETE http://demo.getawesomesupport.com/wp-json/wpas-api/v1/users/&lt;id&gt;</code>
+	</div>
+</section>
+
+		</section>
+
+		<script src="/assets/scripts/stick.js" async></script>
+<script type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ 'Lora:400,400italic:latin', 'Istok+Web:400,400italic,700,700italic:latin' ] }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+
+<script type="text/javascript">
+	var anchorForId = function( id ) {
+		var anchor = document.createElement( 'a' );
+
+		anchor.className = 'header-link';
+		anchor.href = '#' + id;
+		anchor.innerHTML = '<i class="link-icon"></i>';
+		anchor.title = 'Permalink';
+
+		return anchor;
+	};
+
+	var linkifyAnchors = function( level, containingElement ) {
+		var 	h,
+				headers = containingElement.getElementsByTagName( 'h' + level );
+
+		for( h = 0; h < headers.length; h++ ) {
+			var header = headers[ h ];
+
+			if( 'undefined' !== typeof header.id && '' !==  header.id ) {
+				header.appendChild( anchorForId( header.id ) );
+			}
+		}
+	};
+
+	document.onreadystatechange = function() {
+		if( 'complete' === this.readyState  ) {
+			var contentBlock = document.getElementById( 'content' );
+
+			if( !contentBlock ) {
+				return;
+			}
+
+			for( var level = 2; level <= 6; level++ ) {
+				linkifyAnchors( level, contentBlock );
+			}
+		}
+	};
+</script>
+
+	</body>
+</html>

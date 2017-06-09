@@ -1,0 +1,1314 @@
+{
+  "name": "settings",
+  "routes": {
+    "/wpas-api/v1/settings": {
+      "namespace": "wpas-api/v1",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": [
+
+          ]
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "assignee_default": {
+              "required": false,
+              "description": "Who to assign tickets to in the case that auto-assignment wouldn&#039;t work. This does NOT mean that all tickets will be assigned to this user. This is a fallback option. To enable/disable auto assignment for an agent, please do so in the user profile settings.",
+              "type": "string"
+            },
+            "allow_registrations": {
+              "required": false,
+              "enum": [
+                "allow",
+                "disallow",
+                "disallow_silent"
+              ],
+              "description": "Allow users to register on the support page. This setting can be enabled even though the WordPress setting is disabled. Currently, registrations are <strong>not allowed</strong> by WordPress.",
+              "type": "string"
+            },
+            "tickets_per_page_front_end": {
+              "required": false,
+              "description": "How many tickets per page should be displayed to the customer/client/end-user?",
+              "type": "string"
+            },
+            "replies_order": {
+              "required": false,
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "description": "In which order should the replies be displayed (for both client and admin side)?",
+              "type": "string"
+            },
+            "replies_per_page": {
+              "required": false,
+              "description": "How many replies should be displayed per page on a ticket details screen?",
+              "type": "string"
+            },
+            "hide_closed": {
+              "required": false,
+              "description": "Only show open tickets when agents click the \"All Tickets\" link.",
+              "type": "boolean"
+            },
+            "show_count": {
+              "required": false,
+              "description": "Display the number of open tickets in the admin menu.",
+              "type": "boolean"
+            },
+            "old_ticket": {
+              "required": false,
+              "description": "After how many days should a ticket be considered &laquo;old&raquo;?",
+              "type": "string"
+            },
+            "departments": {
+              "required": false,
+              "description": "Enable departments management.",
+              "type": "boolean"
+            },
+            "multiple_agents_per_ticket": {
+              "required": false,
+              "description": "Show the two extra agent fields on the ticket?",
+              "type": "boolean"
+            },
+            "show_secondary_agent_in_ticket_list": {
+              "required": false,
+              "description": "Show the secondary agent in the ticket list?",
+              "type": "boolean"
+            },
+            "show_tertiary_agent_in_ticket_list": {
+              "required": false,
+              "description": "Show the Tertiary agent in the ticket list?",
+              "type": "boolean"
+            },
+            "show_third_party_fields": {
+              "required": false,
+              "description": "Show the third party fields on the ticket?",
+              "type": "boolean"
+            },
+            "show_third_party_01_in_ticket_list": {
+              "required": false,
+              "description": "Show Third Party #1 Data in the Ticket List?",
+              "type": "boolean"
+            },
+            "show_third_party_02_in_ticket_list": {
+              "required": false,
+              "description": "Show Third Party #2 Data in the Ticket List?",
+              "type": "boolean"
+            },
+            "channel_show_in_ticket_list": {
+              "required": false,
+              "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
+              "type": "boolean"
+            },
+            "ticket_submit": {
+              "required": false,
+              "enum": [
+                "",
+                5,
+                4
+              ],
+              "description": "The page used for ticket submission. This page should contain the shortcode <code>[ticket-submit]</code>",
+              "type": "string"
+            },
+            "ticket_list": {
+              "required": false,
+              "enum": [
+                "",
+                5,
+                4
+              ],
+              "description": "The page that will list all tickets for a client. This page should contain the shortcode <code>[tickets]</code>",
+              "type": "string"
+            },
+            "terms_conditions": {
+              "required": false,
+              "description": "Terms & conditions are not mandatory. If you add terms, a mandatory checkbox will be added in the registration form. Users won't be able to register if they don't accept your terms",
+              "type": "string"
+            },
+            "credit_link": {
+              "required": false,
+              "description": "Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.",
+              "type": "boolean"
+            },
+            "theme": {
+              "required": false,
+              "enum": [
+                "default"
+              ],
+              "description": "Which theme to use for the front-end.",
+              "type": "string"
+            },
+            "theme_stylesheet": {
+              "required": false,
+              "description": "Load the theme stylesheet. Don't uncheck if you don't know what this means",
+              "type": "boolean"
+            },
+            "frontend_wysiwyg_editor": {
+              "required": false,
+              "description": "Show a editor editor for the ticket description when user submits a ticket.",
+              "type": "boolean"
+            },
+            "color_open": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_closed": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_old": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_awaiting_reply": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_queued": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_processing": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "color_hold": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "use_email_template": {
+              "required": false,
+              "description": "Outgoing notifications are styled with a built-in template. If you are using an e-mail templating plugin you should deactivate this option.",
+              "type": "boolean"
+            },
+            "email_template_header": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "email_template_footer": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "sender_name": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "sender_email": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "reply_email": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_confirmation": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_confirmation": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_confirmation": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_assignment": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_assignment": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_assignment": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_reply_agent": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_reply_agent": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_reply_agent": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_reply_client": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_reply_client": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_reply_client": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_closed": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_closed": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_closed": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_closed_client": {
+              "required": false,
+              "description": "Do you want to activate this e-mail template?",
+              "type": "boolean"
+            },
+            "subject_closed_client": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "content_closed_client": {
+              "required": false,
+              "description": "",
+              "type": "string"
+            },
+            "enable_attachments": {
+              "required": false,
+              "description": "Do you want to allow your users (and agents) to upload attachments to tickets and replies?",
+              "type": "boolean"
+            },
+            "attachments_max": {
+              "required": false,
+              "description": "How many files can a user attach to a ticket or a reply?",
+              "type": "string"
+            },
+            "filesize_max": {
+              "required": false,
+              "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+              "type": "string"
+            },
+            "login_page": {
+              "required": false,
+              "enum": [
+                "",
+                5,
+                4
+              ],
+              "description": "Only use this option if you know how to create your own registration page, otherwise you might create an infinite redirect. If you need help on creating a registration page you should <a href=\"http://codex.wordpress.org/Customizing_the_Registration_Form\" target=\"_blank\">start by reading this guide</a>.",
+              "type": "string"
+            },
+            "admin_see_all": {
+              "required": false,
+              "description": "Administrators can see all tickets in the tickets list. If unchecked admins will only see tickets assigned to them.",
+              "type": "boolean"
+            },
+            "agent_see_all": {
+              "required": false,
+              "description": "Agents can see all tickets in the tickets list. If unchecked agents will only see tickets assigned to them.",
+              "type": "boolean"
+            },
+            "ticket_topic_slug": {
+              "required": false,
+              "enum": [
+                "default",
+                "ticketid",
+                "randomnumber",
+                "guid"
+              ],
+              "description": "What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.",
+              "type": "string"
+            },
+            "delete_data": {
+              "required": false,
+              "description": "Delete ALL plugin data on uninstall? This cannot be undone.",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/schema#",
+        "title": "settings",
+        "type": "object",
+        "properties": {
+          "assignee_default": {
+            "name": "Default Assignee",
+            "type": "string",
+            "description": "Who to assign tickets to in the case that auto-assignment wouldn&#039;t work. This does NOT mean that all tickets will be assigned to this user. This is a fallback option. To enable/disable auto assignment for an agent, please do so in the user profile settings.",
+            "default": "",
+            "enum": null
+          },
+          "allow_registrations": {
+            "name": "Allow Registrations",
+            "type": "string",
+            "description": "Allow users to register on the support page. This setting can be enabled even though the WordPress setting is disabled. Currently, registrations are <strong>not allowed</strong> by WordPress.",
+            "default": "allow",
+            "enum": [
+              "allow",
+              "disallow",
+              "disallow_silent"
+            ]
+          },
+          "tickets_per_page_front_end": {
+            "name": "Tickets Per Page (Front End)",
+            "type": "string",
+            "description": "How many tickets per page should be displayed to the customer/client/end-user?",
+            "default": 5,
+            "enum": null
+          },
+          "replies_order": {
+            "name": "Replies Order",
+            "type": "string",
+            "description": "In which order should the replies be displayed (for both client and admin side)?",
+            "default": "ASC",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "replies_per_page": {
+            "name": "Replies Per Page",
+            "type": "string",
+            "description": "How many replies should be displayed per page on a ticket details screen?",
+            "default": 10,
+            "enum": null
+          },
+          "hide_closed": {
+            "name": "Hide Closed",
+            "type": "boolean",
+            "description": "Only show open tickets when agents click the \"All Tickets\" link.",
+            "default": true,
+            "enum": null
+          },
+          "show_count": {
+            "name": "Show Count",
+            "type": "boolean",
+            "description": "Display the number of open tickets in the admin menu.",
+            "default": true,
+            "enum": null
+          },
+          "old_ticket": {
+            "name": "Old Tickets",
+            "type": "string",
+            "description": "After how many days should a ticket be considered &laquo;old&raquo;?",
+            "default": 10,
+            "enum": null
+          },
+          "departments": {
+            "name": "Departments",
+            "type": "boolean",
+            "description": "Enable departments management.",
+            "default": false,
+            "enum": null
+          },
+          "multiple_agents_per_ticket": {
+            "name": "Enable Multiple Agents Per Ticket",
+            "type": "boolean",
+            "description": "Show the two extra agent fields on the ticket?",
+            "default": false,
+            "enum": null
+          },
+          "show_secondary_agent_in_ticket_list": {
+            "name": "Show Secondary Agent In Ticket List",
+            "type": "boolean",
+            "description": "Show the secondary agent in the ticket list?",
+            "default": false,
+            "enum": null
+          },
+          "show_tertiary_agent_in_ticket_list": {
+            "name": "Show Tertiary Agent In Ticket List",
+            "type": "boolean",
+            "description": "Show the Tertiary agent in the ticket list?",
+            "default": false,
+            "enum": null
+          },
+          "show_third_party_fields": {
+            "name": "Enable Third Party Fields",
+            "type": "boolean",
+            "description": "Show the third party fields on the ticket?",
+            "default": false,
+            "enum": null
+          },
+          "show_third_party_01_in_ticket_list": {
+            "name": "Show Third Party #1 in Ticket List",
+            "type": "boolean",
+            "description": "Show Third Party #1 Data in the Ticket List?",
+            "default": false,
+            "enum": null
+          },
+          "show_third_party_02_in_ticket_list": {
+            "name": "Show Third Party #2 in Ticket List",
+            "type": "boolean",
+            "description": "Show Third Party #2 Data in the Ticket List?",
+            "default": false,
+            "enum": null
+          },
+          "channel_show_in_ticket_list": {
+            "name": "Show Channel Field",
+            "type": "boolean",
+            "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
+            "default": false,
+            "enum": null
+          },
+          "ticket_submit": {
+            "name": "Ticket Submission",
+            "type": "string",
+            "description": "The page used for ticket submission. This page should contain the shortcode <code>[ticket-submit]</code>",
+            "default": "",
+            "enum": [
+              "",
+              5,
+              4
+            ]
+          },
+          "ticket_list": {
+            "name": "Tickets List",
+            "type": "string",
+            "description": "The page that will list all tickets for a client. This page should contain the shortcode <code>[tickets]</code>",
+            "default": "",
+            "enum": [
+              "",
+              5,
+              4
+            ]
+          },
+          "terms_conditions": {
+            "name": "Content",
+            "type": "string",
+            "description": "Terms & conditions are not mandatory. If you add terms, a mandatory checkbox will be added in the registration form. Users won't be able to register if they don't accept your terms",
+            "default": "",
+            "enum": null
+          },
+          "credit_link": {
+            "name": "Show Credit",
+            "type": "boolean",
+            "description": "Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.",
+            "default": false,
+            "enum": null
+          },
+          "theme": {
+            "name": "Theme",
+            "type": "string",
+            "description": "Which theme to use for the front-end.",
+            "default": "default",
+            "enum": [
+              "default"
+            ]
+          },
+          "theme_stylesheet": {
+            "name": "Theme Stylesheet",
+            "type": "boolean",
+            "description": "Load the theme stylesheet. Don't uncheck if you don't know what this means",
+            "default": true,
+            "enum": null
+          },
+          "frontend_wysiwyg_editor": {
+            "name": "Use editor in front-end",
+            "type": "boolean",
+            "description": "Show a editor editor for the ticket description when user submits a ticket.",
+            "default": true,
+            "enum": null
+          },
+          "color_open": {
+            "name": "Open Status",
+            "type": "string",
+            "description": "",
+            "default": "#81d742",
+            "enum": null
+          },
+          "color_closed": {
+            "name": "Closed Status",
+            "type": "string",
+            "description": "",
+            "default": "#dd3333",
+            "enum": null
+          },
+          "color_old": {
+            "name": "Old Status",
+            "type": "string",
+            "description": "",
+            "default": "#dd9933",
+            "enum": null
+          },
+          "color_awaiting_reply": {
+            "name": "Awaiting Reply",
+            "type": "string",
+            "description": "",
+            "default": "#0074a2",
+            "enum": null
+          },
+          "color_queued": {
+            "name": "New",
+            "type": "string",
+            "description": "",
+            "default": "#1e73be",
+            "enum": null
+          },
+          "color_processing": {
+            "name": "In Progress",
+            "type": "string",
+            "description": "",
+            "default": "#a01497",
+            "enum": null
+          },
+          "color_hold": {
+            "name": "On Hold",
+            "type": "string",
+            "description": "",
+            "default": "#b56629",
+            "enum": null
+          },
+          "use_email_template": {
+            "name": "Use Template",
+            "type": "boolean",
+            "description": "Outgoing notifications are styled with a built-in template. If you are using an e-mail templating plugin you should deactivate this option.",
+            "default": true,
+            "enum": null
+          },
+          "email_template_header": {
+            "name": "Header",
+            "type": "string",
+            "description": "",
+            "default": "<p>Awesome Support</p>",
+            "enum": null
+          },
+          "email_template_footer": {
+            "name": "Footer",
+            "type": "string",
+            "description": "",
+            "default": "",
+            "enum": null
+          },
+          "sender_name": {
+            "name": "Sender Name",
+            "type": "string",
+            "description": "",
+            "default": "Awesome Support",
+            "enum": null
+          },
+          "sender_email": {
+            "name": "Sender E-Mail",
+            "type": "string",
+            "description": "",
+            "default": "demo@example.com",
+            "enum": null
+          },
+          "reply_email": {
+            "name": "Reply-To E-Mail",
+            "type": "string",
+            "description": "",
+            "default": "demo@example.com",
+            "enum": null
+          },
+          "enable_confirmation": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_confirmation": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "Request received: {ticket_title}",
+            "enum": null
+          },
+          "content_confirmation": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{client_name}</em>,</strong></p><p>Your request (<a href=\"{ticket_url}\">#{ticket_id}</a>) has been received, and is being reviewed by our support staff.</p><p>To add additional comments, follow the link below:</p><h2><a href=\"{ticket_url}\">View Ticket</a></h2><p>or follow this link: {ticket_link}</p><hr><p>Regards,<br>{site_name}</p>",
+            "enum": null
+          },
+          "enable_assignment": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_assignment": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "Ticket #{ticket_id} assigned",
+            "enum": null
+          },
+          "content_assignment": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{agent_name},</em></strong></p><p>The request <strong>{ticket_title}</strong> (<a href=\"{ticket_admin_url}\">#{ticket_id}</a>) has been assigned to you.</p><h2><a href=\"{ticket_admin_url}\">View  Ticket</a></h2><p>or follow this link: {ticket_admin_link}</p><hr><p>Regards,<br>{site_name}</p>",
+            "enum": null
+          },
+          "enable_reply_agent": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_reply_agent": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "New reply to: {ticket_title}",
+            "enum": null
+          },
+          "content_reply_agent": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{client_name}</em>,</strong></p><p>An agent just replied to your ticket \"<strong>{ticket_title}</strong>\" (<a href=\"{ticket_url}\">#{ticket_id}</a>). To view his reply or add additional comments, click the button below:</p><h2><a href=\"{ticket_url}\">View Ticket</a></h2><p>or follow this link: {ticket_link}</p><hr><p>Regards,<br>{site_name}</p>",
+            "enum": null
+          },
+          "enable_reply_client": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_reply_client": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "Ticket #{ticket_id}",
+            "enum": null
+          },
+          "content_reply_client": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{agent_name},</em></strong></p><p>A client you are in charge of just posted a new reply to his ticket \"<strong>{ticket_title}</strong>\".</p><h2><a href=\"{ticket_admin_url}\">View  Ticket</a></h2><p>or follow this link: {ticket_admin_link}</p><hr><p>Regards,<br>{site_name}</p>",
+            "enum": null
+          },
+          "enable_closed": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_closed": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "Request closed: {ticket_title}",
+            "enum": null
+          },
+          "content_closed": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{client_name},</em></strong></p>Your request (<a href=\"{ticket_url}\">#{ticket_id}</a>) has been closed by <strong>{agent_name}</strong>.</p><hr><p>Regards,<br>{site_name}</p>",
+            "enum": null
+          },
+          "enable_closed_client": {
+            "name": "Enable",
+            "type": "boolean",
+            "description": "Do you want to activate this e-mail template?",
+            "default": true,
+            "enum": null
+          },
+          "subject_closed_client": {
+            "name": "Subject",
+            "type": "string",
+            "description": "",
+            "default": "Request closed: {ticket_title}",
+            "enum": null
+          },
+          "content_closed_client": {
+            "name": "Content",
+            "type": "string",
+            "description": "",
+            "default": "<p>Hi <strong><em>{agent_name},</em></strong></p>The ticket (<a href=\"{ticket_admin_url}\">#{ticket_id}</a>) has been closed by <strong>{client_name}</strong>.</p><p>Good job!</p>",
+            "enum": null
+          },
+          "enable_attachments": {
+            "name": "Enable File Upload",
+            "type": "boolean",
+            "description": "Do you want to allow your users (and agents) to upload attachments to tickets and replies?",
+            "default": true,
+            "enum": null
+          },
+          "attachments_max": {
+            "name": "Maximum Files",
+            "type": "string",
+            "description": "How many files can a user attach to a ticket or a reply?",
+            "default": 2,
+            "enum": null
+          },
+          "filesize_max": {
+            "name": "Maximum File Size",
+            "type": "string",
+            "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+            "default": 2,
+            "enum": null
+          },
+          "login_page": {
+            "name": "Custom Login / Registration Page",
+            "type": "string",
+            "description": "Only use this option if you know how to create your own registration page, otherwise you might create an infinite redirect. If you need help on creating a registration page you should <a href=\"http://codex.wordpress.org/Customizing_the_Registration_Form\" target=\"_blank\">start by reading this guide</a>.",
+            "default": "",
+            "enum": [
+              "",
+              5,
+              4
+            ]
+          },
+          "admin_see_all": {
+            "name": "Admins See All",
+            "type": "boolean",
+            "description": "Administrators can see all tickets in the tickets list. If unchecked admins will only see tickets assigned to them.",
+            "default": true,
+            "enum": null
+          },
+          "agent_see_all": {
+            "name": "Agent See All",
+            "type": "boolean",
+            "description": "Agents can see all tickets in the tickets list. If unchecked agents will only see tickets assigned to them.",
+            "default": false,
+            "enum": null
+          },
+          "ticket_topic_slug": {
+            "name": "Ticket Topic Slug",
+            "type": "string",
+            "description": "What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.",
+            "default": "ASC",
+            "enum": [
+              "default",
+              "ticketid",
+              "randomnumber",
+              "guid"
+            ]
+          },
+          "delete_data": {
+            "name": "Delete Data",
+            "type": "boolean",
+            "description": "Delete ALL plugin data on uninstall? This cannot be undone.",
+            "default": false,
+            "enum": null
+          }
+        }
+      },
+      "_links": {
+        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/settings"
+      },
+      "nicename": "/wpas-api/v1/settings"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/schema#",
+    "title": "settings",
+    "type": "object",
+    "properties": {
+      "assignee_default": {
+        "name": "Default Assignee",
+        "type": "string",
+        "description": "Who to assign tickets to in the case that auto-assignment wouldn&#039;t work. This does NOT mean that all tickets will be assigned to this user. This is a fallback option. To enable/disable auto assignment for an agent, please do so in the user profile settings.",
+        "default": "",
+        "enum": null
+      },
+      "allow_registrations": {
+        "name": "Allow Registrations",
+        "type": "string",
+        "description": "Allow users to register on the support page. This setting can be enabled even though the WordPress setting is disabled. Currently, registrations are <strong>not allowed</strong> by WordPress.",
+        "default": "allow",
+        "enum": [
+          "allow",
+          "disallow",
+          "disallow_silent"
+        ]
+      },
+      "tickets_per_page_front_end": {
+        "name": "Tickets Per Page (Front End)",
+        "type": "string",
+        "description": "How many tickets per page should be displayed to the customer/client/end-user?",
+        "default": 5,
+        "enum": null
+      },
+      "replies_order": {
+        "name": "Replies Order",
+        "type": "string",
+        "description": "In which order should the replies be displayed (for both client and admin side)?",
+        "default": "ASC",
+        "enum": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "replies_per_page": {
+        "name": "Replies Per Page",
+        "type": "string",
+        "description": "How many replies should be displayed per page on a ticket details screen?",
+        "default": 10,
+        "enum": null
+      },
+      "hide_closed": {
+        "name": "Hide Closed",
+        "type": "boolean",
+        "description": "Only show open tickets when agents click the \"All Tickets\" link.",
+        "default": true,
+        "enum": null
+      },
+      "show_count": {
+        "name": "Show Count",
+        "type": "boolean",
+        "description": "Display the number of open tickets in the admin menu.",
+        "default": true,
+        "enum": null
+      },
+      "old_ticket": {
+        "name": "Old Tickets",
+        "type": "string",
+        "description": "After how many days should a ticket be considered &laquo;old&raquo;?",
+        "default": 10,
+        "enum": null
+      },
+      "departments": {
+        "name": "Departments",
+        "type": "boolean",
+        "description": "Enable departments management.",
+        "default": false,
+        "enum": null
+      },
+      "multiple_agents_per_ticket": {
+        "name": "Enable Multiple Agents Per Ticket",
+        "type": "boolean",
+        "description": "Show the two extra agent fields on the ticket?",
+        "default": false,
+        "enum": null
+      },
+      "show_secondary_agent_in_ticket_list": {
+        "name": "Show Secondary Agent In Ticket List",
+        "type": "boolean",
+        "description": "Show the secondary agent in the ticket list?",
+        "default": false,
+        "enum": null
+      },
+      "show_tertiary_agent_in_ticket_list": {
+        "name": "Show Tertiary Agent In Ticket List",
+        "type": "boolean",
+        "description": "Show the Tertiary agent in the ticket list?",
+        "default": false,
+        "enum": null
+      },
+      "show_third_party_fields": {
+        "name": "Enable Third Party Fields",
+        "type": "boolean",
+        "description": "Show the third party fields on the ticket?",
+        "default": false,
+        "enum": null
+      },
+      "show_third_party_01_in_ticket_list": {
+        "name": "Show Third Party #1 in Ticket List",
+        "type": "boolean",
+        "description": "Show Third Party #1 Data in the Ticket List?",
+        "default": false,
+        "enum": null
+      },
+      "show_third_party_02_in_ticket_list": {
+        "name": "Show Third Party #2 in Ticket List",
+        "type": "boolean",
+        "description": "Show Third Party #2 Data in the Ticket List?",
+        "default": false,
+        "enum": null
+      },
+      "channel_show_in_ticket_list": {
+        "name": "Show Channel Field",
+        "type": "boolean",
+        "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
+        "default": false,
+        "enum": null
+      },
+      "ticket_submit": {
+        "name": "Ticket Submission",
+        "type": "string",
+        "description": "The page used for ticket submission. This page should contain the shortcode <code>[ticket-submit]</code>",
+        "default": "",
+        "enum": [
+          "",
+          5,
+          4
+        ]
+      },
+      "ticket_list": {
+        "name": "Tickets List",
+        "type": "string",
+        "description": "The page that will list all tickets for a client. This page should contain the shortcode <code>[tickets]</code>",
+        "default": "",
+        "enum": [
+          "",
+          5,
+          4
+        ]
+      },
+      "terms_conditions": {
+        "name": "Content",
+        "type": "string",
+        "description": "Terms & conditions are not mandatory. If you add terms, a mandatory checkbox will be added in the registration form. Users won't be able to register if they don't accept your terms",
+        "default": "",
+        "enum": null
+      },
+      "credit_link": {
+        "name": "Show Credit",
+        "type": "boolean",
+        "description": "Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.",
+        "default": false,
+        "enum": null
+      },
+      "theme": {
+        "name": "Theme",
+        "type": "string",
+        "description": "Which theme to use for the front-end.",
+        "default": "default",
+        "enum": [
+          "default"
+        ]
+      },
+      "theme_stylesheet": {
+        "name": "Theme Stylesheet",
+        "type": "boolean",
+        "description": "Load the theme stylesheet. Don't uncheck if you don't know what this means",
+        "default": true,
+        "enum": null
+      },
+      "frontend_wysiwyg_editor": {
+        "name": "Use editor in front-end",
+        "type": "boolean",
+        "description": "Show a editor editor for the ticket description when user submits a ticket.",
+        "default": true,
+        "enum": null
+      },
+      "color_open": {
+        "name": "Open Status",
+        "type": "string",
+        "description": "",
+        "default": "#81d742",
+        "enum": null
+      },
+      "color_closed": {
+        "name": "Closed Status",
+        "type": "string",
+        "description": "",
+        "default": "#dd3333",
+        "enum": null
+      },
+      "color_old": {
+        "name": "Old Status",
+        "type": "string",
+        "description": "",
+        "default": "#dd9933",
+        "enum": null
+      },
+      "color_awaiting_reply": {
+        "name": "Awaiting Reply",
+        "type": "string",
+        "description": "",
+        "default": "#0074a2",
+        "enum": null
+      },
+      "color_queued": {
+        "name": "New",
+        "type": "string",
+        "description": "",
+        "default": "#1e73be",
+        "enum": null
+      },
+      "color_processing": {
+        "name": "In Progress",
+        "type": "string",
+        "description": "",
+        "default": "#a01497",
+        "enum": null
+      },
+      "color_hold": {
+        "name": "On Hold",
+        "type": "string",
+        "description": "",
+        "default": "#b56629",
+        "enum": null
+      },
+      "use_email_template": {
+        "name": "Use Template",
+        "type": "boolean",
+        "description": "Outgoing notifications are styled with a built-in template. If you are using an e-mail templating plugin you should deactivate this option.",
+        "default": true,
+        "enum": null
+      },
+      "email_template_header": {
+        "name": "Header",
+        "type": "string",
+        "description": "",
+        "default": "<p>Awesome Support</p>",
+        "enum": null
+      },
+      "email_template_footer": {
+        "name": "Footer",
+        "type": "string",
+        "description": "",
+        "default": "",
+        "enum": null
+      },
+      "sender_name": {
+        "name": "Sender Name",
+        "type": "string",
+        "description": "",
+        "default": "Awesome Support",
+        "enum": null
+      },
+      "sender_email": {
+        "name": "Sender E-Mail",
+        "type": "string",
+        "description": "",
+        "default": "demo@example.com",
+        "enum": null
+      },
+      "reply_email": {
+        "name": "Reply-To E-Mail",
+        "type": "string",
+        "description": "",
+        "default": "demo@example.com",
+        "enum": null
+      },
+      "enable_confirmation": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_confirmation": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "Request received: {ticket_title}",
+        "enum": null
+      },
+      "content_confirmation": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{client_name}</em>,</strong></p><p>Your request (<a href=\"{ticket_url}\">#{ticket_id}</a>) has been received, and is being reviewed by our support staff.</p><p>To add additional comments, follow the link below:</p><h2><a href=\"{ticket_url}\">View Ticket</a></h2><p>or follow this link: {ticket_link}</p><hr><p>Regards,<br>{site_name}</p>",
+        "enum": null
+      },
+      "enable_assignment": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_assignment": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "Ticket #{ticket_id} assigned",
+        "enum": null
+      },
+      "content_assignment": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{agent_name},</em></strong></p><p>The request <strong>{ticket_title}</strong> (<a href=\"{ticket_admin_url}\">#{ticket_id}</a>) has been assigned to you.</p><h2><a href=\"{ticket_admin_url}\">View  Ticket</a></h2><p>or follow this link: {ticket_admin_link}</p><hr><p>Regards,<br>{site_name}</p>",
+        "enum": null
+      },
+      "enable_reply_agent": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_reply_agent": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "New reply to: {ticket_title}",
+        "enum": null
+      },
+      "content_reply_agent": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{client_name}</em>,</strong></p><p>An agent just replied to your ticket \"<strong>{ticket_title}</strong>\" (<a href=\"{ticket_url}\">#{ticket_id}</a>). To view his reply or add additional comments, click the button below:</p><h2><a href=\"{ticket_url}\">View Ticket</a></h2><p>or follow this link: {ticket_link}</p><hr><p>Regards,<br>{site_name}</p>",
+        "enum": null
+      },
+      "enable_reply_client": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_reply_client": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "Ticket #{ticket_id}",
+        "enum": null
+      },
+      "content_reply_client": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{agent_name},</em></strong></p><p>A client you are in charge of just posted a new reply to his ticket \"<strong>{ticket_title}</strong>\".</p><h2><a href=\"{ticket_admin_url}\">View  Ticket</a></h2><p>or follow this link: {ticket_admin_link}</p><hr><p>Regards,<br>{site_name}</p>",
+        "enum": null
+      },
+      "enable_closed": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_closed": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "Request closed: {ticket_title}",
+        "enum": null
+      },
+      "content_closed": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{client_name},</em></strong></p>Your request (<a href=\"{ticket_url}\">#{ticket_id}</a>) has been closed by <strong>{agent_name}</strong>.</p><hr><p>Regards,<br>{site_name}</p>",
+        "enum": null
+      },
+      "enable_closed_client": {
+        "name": "Enable",
+        "type": "boolean",
+        "description": "Do you want to activate this e-mail template?",
+        "default": true,
+        "enum": null
+      },
+      "subject_closed_client": {
+        "name": "Subject",
+        "type": "string",
+        "description": "",
+        "default": "Request closed: {ticket_title}",
+        "enum": null
+      },
+      "content_closed_client": {
+        "name": "Content",
+        "type": "string",
+        "description": "",
+        "default": "<p>Hi <strong><em>{agent_name},</em></strong></p>The ticket (<a href=\"{ticket_admin_url}\">#{ticket_id}</a>) has been closed by <strong>{client_name}</strong>.</p><p>Good job!</p>",
+        "enum": null
+      },
+      "enable_attachments": {
+        "name": "Enable File Upload",
+        "type": "boolean",
+        "description": "Do you want to allow your users (and agents) to upload attachments to tickets and replies?",
+        "default": true,
+        "enum": null
+      },
+      "attachments_max": {
+        "name": "Maximum Files",
+        "type": "string",
+        "description": "How many files can a user attach to a ticket or a reply?",
+        "default": 2,
+        "enum": null
+      },
+      "filesize_max": {
+        "name": "Maximum File Size",
+        "type": "string",
+        "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+        "default": 2,
+        "enum": null
+      },
+      "login_page": {
+        "name": "Custom Login / Registration Page",
+        "type": "string",
+        "description": "Only use this option if you know how to create your own registration page, otherwise you might create an infinite redirect. If you need help on creating a registration page you should <a href=\"http://codex.wordpress.org/Customizing_the_Registration_Form\" target=\"_blank\">start by reading this guide</a>.",
+        "default": "",
+        "enum": [
+          "",
+          5,
+          4
+        ]
+      },
+      "admin_see_all": {
+        "name": "Admins See All",
+        "type": "boolean",
+        "description": "Administrators can see all tickets in the tickets list. If unchecked admins will only see tickets assigned to them.",
+        "default": true,
+        "enum": null
+      },
+      "agent_see_all": {
+        "name": "Agent See All",
+        "type": "boolean",
+        "description": "Agents can see all tickets in the tickets list. If unchecked agents will only see tickets assigned to them.",
+        "default": false,
+        "enum": null
+      },
+      "ticket_topic_slug": {
+        "name": "Ticket Topic Slug",
+        "type": "string",
+        "description": "What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.",
+        "default": "ASC",
+        "enum": [
+          "default",
+          "ticketid",
+          "randomnumber",
+          "guid"
+        ]
+      },
+      "delete_data": {
+        "name": "Delete Data",
+        "type": "boolean",
+        "description": "Delete ALL plugin data on uninstall? This cannot be undone.",
+        "default": false,
+        "enum": null
+      }
+    }
+  }
+}

@@ -1,0 +1,2229 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Settings API Reference | WP REST API v2 Documentation</title>
+
+<link rel="stylesheet" href="/assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="WP REST API v2 Documentation" property="og:title" />
+<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+
+	</head>
+	<body class="has-superbar">
+		<header id="nav-bar">
+	<h1><a href="/">Awesome Support REST API</a></h1>
+	<nav>
+		<ul>
+			<li><a class="button download" href="https://getawesomesupport.com/">Download Awesome Support</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+		<section id="sidebar">
+			
+			<nav>
+
+	
+
+		
+
+			<h3>Introduction</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/">Introduction</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>General</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/users/">Users</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/passwords/">User Passwords</a>
+					</li>
+
+				
+
+					
+
+					<li  class="active"  >
+						<a href="/reference/settings/">Settings</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Post Types</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/tickets/">Tickets</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-replies/">Ticket Replies</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-history/">Ticket History</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Taxonomies</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/departments/">Departments</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/products/">Products</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/tags/">Tags</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/channels/">Channels</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/priorities/">Priorities</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+</nav>
+
+		</section>
+
+		<section id="content">
+			<div class="background"><div class="primary"></div><div class="secondary"></div></div>
+
+			<section class="route">
+	<div class="primary">
+		<h2>Schema</h2>
+<p>The schema defines all the fields that exist for a settings object.</p>
+<table class="attributes">
+	
+		<tr id="schema-assignee_default">
+			<td>
+				<code>assignee_default</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Who to assign tickets to in the case that auto-assignment wouldn&#039;t work. This does NOT mean that all tickets will be assigned to this user. This is a fallback option. To enable/disable auto assignment for an agent, please do so in the user profile settings.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-allow_registrations">
+			<td>
+				<code>allow_registrations</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Allow users to register on the support page. This setting can be enabled even though the WordPress setting is disabled. Currently, registrations are <strong>not allowed</strong> by WordPress.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>allow</code>, <code>disallow</code>, <code>disallow_silent</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-tickets_per_page_front_end">
+			<td>
+				<code>tickets_per_page_front_end</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>How many tickets per page should be displayed to the customer/client/end-user?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-replies_order">
+			<td>
+				<code>replies_order</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>In which order should the replies be displayed (for both client and admin side)?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>ASC</code>, <code>DESC</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-replies_per_page">
+			<td>
+				<code>replies_per_page</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>How many replies should be displayed per page on a ticket details screen?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-hide_closed">
+			<td>
+				<code>hide_closed</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Only show open tickets when agents click the "All Tickets" link.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_count">
+			<td>
+				<code>show_count</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Display the number of open tickets in the admin menu.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-old_ticket">
+			<td>
+				<code>old_ticket</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>After how many days should a ticket be considered &laquo;old&raquo;?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-departments">
+			<td>
+				<code>departments</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Enable departments management.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-multiple_agents_per_ticket">
+			<td>
+				<code>multiple_agents_per_ticket</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the two extra agent fields on the ticket?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_secondary_agent_in_ticket_list">
+			<td>
+				<code>show_secondary_agent_in_ticket_list</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the secondary agent in the ticket list?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_tertiary_agent_in_ticket_list">
+			<td>
+				<code>show_tertiary_agent_in_ticket_list</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the Tertiary agent in the ticket list?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_third_party_fields">
+			<td>
+				<code>show_third_party_fields</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the third party fields on the ticket?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_third_party_01_in_ticket_list">
+			<td>
+				<code>show_third_party_01_in_ticket_list</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show Third Party #1 Data in the Ticket List?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_third_party_02_in_ticket_list">
+			<td>
+				<code>show_third_party_02_in_ticket_list</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show Third Party #2 Data in the Ticket List?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-channel_show_in_ticket_list">
+			<td>
+				<code>channel_show_in_ticket_list</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_submit">
+			<td>
+				<code>ticket_submit</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The page used for ticket submission. This page should contain the shortcode <code>[ticket-submit]</code></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_list">
+			<td>
+				<code>ticket_list</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The page that will list all tickets for a client. This page should contain the shortcode <code>[tickets]</code></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-terms_conditions">
+			<td>
+				<code>terms_conditions</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Terms &amp; conditions are not mandatory. If you add terms, a mandatory checkbox will be added in the registration form. Users won't be able to register if they don't accept your terms</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-credit_link">
+			<td>
+				<code>credit_link</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-theme">
+			<td>
+				<code>theme</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Which theme to use for the front-end.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>default</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-theme_stylesheet">
+			<td>
+				<code>theme_stylesheet</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Load the theme stylesheet. Don't uncheck if you don't know what this means</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-frontend_wysiwyg_editor">
+			<td>
+				<code>frontend_wysiwyg_editor</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show a editor editor for the ticket description when user submits a ticket.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_open">
+			<td>
+				<code>color_open</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_closed">
+			<td>
+				<code>color_closed</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_old">
+			<td>
+				<code>color_old</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_awaiting_reply">
+			<td>
+				<code>color_awaiting_reply</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_queued">
+			<td>
+				<code>color_queued</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_processing">
+			<td>
+				<code>color_processing</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-color_hold">
+			<td>
+				<code>color_hold</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-use_email_template">
+			<td>
+				<code>use_email_template</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Outgoing notifications are styled with a built-in template. If you are using an e-mail templating plugin you should deactivate this option.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-email_template_header">
+			<td>
+				<code>email_template_header</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-email_template_footer">
+			<td>
+				<code>email_template_footer</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-sender_name">
+			<td>
+				<code>sender_name</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-sender_email">
+			<td>
+				<code>sender_email</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-reply_email">
+			<td>
+				<code>reply_email</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_confirmation">
+			<td>
+				<code>enable_confirmation</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_confirmation">
+			<td>
+				<code>subject_confirmation</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_confirmation">
+			<td>
+				<code>content_confirmation</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_assignment">
+			<td>
+				<code>enable_assignment</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_assignment">
+			<td>
+				<code>subject_assignment</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_assignment">
+			<td>
+				<code>content_assignment</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_reply_agent">
+			<td>
+				<code>enable_reply_agent</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_reply_agent">
+			<td>
+				<code>subject_reply_agent</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_reply_agent">
+			<td>
+				<code>content_reply_agent</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_reply_client">
+			<td>
+				<code>enable_reply_client</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_reply_client">
+			<td>
+				<code>subject_reply_client</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_reply_client">
+			<td>
+				<code>content_reply_client</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_closed">
+			<td>
+				<code>enable_closed</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_closed">
+			<td>
+				<code>subject_closed</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_closed">
+			<td>
+				<code>content_closed</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_closed_client">
+			<td>
+				<code>enable_closed_client</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to activate this e-mail template?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-subject_closed_client">
+			<td>
+				<code>subject_closed_client</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-content_closed_client">
+			<td>
+				<code>content_closed_client</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-enable_attachments">
+			<td>
+				<code>enable_attachments</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Do you want to allow your users (and agents) to upload attachments to tickets and replies?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-attachments_max">
+			<td>
+				<code>attachments_max</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>How many files can a user attach to a ticket or a reply?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-filesize_max">
+			<td>
+				<code>filesize_max</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-login_page">
+			<td>
+				<code>login_page</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Only use this option if you know how to create your own registration page, otherwise you might create an infinite redirect. If you need help on creating a registration page you should <a href="http://codex.wordpress.org/Customizing_the_Registration_Form" target="_blank">start by reading this guide</a>.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-admin_see_all">
+			<td>
+				<code>admin_see_all</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Administrators can see all tickets in the tickets list. If unchecked admins will only see tickets assigned to them.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-agent_see_all">
+			<td>
+				<code>agent_see_all</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Agents can see all tickets in the tickets list. If unchecked agents will only see tickets assigned to them.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_topic_slug">
+			<td>
+				<code>ticket_topic_slug</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>default</code>, <code>ticketid</code>, <code>randomnumber</code>, <code>guid</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-delete_data">
+			<td>
+				<code>delete_data</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Delete ALL plugin data on uninstall? This cannot be undone.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+</table>
+
+	</div>
+	<div class="secondary">
+		<h3>Example Request</h3>
+
+		<code>$ curl -X OPTIONS -i http://demo.getawesomesupport.com/wp-json/wpas-api/v1/settings</code>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		<h2>Update a Setting</h2>
+		
+		
+	<h3>Arguments</h3>
+	<table class="arguments">
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-assignee_default">assignee_default</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Who to assign tickets to in the case that auto-assignment wouldn&#039;t work. This does NOT mean that all tickets will be assigned to this user. This is a fallback option. To enable/disable auto assignment for an agent, please do so in the user profile settings.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-allow_registrations">allow_registrations</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Allow users to register on the support page. This setting can be enabled even though the WordPress setting is disabled. Currently, registrations are <strong>not allowed</strong> by WordPress.</p>
+					
+					
+					
+					
+						<p>One of: <code>allow</code>, <code>disallow</code>, <code>disallow_silent</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-tickets_per_page_front_end">tickets_per_page_front_end</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>How many tickets per page should be displayed to the customer/client/end-user?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-replies_order">replies_order</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>In which order should the replies be displayed (for both client and admin side)?</p>
+					
+					
+					
+					
+						<p>One of: <code>ASC</code>, <code>DESC</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-replies_per_page">replies_per_page</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>How many replies should be displayed per page on a ticket details screen?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-hide_closed">hide_closed</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Only show open tickets when agents click the "All Tickets" link.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_count">show_count</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Display the number of open tickets in the admin menu.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-old_ticket">old_ticket</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>After how many days should a ticket be considered &laquo;old&raquo;?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-departments">departments</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Enable departments management.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-multiple_agents_per_ticket">multiple_agents_per_ticket</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the two extra agent fields on the ticket?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_secondary_agent_in_ticket_list">show_secondary_agent_in_ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the secondary agent in the ticket list?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_tertiary_agent_in_ticket_list">show_tertiary_agent_in_ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the Tertiary agent in the ticket list?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_third_party_fields">show_third_party_fields</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the third party fields on the ticket?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_third_party_01_in_ticket_list">show_third_party_01_in_ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show Third Party #1 Data in the Ticket List?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_third_party_02_in_ticket_list">show_third_party_02_in_ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show Third Party #2 Data in the Ticket List?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-channel_show_in_ticket_list">channel_show_in_ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_submit">ticket_submit</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>The page used for ticket submission. This page should contain the shortcode <code>[ticket-submit]</code></p>
+					
+					
+					
+					
+						<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_list">ticket_list</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>The page that will list all tickets for a client. This page should contain the shortcode <code>[tickets]</code></p>
+					
+					
+					
+					
+						<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-terms_conditions">terms_conditions</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Terms &amp; conditions are not mandatory. If you add terms, a mandatory checkbox will be added in the registration form. Users won't be able to register if they don't accept your terms</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-credit_link">credit_link</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-theme">theme</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Which theme to use for the front-end.</p>
+					
+					
+					
+					
+						<p>One of: <code>default</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-theme_stylesheet">theme_stylesheet</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Load the theme stylesheet. Don't uncheck if you don't know what this means</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-frontend_wysiwyg_editor">frontend_wysiwyg_editor</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show a editor editor for the ticket description when user submits a ticket.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_open">color_open</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_closed">color_closed</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_old">color_old</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_awaiting_reply">color_awaiting_reply</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_queued">color_queued</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_processing">color_processing</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-color_hold">color_hold</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-use_email_template">use_email_template</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Outgoing notifications are styled with a built-in template. If you are using an e-mail templating plugin you should deactivate this option.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-email_template_header">email_template_header</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-email_template_footer">email_template_footer</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-sender_name">sender_name</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-sender_email">sender_email</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-reply_email">reply_email</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_confirmation">enable_confirmation</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_confirmation">subject_confirmation</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_confirmation">content_confirmation</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_assignment">enable_assignment</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_assignment">subject_assignment</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_assignment">content_assignment</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_reply_agent">enable_reply_agent</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_reply_agent">subject_reply_agent</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_reply_agent">content_reply_agent</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_reply_client">enable_reply_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_reply_client">subject_reply_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_reply_client">content_reply_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_closed">enable_closed</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_closed">subject_closed</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_closed">content_closed</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_closed_client">enable_closed_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to activate this e-mail template?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-subject_closed_client">subject_closed_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-content_closed_client">content_closed_client</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-enable_attachments">enable_attachments</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Do you want to allow your users (and agents) to upload attachments to tickets and replies?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-attachments_max">attachments_max</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>How many files can a user attach to a ticket or a reply?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-filesize_max">filesize_max</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-login_page">login_page</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Only use this option if you know how to create your own registration page, otherwise you might create an infinite redirect. If you need help on creating a registration page you should <a href="http://codex.wordpress.org/Customizing_the_Registration_Form" target="_blank">start by reading this guide</a>.</p>
+					
+					
+					
+					
+						<p>One of: <code></code>, <code>5</code>, <code>4</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-admin_see_all">admin_see_all</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Administrators can see all tickets in the tickets list. If unchecked admins will only see tickets assigned to them.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-agent_see_all">agent_see_all</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Agents can see all tickets in the tickets list. If unchecked agents will only see tickets assigned to them.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_topic_slug">ticket_topic_slug</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.</p>
+					
+					
+					
+					
+						<p>One of: <code>default</code>, <code>ticketid</code>, <code>randomnumber</code>, <code>guid</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-delete_data">delete_data</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Delete ALL plugin data on uninstall? This cannot be undone.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+	</table>
+
+
+	</div>
+</section>
+
+
+		</section>
+
+		<script src="/assets/scripts/stick.js" async></script>
+<script type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ 'Lora:400,400italic:latin', 'Istok+Web:400,400italic,700,700italic:latin' ] }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+
+<script type="text/javascript">
+	var anchorForId = function( id ) {
+		var anchor = document.createElement( 'a' );
+
+		anchor.className = 'header-link';
+		anchor.href = '#' + id;
+		anchor.innerHTML = '<i class="link-icon"></i>';
+		anchor.title = 'Permalink';
+
+		return anchor;
+	};
+
+	var linkifyAnchors = function( level, containingElement ) {
+		var 	h,
+				headers = containingElement.getElementsByTagName( 'h' + level );
+
+		for( h = 0; h < headers.length; h++ ) {
+			var header = headers[ h ];
+
+			if( 'undefined' !== typeof header.id && '' !==  header.id ) {
+				header.appendChild( anchorForId( header.id ) );
+			}
+		}
+	};
+
+	document.onreadystatechange = function() {
+		if( 'complete' === this.readyState  ) {
+			var contentBlock = document.getElementById( 'content' );
+
+			if( !contentBlock ) {
+				return;
+			}
+
+			for( var level = 2; level <= 6; level++ ) {
+				linkifyAnchors( level, contentBlock );
+			}
+		}
+	};
+</script>
+
+	</body>
+</html>

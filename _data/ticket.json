@@ -1,0 +1,1355 @@
+{
+  "name": "ticket",
+  "routes": {
+    "/wpas-api/v1/tickets": {
+      "namespace": "wpas-api/v1",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
+            },
+            "page": {
+              "required": false,
+              "default": 1,
+              "description": "Current page of the collection.",
+              "type": "integer"
+            },
+            "per_page": {
+              "required": false,
+              "default": 10,
+              "description": "Maximum number of items to be returned in result set.",
+              "type": "integer"
+            },
+            "search": {
+              "required": false,
+              "description": "Limit results to those matching a string.",
+              "type": "string"
+            },
+            "after": {
+              "required": false,
+              "description": "Limit response to posts published after a given ISO8601 compliant date.",
+              "type": "string"
+            },
+            "before": {
+              "required": false,
+              "description": "Limit response to posts published before a given ISO8601 compliant date.",
+              "type": "string"
+            },
+            "exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "offset": {
+              "required": false,
+              "description": "Offset the result set by a specific number of items.",
+              "type": "integer"
+            },
+            "order": {
+              "required": false,
+              "default": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending.",
+              "type": "string"
+            },
+            "orderby": {
+              "required": false,
+              "default": "date",
+              "enum": [
+                "author",
+                "date",
+                "id",
+                "include",
+                "modified",
+                "parent",
+                "relevance",
+                "slug",
+                "title"
+              ],
+              "description": "Sort collection by object attribute.",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "Limit result set to posts with one or more specific slugs.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "required": false,
+              "default": "any",
+              "description": "Limit result set to items assigned one or more statuses.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "queued",
+                  "processing",
+                  "hold",
+                  "read",
+                  "unread",
+                  "any"
+                ],
+                "type": "string"
+              }
+            },
+            "ticket-tag": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the ticket-tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-tag_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the ticket-tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "product": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the product taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "product_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the product taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "department": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the department taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "department_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the department taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-priority": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the ticket-priority taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-priority_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the ticket-priority taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-channel": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the ticket-channel taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-channel_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the ticket-channel taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "assignee": {
+              "required": false,
+              "default": 0,
+              "description": "Limit result set to tickets assigned to this user id.",
+              "type": "integer"
+            },
+            "state": {
+              "required": false,
+              "default": "open",
+              "description": "Limit result set to tickets in the specified state.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "open",
+                  "closed",
+                  "any"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "date": {
+              "required": false,
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "queued",
+                "processing",
+                "hold",
+                "read",
+                "unread"
+              ],
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "The title for the object.",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "The content for the object.",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "The theme file to use to display the object.",
+              "type": "string"
+            },
+            "ticket-tag": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket-tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "product": {
+              "required": false,
+              "description": "The terms assigned to the object in the product taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "department": {
+              "required": false,
+              "description": "The terms assigned to the object in the department taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-priority": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket_priority taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-channel": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/schema#",
+        "title": "ticket",
+        "type": "object",
+        "properties": {
+          "date": {
+            "description": "The date the object was published, in the site's timezone.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
+          },
+          "date_gmt": {
+            "description": "The date the object was published, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "guid": {
+            "description": "The globally unique identifier for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true,
+            "properties": {
+              "raw": {
+                "description": "GUID for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "rendered": {
+                "description": "GUID for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "link": {
+            "description": "URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "modified": {
+            "description": "The date the object was last modified, in the site's timezone.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "modified_gmt": {
+            "description": "The date the object was last modified, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
+          },
+          "status": {
+            "description": "A named status for the object.",
+            "type": "string",
+            "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "queued",
+              "processing",
+              "hold",
+              "read",
+              "unread"
+            ],
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "type": {
+            "description": "Type of Post for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "title": {
+            "description": "The title for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "properties": {
+              "raw": {
+                "description": "Title for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML title for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "content": {
+            "description": "The content for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": {
+              "raw": {
+                "description": "Content for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML content for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "template": {
+            "description": "The theme file to use to display the object.",
+            "type": "string",
+            "enum": [
+              ""
+            ],
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-tag": {
+            "description": "The terms assigned to the object in the ticket-tag taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "product": {
+            "description": "The terms assigned to the object in the product taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "department": {
+            "description": "The terms assigned to the object in the department taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-priority": {
+            "description": "The terms assigned to the object in the ticket_priority taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-channel": {
+            "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          }
+        }
+      },
+      "_links": {
+        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/tickets"
+      },
+      "nicename": "/wpas-api/v1/tickets"
+    },
+    "/wpas-api/v1/tickets/<id>": {
+      "namespace": "wpas-api/v1",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "Unique identifier for the object.",
+              "type": "integer"
+            },
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "The password for the post if it is password protected.",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "Unique identifier for the object.",
+              "type": "integer"
+            },
+            "date": {
+              "required": false,
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
+            },
+            "date_gmt": {
+              "required": false,
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
+            },
+            "status": {
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "queued",
+                "processing",
+                "hold",
+                "read",
+                "unread"
+              ],
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "The title for the object.",
+              "type": "object"
+            },
+            "content": {
+              "required": false,
+              "description": "The content for the object.",
+              "type": "object"
+            },
+            "template": {
+              "required": false,
+              "enum": [
+                ""
+              ],
+              "description": "The theme file to use to display the object.",
+              "type": "string"
+            },
+            "ticket-tag": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket-tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "product": {
+              "required": false,
+              "description": "The terms assigned to the object in the product taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "department": {
+              "required": false,
+              "description": "The terms assigned to the object in the department taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-priority": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket_priority taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "ticket-channel": {
+              "required": false,
+              "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "id": {
+              "required": false,
+              "description": "Unique identifier for the object.",
+              "type": "integer"
+            },
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "Whether to bypass trash and force deletion.",
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/schema#",
+        "title": "ticket",
+        "type": "object",
+        "properties": {
+          "date": {
+            "description": "The date the object was published, in the site's timezone.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
+          },
+          "date_gmt": {
+            "description": "The date the object was published, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "guid": {
+            "description": "The globally unique identifier for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true,
+            "properties": {
+              "raw": {
+                "description": "GUID for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "rendered": {
+                "description": "GUID for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "link": {
+            "description": "URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "modified": {
+            "description": "The date the object was last modified, in the site's timezone.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "modified_gmt": {
+            "description": "The date the object was last modified, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
+          },
+          "status": {
+            "description": "A named status for the object.",
+            "type": "string",
+            "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "queued",
+              "processing",
+              "hold",
+              "read",
+              "unread"
+            ],
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "type": {
+            "description": "Type of Post for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "title": {
+            "description": "The title for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "properties": {
+              "raw": {
+                "description": "Title for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML title for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "content": {
+            "description": "The content for the object.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": {
+              "raw": {
+                "description": "Content for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML content for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
+          },
+          "template": {
+            "description": "The theme file to use to display the object.",
+            "type": "string",
+            "enum": [
+              ""
+            ],
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-tag": {
+            "description": "The terms assigned to the object in the ticket-tag taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "product": {
+            "description": "The terms assigned to the object in the product taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "department": {
+            "description": "The terms assigned to the object in the department taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-priority": {
+            "description": "The terms assigned to the object in the ticket_priority taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "ticket-channel": {
+            "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "context": [
+              "view",
+              "edit"
+            ]
+          }
+        }
+      },
+      "nicename": "/wpas-api/v1/tickets/&lt;id&gt;"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/schema#",
+    "title": "ticket",
+    "type": "object",
+    "properties": {
+      "date": {
+        "description": "The date the object was published, in the site's timezone.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ]
+      },
+      "date_gmt": {
+        "description": "The date the object was published, as GMT.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "guid": {
+        "description": "The globally unique identifier for the object.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "readonly": true,
+        "properties": {
+          "raw": {
+            "description": "GUID for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "rendered": {
+            "description": "GUID for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          }
+        }
+      },
+      "id": {
+        "description": "Unique identifier for the object.",
+        "type": "integer",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "link": {
+        "description": "URL to the object.",
+        "type": "string",
+        "format": "uri",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "modified": {
+        "description": "The date the object was last modified, in the site's timezone.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
+      "modified_gmt": {
+        "description": "The date the object was last modified, as GMT.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
+      "slug": {
+        "description": "An alphanumeric identifier for the object unique to its type.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ]
+      },
+      "status": {
+        "description": "A named status for the object.",
+        "type": "string",
+        "enum": [
+          "publish",
+          "future",
+          "draft",
+          "pending",
+          "private",
+          "queued",
+          "processing",
+          "hold",
+          "read",
+          "unread"
+        ],
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "type": {
+        "description": "Type of Post for the object.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "password": {
+        "description": "A password to protect access to the content and excerpt.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      },
+      "title": {
+        "description": "The title for the object.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "properties": {
+          "raw": {
+            "description": "Title for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "rendered": {
+            "description": "HTML title for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          }
+        }
+      },
+      "content": {
+        "description": "The content for the object.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": {
+          "raw": {
+            "description": "Content for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "rendered": {
+            "description": "HTML content for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the content is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          }
+        }
+      },
+      "template": {
+        "description": "The theme file to use to display the object.",
+        "type": "string",
+        "enum": [
+          ""
+        ],
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "ticket-tag": {
+        "description": "The terms assigned to the object in the ticket-tag taxonomy.",
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "product": {
+        "description": "The terms assigned to the object in the product taxonomy.",
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "department": {
+        "description": "The terms assigned to the object in the department taxonomy.",
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "ticket-priority": {
+        "description": "The terms assigned to the object in the ticket_priority taxonomy.",
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "ticket-channel": {
+        "description": "The terms assigned to the object in the ticket_channel taxonomy.",
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "context": [
+          "view",
+          "edit"
+        ]
+      }
+    }
+  }
+}

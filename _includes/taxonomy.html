@@ -1,0 +1,23 @@
+<section class="route">
+	<div class="primary">
+		<h2>{{ page.title }}</h2>
+	</div>
+</section>
+
+<section class="route">
+	<div class="primary">
+		{% include reference-parts/schema.html schema=include.data.schema %}
+	</div>
+	<div class="secondary">
+		<h3>Example Request</h3>
+
+		<code>$ curl -X OPTIONS -i http://demo.getawesomesupport.com/wp-json{{ include.data.routes[page.route_path].nicename }}</code>
+	</div>
+</section>
+
+{% assign route=include.data.routes[page.route_path] %}
+{% include reference-parts/list-item.html route=route %}
+
+{% assign path=page.route_path | append: '/<id>' %}
+{% assign route=include.data.routes[path] %}
+{% include reference-parts/get-item.html route=route %}

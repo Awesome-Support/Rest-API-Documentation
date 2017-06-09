@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Glossary | WP REST API v2 Documentation</title>
+
+<link rel="stylesheet" href="/assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="WP REST API v2 Documentation" property="og:title" />
+<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+
+	</head>
+	<body class="no-superbar">
+		<header id="nav-bar">
+	<h1><a href="/">Awesome Support REST API</a></h1>
+	<nav>
+		<ul>
+			<li><a class="button download" href="https://getawesomesupport.com/">Download Awesome Support</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+		<section id="sidebar">
+			
+			<nav>
+
+	
+
+		
+
+			<h3>Overview</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/">Introduction</a>
+					</li>
+
+				
+
+					
+
+					<li  class="active"  >
+						<a href="/glossary.html">Glossary</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/authentication.html">Authentication</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			
+			<h3><a href="/reference/">API Reference</a></h3>
+
+		
+
+	
+
+</nav>
+
+		</section>
+
+		<section id="content">
+			
+				
+					<h1>Glossary</h1>
+				
+			
+
+			<p>New to REST APIs? Get up to speed with phrases used throughout our documentation.</p>
+
+<h2 id="controller">Controller</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Model-view-controller">Model-View-Controller</a> is a standard pattern in software development. If
+you aren’t already familiar it, you should do a bit of reading to get up
+to speed.</p>
+
+<p>Within the Awesome Support API, we’ve adopted the controller concept to have a standard pattern
+for the classes representing our resource endpoints. All resource endpoints
+extend <code class="highlighter-rouge">WP_REST_Controller</code> to ensure they implement common methods.</p>
+
+<h2 id="head-get-post-put-and-delete-requests">HEAD, GET, POST, PUT, and DELETE Requests</h2>
+
+<p>These “HTTP verbs” represent the <em>type</em> of action a HTTP client might perform
+against a resource. For instance, <code class="highlighter-rouge">GET</code> requests are used to fetch a Tickets’s
+data, whereas <code class="highlighter-rouge">DELETE</code> requests are used to delete a Ticket. They’re
+collectively called “HTTP verbs” because they’re standardized across the web.</p>
+
+<h2 id="http-client">HTTP Client</h2>
+
+<p>The phrase “HTTP Client” refers to the tool you use to interact with the Awesome Support API.
+You might use <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a> (Chrome) or <a href="https://github.com/nathan-osman/REST-Easy">REST Easy</a> (Firefox) to test requests
+in your browser, or <a href="https://github.com/jakubroztocil/httpie">httpie</a> to test requests at the commandline.</p>
+
+<h2 id="resource">Resource</h2>
+
+<p>A “Resource” is a <em>discrete entity</em> within WordPress. You may know these
+resources already as Posts, Pages, Comments, Users, Terms, and so on. WP-API
+permits HTTP clients to perform CRUD operations against resources (CRUD
+stands for Create, Read, Update, and Delete).</p>
+
+<p>Pragmatically, here’s how you’d typically interact with WP-API resources:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">GET /wp-json/wpas-api/v1/tickets</code> to get a collection of Tickets.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">GET /wp-json/wpas-api/v1/tickets/123</code> to get a single Ticket with ID 123.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">POST /wp-json/wpas-api/v1/tickets</code> to create a new Ticket.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">DELETE /wp-json/wpas-api/v1/tickets/123</code> to delete Ticket with ID 123.</p>
+  </li>
+</ul>
+
+<h2 id="routes--endpoints">Routes / Endpoints</h2>
+
+<p>Endpoints are functions available through the API. This can be things like
+retrieving the API index, updating a ticket, or deleting a reply. Endpoints
+perform a specific function, taking some number of parameters and return data
+to the client.</p>
+
+<p>A route is the “name” you use to access endpoints, used in the URL. A route
+can have multiple endpoints associated with it, and which is used depends on
+the HTTP verb.</p>
+
+<p>For example, with the URL <code class="highlighter-rouge">http://example.com/wp-json/wpas-api/v1/tickets/123</code>:</p>
+
+<ul>
+  <li>
+    <p>The “route” is <code class="highlighter-rouge">wpas-api/v1/tickets/123</code> - The route doesn’t include <code class="highlighter-rouge">wp-json</code>
+because <code class="highlighter-rouge">wp-json</code> is the base path for the API itself.</p>
+  </li>
+  <li>
+    <p>This route has 3 endpoints:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">GET</code> triggers a <code class="highlighter-rouge">get_item</code> method, returning the ticket data to the client.</li>
+      <li><code class="highlighter-rouge">PUT</code> triggers an <code class="highlighter-rouge">update_item</code> method, taking the data to update, and
+returning the updated ticket data.</li>
+      <li><code class="highlighter-rouge">DELETE</code> triggers a <code class="highlighter-rouge">delete_item</code> method, returning the now-deleted ticket
+data to the client.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Note:</strong> On sites without pretty permalinks, the route is instead added to
+the URL as the <code class="highlighter-rouge">rest_route</code> parameter. For the above example, the full URL
+would then be <code class="highlighter-rouge">http://example.com/?rest_route=wpas-api/v1/tickets/123</code></p>
+
+<h2 id="schema">Schema</h2>
+
+<p>A “schema” is a representation of the format for Awesome Support’s API response data. For
+instance, the Ticket schema communicates that a request to get a Ticket will
+return <code class="highlighter-rouge">id</code>, <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">content</code>, <code class="highlighter-rouge">author</code>, and other fields. Our schemas also
+indicate the type each field is, provide a human-readable description, and
+show which contexts the field will be returned in.</p>
+
+		</section>
+
+		<script src="/assets/scripts/stick.js" async></script>
+<script type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ 'Lora:400,400italic:latin', 'Istok+Web:400,400italic,700,700italic:latin' ] }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+
+<script type="text/javascript">
+	var anchorForId = function( id ) {
+		var anchor = document.createElement( 'a' );
+
+		anchor.className = 'header-link';
+		anchor.href = '#' + id;
+		anchor.innerHTML = '<i class="link-icon"></i>';
+		anchor.title = 'Permalink';
+
+		return anchor;
+	};
+
+	var linkifyAnchors = function( level, containingElement ) {
+		var 	h,
+				headers = containingElement.getElementsByTagName( 'h' + level );
+
+		for( h = 0; h < headers.length; h++ ) {
+			var header = headers[ h ];
+
+			if( 'undefined' !== typeof header.id && '' !==  header.id ) {
+				header.appendChild( anchorForId( header.id ) );
+			}
+		}
+	};
+
+	document.onreadystatechange = function() {
+		if( 'complete' === this.readyState  ) {
+			var contentBlock = document.getElementById( 'content' );
+
+			if( !contentBlock ) {
+				return;
+			}
+
+			for( var level = 2; level <= 6; level++ ) {
+				linkifyAnchors( level, contentBlock );
+			}
+		}
+	};
+</script>
+
+	</body>
+</html>

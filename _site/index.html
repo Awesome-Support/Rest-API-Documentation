@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>WP REST API v2 Documentation</title>
+
+<link rel="stylesheet" href="/assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="WP REST API v2 Documentation" property="og:title" />
+<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+
+	</head>
+	<body class="no-superbar">
+		<header id="nav-bar">
+	<h1><a href="/">Awesome Support REST API</a></h1>
+	<nav>
+		<ul>
+			<li><a class="button download" href="https://getawesomesupport.com/">Download Awesome Support</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+		<section id="sidebar">
+			
+			<nav>
+
+	
+
+		
+
+			<h3>Overview</h3>
+			<ul>
+				
+
+					
+
+					<li  class="active"  >
+						<a href="/">Introduction</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/glossary.html">Glossary</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/authentication.html">Authentication</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			
+			<h3><a href="/reference/">API Reference</a></h3>
+
+		
+
+	
+
+</nav>
+
+		</section>
+
+		<section id="content">
+			
+				
+			
+
+			<div class="hero">
+
+	<p class="subtitle">Access your Awesome Support data through an easy-to-use HTTP REST API.</p>
+
+</div>
+
+<h2 id="about-the-awesome-support-rest-api">About the Awesome Support REST API</h2>
+
+<p>Awesome Support is moving towards becoming a fully-fledged application framework, and we needed new APIs. This project was born to create an easy-to-use, easy-to-understand and well-tested framework interacting with Awesome Support data.</p>
+
+<p>The Awesome Support REST API provides an easy-to-use set of HTTP endpoints that let you access your site’s data in simple JSON format, including tickets, settings, and more. Retrieving or updating data is as simple as sending a HTTP request.</p>
+
+<p>Want to get your site’s tickets? Simply send a <code class="highlighter-rouge">GET</code> request to <code class="highlighter-rouge">/wp-json/wpas-api/v1/tickets</code>. It’s that easy.</p>
+
+		</section>
+
+		<script src="/assets/scripts/stick.js" async></script>
+<script type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ 'Lora:400,400italic:latin', 'Istok+Web:400,400italic,700,700italic:latin' ] }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+
+<script type="text/javascript">
+	var anchorForId = function( id ) {
+		var anchor = document.createElement( 'a' );
+
+		anchor.className = 'header-link';
+		anchor.href = '#' + id;
+		anchor.innerHTML = '<i class="link-icon"></i>';
+		anchor.title = 'Permalink';
+
+		return anchor;
+	};
+
+	var linkifyAnchors = function( level, containingElement ) {
+		var 	h,
+				headers = containingElement.getElementsByTagName( 'h' + level );
+
+		for( h = 0; h < headers.length; h++ ) {
+			var header = headers[ h ];
+
+			if( 'undefined' !== typeof header.id && '' !==  header.id ) {
+				header.appendChild( anchorForId( header.id ) );
+			}
+		}
+	};
+
+	document.onreadystatechange = function() {
+		if( 'complete' === this.readyState  ) {
+			var contentBlock = document.getElementById( 'content' );
+
+			if( !contentBlock ) {
+				return;
+			}
+
+			for( var level = 2; level <= 6; level++ ) {
+				linkifyAnchors( level, contentBlock );
+			}
+		}
+	};
+</script>
+
+	</body>
+</html>

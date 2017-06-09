@@ -1,0 +1,57 @@
+{
+  "name": "authentication-test",
+  "routes": {
+    "/wpas-api/v1/test-basic-authorization-header": {
+      "namespace": "wpas-api/v1",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "args": [
+
+          ]
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/schema#",
+        "title": "authentication-test",
+        "type": "object",
+        "properties": {
+          "PHP_AUTH_USER": {
+            "description": "The user to be authenticated",
+            "type": "string"
+          },
+          "PHP_AUTH_PW": {
+            "description": "The authentication password",
+            "type": "string"
+          }
+        }
+      },
+      "_links": {
+        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/test-basic-authorization-header"
+      },
+      "nicename": "/wpas-api/v1/test-basic-authorization-header"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/schema#",
+    "title": "authentication-test",
+    "type": "object",
+    "properties": {
+      "PHP_AUTH_USER": {
+        "description": "The user to be authenticated",
+        "type": "string"
+      },
+      "PHP_AUTH_PW": {
+        "description": "The authentication password",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+name: WP REST API v2 Documentation
+title: WP REST API v2 Documentation
+description: Documentation for version 2.0 of the WP REST API.
+# url: http://v2.wp-api.org/
+baseurl: /
+encoding: utf-8
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# markdown: kramdown
+# kramdown:
+#   input: GFM
+#   line_width: 80
+pygments_options: ['startinline']
+
+sass:
+    sass_dir: assets/styles
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      include_title: Yes
+  -
+    scope:
+      path: "assets"
+    values:
+      layout: ""
+
+  -
+    scope:
+      path: "reference"
+    values:
+      layout: "reference"
+      has_superbar: Yes
+
+exclude: [vendor]

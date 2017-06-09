@@ -1,0 +1,40 @@
+// Colors
+$fg-primary: #333;
+$bg-primary: #fff;
+$fg-secondary: $fg-primary;
+$bg-secondary: #f7f7f7;
+$fg-header: #fff;
+$bg-header: #2B3D50;
+$fg-superbar: #fff;
+$bg-superbar: #333;
+
+// Text
+$header-text-size: 14px;
+$sidebar-text-size: 12px;
+
+$base-line-height: 1.6;
+$sidebar-line-height: 1.2rem;
+
+$body-font-family: 'Istok Web', sans-serif;
+$header-font-family: 'Lora', serif;
+
+$font-family-monospace: "Monaco", Consolas, "Liberation Mono", Courier, monospace;
+
+// Layout
+$sidebar-column-width: 2;
+$main-column-width: 10;
+
+// Sub-layout
+$content-column-width: 6;
+$superbar-column-width: 6;
+
+// Configure Foundation
+// We turn everything default off, then turn back on as needed
+$include-html-classes: false;
+$include-html-button-classes: true;
+$include-html-global-classes: true;
+$include-html-table-classes: true;
+
+// Foundation colors
+$body-bg: $bg-primary;
+$body-font-color: $fg-primary;
