@@ -1,4 +1,4 @@
-These files comprise v2.wp-api.org. The endpoint documentation is programmatically, but manually, generated from the API.
+These files comprise Awesome Support API documentation. The endpoint documentation is programmatically, but manually, generated from the API.
 
 ## Installation
 
