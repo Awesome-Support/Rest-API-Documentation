@@ -17,6 +17,9 @@
     - title: Settings
       page: reference/settings/index.md
 
+    - title: Attachments
+      page: reference/attachments/index.md
+
 - title: Post Types
   items:
     - title: Tickets

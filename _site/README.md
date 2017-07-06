@@ -1,8 +1,8 @@
-These files comprise v2.wp-api.org. The endpoint documentation is programmatically, but manually, generated from the API.
+These files comprise Awesome Support API documentation. The endpoint documentation is programmatically, but manually, generated from the API.
 
 ## Installation
 
-You should have Ruby and gem installed.
+You should have Node, Ruby, and gem installed.
 
 [Install Jekyll](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll)
 

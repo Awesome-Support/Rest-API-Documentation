@@ -364,7 +364,7 @@
             },
             "assignee": {
               "required": false,
-              "default": 6,
+              "default": 4,
               "description": "The agent assigned to this ticket",
               "type": "integer"
             },

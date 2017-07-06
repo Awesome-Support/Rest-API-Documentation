@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<title>Ticket Replies API Reference | WP REST API v2 Documentation</title>
+<title>Attachments API Reference | WP REST API v2 Documentation</title>
 
 <link rel="stylesheet" href="/assets/styles/style.css" />
 
@@ -90,7 +90,7 @@
 
 					
 
-					<li  >
+					<li  class="active"  >
 						<a href="/reference/attachments/">Attachments</a>
 					</li>
 
@@ -117,7 +117,7 @@
 
 					
 
-					<li  class="active"  >
+					<li  >
 						<a href="/reference/ticket-replies/">Ticket Replies</a>
 					</li>
 
@@ -197,7 +197,7 @@
 			<section class="route">
 	<div class="primary">
 		<h2>Schema</h2>
-<p>The schema defines all the fields that exist for a ticket_reply object.</p>
+<p>The schema defines all the fields that exist for a attachment object.</p>
 <table class="attributes">
 	
 		<tr id="schema-date">
@@ -268,6 +268,25 @@
 			</td>
 		</tr>
 	
+		<tr id="schema-link">
+			<td>
+				<code>link</code><br />
+				<span class="type">
+					string, 
+							uri
+						
+				</span>
+			</td>
+			<td>
+				<p>URL to the object.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
 		<tr id="schema-modified">
 			<td>
 				<code>modified</code><br />
@@ -316,8 +335,6 @@
 			<td>
 				<p>An alphanumeric identifier for the object unique to its type.</p>
 				
-					<p class="read-only">Read only</p>
-				
 				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 				
 			</td>
@@ -335,7 +352,7 @@
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
-					<p>One of: <code>read</code>, <code>unread</code></p>
+					<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
 				
 			</td>
 		</tr>
@@ -357,17 +374,17 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-content">
+		<tr id="schema-title">
 			<td>
-				<code>content</code><br />
+				<code>title</code><br />
 				<span class="type">
 					object
 				</span>
 			</td>
 			<td>
-				<p>The content for the object.</p>
+				<p>The title for the object.</p>
 				
-				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 				
 			</td>
 		</tr>
@@ -387,36 +404,200 @@
 			</td>
 		</tr>
 	
-		<tr id="schema-parent">
+		<tr id="schema-comment_status">
 			<td>
-				<code>parent</code><br />
+				<code>comment_status</code><br />
 				<span class="type">
-					integer
+					string
 				</span>
 			</td>
 			<td>
-				<p>The ID for the ticket of the reply.</p>
+				<p>Whether or not comments are open on the object.</p>
 				
-					<p class="read-only">Read only</p>
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+					<p>One of: <code>open</code>, <code>closed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ping_status">
+			<td>
+				<code>ping_status</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Whether or not the object can be pinged.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+					<p>One of: <code>open</code>, <code>closed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-meta">
+			<td>
+				<code>meta</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>Meta fields.</p>
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
 			</td>
 		</tr>
 	
-		<tr id="schema-title">
+		<tr id="schema-template">
 			<td>
-				<code>title</code><br />
+				<code>template</code><br />
 				<span class="type">
-					
+					string
 				</span>
 			</td>
 			<td>
-				<p></p>
+				<p>The theme file to use to display the object.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+					<p>One of: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-alt_text">
+			<td>
+				<code>alt_text</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Alternative text to display when attachment is not displayed.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-caption">
+			<td>
+				<code>caption</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>The attachment caption.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-description">
+			<td>
+				<code>description</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>The attachment description.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-media_type">
+			<td>
+				<code>media_type</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Attachment type.</p>
 				
 					<p class="read-only">Read only</p>
 				
-				<p class="context">Context: <code></code></p>
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+					<p>One of: <code>image</code>, <code>file</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-mime_type">
+			<td>
+				<code>mime_type</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>The attachment MIME type.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-media_details">
+			<td>
+				<code>media_details</code><br />
+				<span class="type">
+					object
+				</span>
+			</td>
+			<td>
+				<p>Details about the media file, specific to its type.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-post">
+			<td>
+				<code>post</code><br />
+				<span class="type">
+					integer
+				</span>
+			</td>
+			<td>
+				<p>The ID for the associated post of the attachment.</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-source_url">
+			<td>
+				<code>source_url</code><br />
+				<span class="type">
+					string, 
+							uri
+						
+				</span>
+			</td>
+			<td>
+				<p>URL to the original attachment file.</p>
+				
+					<p class="read-only">Read only</p>
+				
+				<p class="context">Context: <code>view</code>, <code>edit</code>, <code>embed</code></p>
 				
 			</td>
 		</tr>
@@ -427,37 +608,17 @@
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		<code>$ curl -X OPTIONS -i http://demo.getawesomesupport.com/wp-json/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies</code>
+		<code>$ curl -X OPTIONS -i http://demo.getawesomesupport.com/wp-json/wpas-api/v1/attachments</code>
 	</div>
 </section>
 
 <section class="route">
 	<div class="primary">
-		<h2>List Ticket Replys</h2>
+		<h2>List Attachments</h2>
 		
 		
 	<h3>Arguments</h3>
 	<table class="arguments">
-		
-			<tr>
-				<td>
-					
-						<code>ticket_id</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Unique identifier for the ticket.</p>
-					
-					
-						<p class="required">
-							Required: true
-						</p>
-					
-					
-					
-				</td>
-			</tr>
 		
 			<tr>
 				<td>
@@ -514,7 +675,7 @@
 					
 					
 						<p class="default">
-							Default: <code>100</code>
+							Default: <code>10</code>
 						</p>
 					
 					
@@ -548,6 +709,46 @@
 						<p>Limit response to posts published after a given ISO8601 compliant date.</p>
 					
 					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>author</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to posts assigned to specific authors.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>author_exclude</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Ensure result set excludes posts assigned to specific authors.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
 					
 					
 				</td>
@@ -672,6 +873,46 @@
 			<tr>
 				<td>
 					
+						<code>parent</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to items with particular parent IDs.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>parent_exclude</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to all items except those of a particular parent ID.</p>
+					
+					
+					
+						<p class="default">
+							Default: <code></code>
+						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
 						<code>slug</code><br />
 					
 				</td>
@@ -693,13 +934,47 @@
 				</td>
 				<td>
 					
-						<p>Limit result set to items assigned one or more statuses.</p>
+						<p>Limit result set to posts assigned one or more statuses.</p>
 					
 					
 					
 						<p class="default">
-							Default: <code>any</code>
+							Default: <code>inherit</code>
 						</p>
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>media_type</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to attachments of a particular media type.</p>
+					
+					
+					
+					
+						<p>One of: <code>image</code>, <code>video</code>, <code>text</code>, <code>application</code>, <code>audio</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>mime_type</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Limit result set to attachments of a particular MIME type.</p>
+					
+					
 					
 					
 				</td>
@@ -712,41 +987,21 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>GET /wpas-api/v1/tickets/&lt;ticket_id&gt;/replies</code>
+		<code>GET /wpas-api/v1/attachments</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies</code>
+		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/attachments</code>
 	</div>
 </section>
 
 <section class="route">
 	<div class="primary">
-		<h2>Retrieve a Ticket Reply</h2>
+		<h2>Retrieve a Attachment</h2>
 		
 		
 	<h3>Arguments</h3>
 	<table class="arguments">
-		
-			<tr>
-				<td>
-					
-						<code>ticket_id</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Unique identifier for the ticket.</p>
-					
-					
-						<p class="required">
-							Required: true
-						</p>
-					
-					
-					
-				</td>
-			</tr>
 		
 			<tr>
 				<td>
@@ -756,12 +1011,8 @@
 				</td>
 				<td>
 					
-						<p>Unique identifier for the reply.</p>
+						<p>Unique identifier for the object.</p>
 					
-					
-						<p class="required">
-							Required: true
-						</p>
 					
 					
 					
@@ -797,41 +1048,21 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>GET /wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;</code>
+		<code>GET /wpas-api/v1/attachments/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;</code>
+		<code>$ curl http://demo.getawesomesupport.com/wp-json/wpas-api/v1/attachments/&lt;id&gt;</code>
 	</div>
 </section>
 
 <section class="route">
 	<div class="primary">
-		<h2>Create a Ticket Reply</h2>
+		<h2>Create a Attachment</h2>
 		
 		
 	<h3>Arguments</h3>
 	<table class="arguments">
-		
-			<tr>
-				<td>
-					
-						<code>ticket_id</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Unique identifier for the ticket.</p>
-					
-					
-						<p class="required">
-							Required: true
-						</p>
-					
-					
-					
-				</td>
-			</tr>
 		
 			<tr>
 				<td>
@@ -868,6 +1099,22 @@
 			<tr>
 				<td>
 					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the object unique to its type.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
 						<code>status</code><br />
 					
 				</td>
@@ -877,12 +1124,8 @@
 					
 					
 					
-						<p class="default">
-							Default: <code>unread</code>
-						</p>
 					
-					
-						<p>One of: <code>read</code>, <code>unread</code></p>
+						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
 					
 				</td>
 			</tr>
@@ -890,17 +1133,13 @@
 			<tr>
 				<td>
 					
-						<code>content</code><br />
+						<code>title</code><br />
 					
 				</td>
 				<td>
 					
-						<p>The content for the object.</p>
+						<p>The title for the object.</p>
 					
-					
-						<p class="required">
-							Required: true
-						</p>
 					
 					
 					
@@ -919,9 +1158,139 @@
 					
 					
 					
-						<p class="default">
-							Default: <code>0</code>
-						</p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>comment_status</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Whether or not comments are open on the object.</p>
+					
+					
+					
+					
+						<p>One of: <code>open</code>, <code>closed</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>ping_status</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Whether or not the object can be pinged.</p>
+					
+					
+					
+					
+						<p>One of: <code>open</code>, <code>closed</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>template</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The theme file to use to display the object.</p>
+					
+					
+					
+					
+						<p>One of: <code></code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>alt_text</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Alternative text to display when attachment is not displayed.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>caption</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The attachment caption.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The attachment description.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>post</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The ID for the associated post of the attachment.</p>
+					
+					
 					
 					
 				</td>
@@ -934,37 +1303,17 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST /wpas-api/v1/tickets/&lt;ticket_id&gt;/replies</code>
+		<code>POST /wpas-api/v1/attachments</code>
 	</div>
 </section>
 
 <section class="route">
 	<div class="primary">
-		<h2>Update a Ticket Reply</h2>
+		<h2>Update a Attachment</h2>
 		
 		
 	<h3>Arguments</h3>
 	<table class="arguments">
-		
-			<tr>
-				<td>
-					
-						<code>ticket_id</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Unique identifier for the ticket.</p>
-					
-					
-						<p class="required">
-							Required: true
-						</p>
-					
-					
-					
-				</td>
-			</tr>
 		
 			<tr>
 				<td>
@@ -974,12 +1323,8 @@
 				</td>
 				<td>
 					
-						<p>Unique identifier for the reply.</p>
+						<p>Unique identifier for the object.</p>
 					
-					
-						<p class="required">
-							Required: true
-						</p>
 					
 					
 					
@@ -1021,6 +1366,22 @@
 			<tr>
 				<td>
 					
+						<code>slug</code><br />
+					
+				</td>
+				<td>
+					
+						<p>An alphanumeric identifier for the object unique to its type.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
 						<code>status</code><br />
 					
 				</td>
@@ -1031,7 +1392,7 @@
 					
 					
 					
-						<p>One of: <code>read</code>, <code>unread</code></p>
+						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
 					
 				</td>
 			</tr>
@@ -1039,12 +1400,12 @@
 			<tr>
 				<td>
 					
-						<code>content</code><br />
+						<code>title</code><br />
 					
 				</td>
 				<td>
 					
-						<p>The content for the object.</p>
+						<p>The title for the object.</p>
 					
 					
 					
@@ -1068,6 +1429,140 @@
 				</td>
 			</tr>
 		
+			<tr>
+				<td>
+					
+						<code>comment_status</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Whether or not comments are open on the object.</p>
+					
+					
+					
+					
+						<p>One of: <code>open</code>, <code>closed</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>ping_status</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Whether or not the object can be pinged.</p>
+					
+					
+					
+					
+						<p>One of: <code>open</code>, <code>closed</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>meta</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Meta fields.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>template</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The theme file to use to display the object.</p>
+					
+					
+					
+					
+						<p>One of: <code></code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>alt_text</code><br />
+					
+				</td>
+				<td>
+					
+						<p>Alternative text to display when attachment is not displayed.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>caption</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The attachment caption.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>description</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The attachment description.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code>post</code><br />
+					
+				</td>
+				<td>
+					
+						<p>The ID for the associated post of the attachment.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
 	</table>
 
 
@@ -1075,7 +1570,7 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST /wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;</code>
+		<code>POST /wpas-api/v1/attachments/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 		
@@ -1087,7 +1582,7 @@
 
 <section class="route">
 	<div class="primary">
-		<h2>Delete a Ticket Reply</h2>
+		<h2>Delete a Attachment</h2>
 
 		
 		
@@ -1097,37 +1592,13 @@
 			<tr>
 				<td>
 					
-						<code>ticket_id</code><br />
-					
-				</td>
-				<td>
-					
-						<p>Unique identifier for the ticket.</p>
-					
-					
-						<p class="required">
-							Required: true
-						</p>
-					
-					
-					
-				</td>
-			</tr>
-		
-			<tr>
-				<td>
-					
 						<code>id</code><br />
 					
 				</td>
 				<td>
 					
-						<p>Unique identifier for the reply.</p>
+						<p>Unique identifier for the object.</p>
 					
-					
-						<p class="required">
-							Required: true
-						</p>
 					
 					
 					
@@ -1157,11 +1628,11 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>DELETE /wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;</code>
+		<code>DELETE /wpas-api/v1/attachments/&lt;id&gt;</code>
 
 		<h3>Example Request</h3>
 
-		<code>$ curl -X DELETE http://demo.getawesomesupport.com/wp-json/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;</code>
+		<code>$ curl -X DELETE http://demo.getawesomesupport.com/wp-json/wpas-api/v1/attachments/&lt;id&gt;</code>
 	</div>
 </section>
 

@@ -118,6 +118,10 @@
               "required": false,
               "enum": [
                 "",
+                286,
+                285,
+                284,
+                283,
                 5,
                 4
               ],
@@ -128,6 +132,10 @@
               "required": false,
               "enum": [
                 "",
+                286,
+                285,
+                284,
+                283,
                 5,
                 4
               ],
@@ -146,9 +154,6 @@
             },
             "theme": {
               "required": false,
-              "enum": [
-                "default"
-              ],
               "description": "Which theme to use for the front-end.",
               "type": "string"
             },
@@ -336,6 +341,10 @@
               "required": false,
               "enum": [
                 "",
+                286,
+                285,
+                284,
+                283,
                 5,
                 4
               ],
@@ -362,6 +371,16 @@
               ],
               "description": "What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.",
               "type": "string"
+            },
+            "secure_cookies": {
+              "required": false,
+              "description": "",
+              "type": "boolean"
+            },
+            "cookie_http_only": {
+              "required": false,
+              "description": "",
+              "type": "boolean"
             },
             "delete_data": {
               "required": false,
@@ -502,6 +521,10 @@
             "default": "",
             "enum": [
               "",
+              286,
+              285,
+              284,
+              283,
               5,
               4
             ]
@@ -513,6 +536,10 @@
             "default": "",
             "enum": [
               "",
+              286,
+              285,
+              284,
+              283,
               5,
               4
             ]
@@ -536,9 +563,7 @@
             "type": "string",
             "description": "Which theme to use for the front-end.",
             "default": "default",
-            "enum": [
-              "default"
-            ]
+            "enum": null
           },
           "theme_stylesheet": {
             "name": "Theme Stylesheet",
@@ -799,6 +824,10 @@
             "default": "",
             "enum": [
               "",
+              286,
+              285,
+              284,
+              283,
               5,
               4
             ]
@@ -828,6 +857,20 @@
               "randomnumber",
               "guid"
             ]
+          },
+          "secure_cookies": {
+            "name": "Secure Cookies",
+            "type": "boolean",
+            "description": "",
+            "default": false,
+            "enum": null
+          },
+          "cookie_http_only": {
+            "name": "HTTP Only",
+            "type": "boolean",
+            "description": "",
+            "default": false,
+            "enum": null
           },
           "delete_data": {
             "name": "Delete Data",
@@ -975,6 +1018,10 @@
         "default": "",
         "enum": [
           "",
+          286,
+          285,
+          284,
+          283,
           5,
           4
         ]
@@ -986,6 +1033,10 @@
         "default": "",
         "enum": [
           "",
+          286,
+          285,
+          284,
+          283,
           5,
           4
         ]
@@ -1009,9 +1060,7 @@
         "type": "string",
         "description": "Which theme to use for the front-end.",
         "default": "default",
-        "enum": [
-          "default"
-        ]
+        "enum": null
       },
       "theme_stylesheet": {
         "name": "Theme Stylesheet",
@@ -1272,6 +1321,10 @@
         "default": "",
         "enum": [
           "",
+          286,
+          285,
+          284,
+          283,
           5,
           4
         ]
@@ -1301,6 +1354,20 @@
           "randomnumber",
           "guid"
         ]
+      },
+      "secure_cookies": {
+        "name": "Secure Cookies",
+        "type": "boolean",
+        "description": "",
+        "default": false,
+        "enum": null
+      },
+      "cookie_http_only": {
+        "name": "HTTP Only",
+        "type": "boolean",
+        "description": "",
+        "default": false,
+        "enum": null
       },
       "delete_data": {
         "name": "Delete Data",

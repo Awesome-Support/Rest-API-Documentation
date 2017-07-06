@@ -2,7 +2,7 @@ These files comprise Awesome Support API documentation. The endpoint documentati
 
 ## Installation
 
-You should have Ruby and gem installed.
+You should have Node, Ruby, and gem installed.
 
 [Install Jekyll](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll)
 
