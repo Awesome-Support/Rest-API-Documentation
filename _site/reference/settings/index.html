@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<title>Settings API Reference | WP REST API v2 Documentation</title>
+<title>Settings API Reference | Awersome Support REST API Documentation</title>
 
 <link rel="stylesheet" href="/assets/styles/style.css" />
 
 <!-- Meta -->
-<meta content="WP REST API v2 Documentation" property="og:title" />
-<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+<meta content="Awersome Support REST API Documentation" property="og:title" />
+<meta content="Documentation for version 1.0 of the Awesome Support REST API." name="description" />
 
 	</head>
 	<body class="has-superbar">
@@ -49,6 +49,14 @@
 
 					<li  >
 						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/authentication.html">Authentication</a>
 					</li>
 
 				
@@ -429,6 +437,66 @@
 			</td>
 		</tr>
 	
+		<tr id="schema-show_open_date_in_activity_column">
+			<td>
+				<code>show_open_date_in_activity_column</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the open date in the activity column?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_open_date_gmt_in_activity_column">
+			<td>
+				<code>show_open_date_gmt_in_activity_column</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the open date in GMT in the activity column?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_close_date_gmt_in_activity_column">
+			<td>
+				<code>show_close_date_gmt_in_activity_column</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show the close date in GMT in the activity column?</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-show_length_of_time_ticket_was_opened">
+			<td>
+				<code>show_length_of_time_ticket_was_opened</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Show how long the ticket was opened?  Note that this applies to closed tickets only.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
 		<tr id="schema-channel_show_in_ticket_list">
 			<td>
 				<code>channel_show_in_ticket_list</code><br />
@@ -438,6 +506,51 @@
 			</td>
 			<td>
 				<p>Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_list_show_doc_tab">
+			<td>
+				<code>ticket_list_show_doc_tab</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_list_show_bulk_actions_tab">
+			<td>
+				<code>ticket_list_show_bulk_actions_tab</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-ticket_list_show_preferences_tab">
+			<td>
+				<code>ticket_list_show_preferences_tab</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p></p>
 				
 				<p class="context">Context: <code></code></p>
 				
@@ -456,7 +569,7 @@
 				
 				<p class="context">Context: <code></code></p>
 				
-					<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+					<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 				
 			</td>
 		</tr>
@@ -473,7 +586,7 @@
 				
 				<p class="context">Context: <code></code></p>
 				
-					<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+					<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 				
 			</td>
 		</tr>
@@ -508,6 +621,21 @@
 			</td>
 		</tr>
 	
+		<tr id="schema-remove_admin_ratings_request">
+			<td>
+				<code>remove_admin_ratings_request</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>Remove the rating request footer in the admin screen.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
 		<tr id="schema-theme">
 			<td>
 				<code>theme</code><br />
@@ -519,6 +647,8 @@
 				<p>Which theme to use for the front-end.</p>
 				
 				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>default</code></p>
 				
 			</td>
 		</tr>
@@ -1056,7 +1186,7 @@
 				</span>
 			</td>
 			<td>
-				<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M</p>
+				<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1000M</p>
 				
 				<p class="context">Context: <code></code></p>
 				
@@ -1075,7 +1205,7 @@
 				
 				<p class="context">Context: <code></code></p>
 				
-					<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+					<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 				
 			</td>
 		</tr>
@@ -1123,6 +1253,106 @@
 				<p class="context">Context: <code></code></p>
 				
 					<p>One of: <code>default</code>, <code>ticketid</code>, <code>randomnumber</code>, <code>guid</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-unmask_attachment_links">
+			<td>
+				<code>unmask_attachment_links</code><br />
+				<span class="type">
+					boolean
+				</span>
+			</td>
+			<td>
+				<p>There are some server configurations that do not work with our masked links. Try checking this box to make them work. This only works on NEW tickets.  Old tickets retain their prior links!</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-select2_js_file">
+			<td>
+				<code>select2_js_file</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Which select2 file should be loaded? Minimized version of files will load faster but cannot be used for debugging.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>full</code>, <code>full-min</code>, <code>partial</code>, <code>partial-min</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-select2_css_file">
+			<td>
+				<code>select2_css_file</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p>Which select2 css file should be loaded? Minimized version of files will load faster but cannot be used for debugging.</p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>min</code>, <code>full</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-load_bs4_files_fe">
+			<td>
+				<code>load_bs4_files_fe</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>0</code>, <code>1</code>, <code>2</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-load_bs4_files_be">
+			<td>
+				<code>load_bs4_files_be</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>0</code>, <code>1</code>, <code>2</code></p>
+				
+			</td>
+		</tr>
+	
+		<tr id="schema-bs4_theme">
+			<td>
+				<code>bs4_theme</code><br />
+				<span class="type">
+					string
+				</span>
+			</td>
+			<td>
+				<p></p>
+				
+				<p class="context">Context: <code></code></p>
+				
+					<p>One of: <code>default</code>, <code>awesome</code>, <code>cerulean</code>, <code>cosmo</code>, <code>cyborg</code>, <code>darkly</code>, <code>flatly</code>, <code>journal</code>, <code>litera</code>, <code>lumen</code>, <code>lux</code>, <code>materia</code>, <code>minty</code>, <code>pulse</code>, <code>sandstone</code>, <code>simplex</code>, <code>slate</code>, <code>solar</code>, <code>spacelab</code>, <code>united</code>, <code>yeti</code>, <code>custom</code></p>
 				
 			</td>
 		</tr>
@@ -1437,12 +1667,124 @@
 			<tr>
 				<td>
 					
+						<code><a href="#schema-show_open_date_in_activity_column">show_open_date_in_activity_column</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the open date in the activity column?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_open_date_gmt_in_activity_column">show_open_date_gmt_in_activity_column</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the open date in GMT in the activity column?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_close_date_gmt_in_activity_column">show_close_date_gmt_in_activity_column</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show the close date in GMT in the activity column?</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-show_length_of_time_ticket_was_opened">show_length_of_time_ticket_was_opened</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Show how long the ticket was opened?  Note that this applies to closed tickets only.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
 						<code><a href="#schema-channel_show_in_ticket_list">channel_show_in_ticket_list</a></code><br />
 					
 				</td>
 				<td>
 					
 						<p>Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_list_show_doc_tab">ticket_list_show_doc_tab</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_list_show_bulk_actions_tab">ticket_list_show_bulk_actions_tab</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-ticket_list_show_preferences_tab">ticket_list_show_preferences_tab</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
 					
 					
 					
@@ -1463,7 +1805,7 @@
 					
 					
 					
-						<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+						<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 					
 				</td>
 			</tr>
@@ -1481,7 +1823,7 @@
 					
 					
 					
-						<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+						<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 					
 				</td>
 			</tr>
@@ -1521,6 +1863,22 @@
 			<tr>
 				<td>
 					
+						<code><a href="#schema-remove_admin_ratings_request">remove_admin_ratings_request</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Remove the rating request footer in the admin screen.</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
 						<code><a href="#schema-theme">theme</a></code><br />
 					
 				</td>
@@ -1530,6 +1888,8 @@
 					
 					
 					
+					
+						<p>One of: <code>default</code></p>
 					
 				</td>
 			</tr>
@@ -2102,7 +2462,7 @@
 				</td>
 				<td>
 					
-						<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M</p>
+						<p>What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1000M</p>
 					
 					
 					
@@ -2123,7 +2483,7 @@
 					
 					
 					
-						<p>One of: <code></code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
+						<p>One of: <code></code>, <code>358</code>, <code>286</code>, <code>285</code>, <code>284</code>, <code>283</code>, <code>5</code>, <code>4</code></p>
 					
 				</td>
 			</tr>
@@ -2174,6 +2534,112 @@
 					
 					
 						<p>One of: <code>default</code>, <code>ticketid</code>, <code>randomnumber</code>, <code>guid</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-unmask_attachment_links">unmask_attachment_links</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>There are some server configurations that do not work with our masked links. Try checking this box to make them work. This only works on NEW tickets.  Old tickets retain their prior links!</p>
+					
+					
+					
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-select2_js_file">select2_js_file</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Which select2 file should be loaded? Minimized version of files will load faster but cannot be used for debugging.</p>
+					
+					
+					
+					
+						<p>One of: <code>full</code>, <code>full-min</code>, <code>partial</code>, <code>partial-min</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-select2_css_file">select2_css_file</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p>Which select2 css file should be loaded? Minimized version of files will load faster but cannot be used for debugging.</p>
+					
+					
+					
+					
+						<p>One of: <code>min</code>, <code>full</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-load_bs4_files_fe">load_bs4_files_fe</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+						<p>One of: <code>0</code>, <code>1</code>, <code>2</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-load_bs4_files_be">load_bs4_files_be</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+						<p>One of: <code>0</code>, <code>1</code>, <code>2</code></p>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+					
+						<code><a href="#schema-bs4_theme">bs4_theme</a></code><br />
+					
+				</td>
+				<td>
+					
+						<p></p>
+					
+					
+					
+					
+						<p>One of: <code>default</code>, <code>awesome</code>, <code>cerulean</code>, <code>cosmo</code>, <code>cyborg</code>, <code>darkly</code>, <code>flatly</code>, <code>journal</code>, <code>litera</code>, <code>lumen</code>, <code>lux</code>, <code>materia</code>, <code>minty</code>, <code>pulse</code>, <code>sandstone</code>, <code>simplex</code>, <code>slate</code>, <code>solar</code>, <code>spacelab</code>, <code>united</code>, <code>yeti</code>, <code>custom</code></p>
 					
 				</td>
 			</tr>

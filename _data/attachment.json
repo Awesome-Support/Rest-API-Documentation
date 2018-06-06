@@ -122,6 +122,7 @@
                 "parent",
                 "relevance",
                 "slug",
+                "include_slugs",
                 "title"
               ],
               "description": "Sort collection by object attribute.",
@@ -176,9 +177,8 @@
               "enum": [
                 "image",
                 "video",
-                "text",
-                "application",
-                "audio"
+                "audio",
+                "application"
               ],
               "description": "Limit result set to attachments of a particular media type.",
               "type": "string"
@@ -218,11 +218,32 @@
                 "draft",
                 "pending",
                 "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
                 "queued",
                 "processing",
                 "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
@@ -262,9 +283,6 @@
             },
             "template": {
               "required": false,
-              "enum": [
-                ""
-              ],
               "description": "The theme file to use to display the object.",
               "type": "string"
             },
@@ -292,7 +310,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "attachment",
         "type": "object",
         "properties": {
@@ -402,11 +420,32 @@
               "draft",
               "pending",
               "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
               "queued",
               "processing",
               "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -498,9 +537,6 @@
           "template": {
             "description": "The theme file to use to display the object.",
             "type": "string",
-            "enum": [
-              ""
-            ],
             "context": [
               "view",
               "edit"
@@ -625,7 +661,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/attachments"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/attachments"
       },
       "nicename": "/wpas-api/v1/attachments"
     },
@@ -697,11 +733,32 @@
                 "draft",
                 "pending",
                 "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
                 "queued",
                 "processing",
                 "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
@@ -741,9 +798,6 @@
             },
             "template": {
               "required": false,
-              "enum": [
-                ""
-              ],
               "description": "The theme file to use to display the object.",
               "type": "string"
             },
@@ -789,7 +843,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "attachment",
         "type": "object",
         "properties": {
@@ -899,11 +953,32 @@
               "draft",
               "pending",
               "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
               "queued",
               "processing",
               "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -995,9 +1070,6 @@
           "template": {
             "description": "The theme file to use to display the object.",
             "type": "string",
-            "enum": [
-              ""
-            ],
             "context": [
               "view",
               "edit"
@@ -1125,7 +1197,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "attachment",
     "type": "object",
     "properties": {
@@ -1235,11 +1307,32 @@
           "draft",
           "pending",
           "private",
+          "in-progress",
+          "failed",
+          "wc-active",
+          "wc-switched",
+          "wc-expired",
+          "wc-pending-cancel",
+          "wc-pending",
+          "wc-processing",
+          "wc-on-hold",
+          "wc-completed",
+          "wc-cancelled",
+          "wc-refunded",
+          "wc-failed",
           "queued",
           "processing",
           "hold",
           "read",
-          "unread"
+          "unread",
+          "wcm-active",
+          "wcm-free_trial",
+          "wcm-delayed",
+          "wcm-complimentary",
+          "wcm-pending",
+          "wcm-paused",
+          "wcm-expired",
+          "wcm-cancelled"
         ],
         "context": [
           "view",
@@ -1331,9 +1424,6 @@
       "template": {
         "description": "The theme file to use to display the object.",
         "type": "string",
-        "enum": [
-          ""
-        ],
         "context": [
           "view",
           "edit"

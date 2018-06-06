@@ -1,6 +1,6 @@
-name: WP REST API v2 Documentation
-title: WP REST API v2 Documentation
-description: Documentation for version 2.0 of the WP REST API.
+name: Awersome Support REST API Documentation
+title: Awersome Support REST API Documentation
+description: Documentation for version 1.0 of the Awesome Support REST API.
 # url: http://v2.wp-api.org/
 baseurl: /
 encoding: utf-8

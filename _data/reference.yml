@@ -6,6 +6,9 @@
     - title: Global Parameters
       page: reference/global.md
 
+    - title: Authentication
+      page: reference/authentication.md
+
 - title: General
   items:
     - title: Users

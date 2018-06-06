@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<title>Global Parameters | WP REST API v2 Documentation</title>
+<title>Global Parameters | Awersome Support REST API Documentation</title>
 
 <link rel="stylesheet" href="/assets/styles/style.css" />
 
 <!-- Meta -->
-<meta content="WP REST API v2 Documentation" property="og:title" />
-<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+<meta content="Awersome Support REST API Documentation" property="og:title" />
+<meta content="Documentation for version 1.0 of the Awesome Support REST API." name="description" />
 
 	</head>
 	<body class="has-superbar">
@@ -49,6 +49,14 @@
 
 					<li  class="active"  >
 						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/authentication.html">Authentication</a>
 					</li>
 
 				
@@ -224,7 +232,7 @@
 
     <p>For example:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
 <span class="kd">function</span> <span class="nx">receiveData</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// Do something with the data here.</span>
 	<span class="c1">// For demonstration purposes, we'll simply log it.</span>
@@ -232,8 +240,7 @@
 <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://demo.getawesomesupport.com/wp-json/?_jsonp=receiveData"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </div>
 </section>
 
@@ -254,11 +261,10 @@
 
     <p>Similarly, the following POST request would become a DELETE:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>POST /wp-json/wp/v2/posts/42 HTTP/1.1
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /wp-json/wp/v2/posts/42 HTTP/1.1
 Host: example.com
 X-HTTP-Method-Override: DELETE
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </div>
 </section>
 
@@ -280,19 +286,18 @@ X-HTTP-Method-Override: DELETE
 <div class="secondary">
     <p>For example, given the following response to a <code class="highlighter-rouge">GET</code> to <code class="highlighter-rouge">wp/v2/users/me</code>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 302 Found
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 302 Found
 Location: http://example.com/wp-json/wp/v2/users/42
 
 {
 	"id": 42,
 	...
 }
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
     <p>The equivalent enveloped response (with a <code class="highlighter-rouge">GET</code> to <code class="highlighter-rouge">wp/v2/users/me?_envelope</code>) would be:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 200 OK
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
 
 {
 	"status": 302,
@@ -303,8 +308,7 @@ Location: http://example.com/wp-json/wp/v2/users/42
 		"id": 42
 	}
 }
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </div>
 </section>
 

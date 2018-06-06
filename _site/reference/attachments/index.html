@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<title>Attachments API Reference | WP REST API v2 Documentation</title>
+<title>Attachments API Reference | Awersome Support REST API Documentation</title>
 
 <link rel="stylesheet" href="/assets/styles/style.css" />
 
 <!-- Meta -->
-<meta content="WP REST API v2 Documentation" property="og:title" />
-<meta content="Documentation for version 2.0 of the WP REST API." name="description" />
+<meta content="Awersome Support REST API Documentation" property="og:title" />
+<meta content="Documentation for version 1.0 of the Awesome Support REST API." name="description" />
 
 	</head>
 	<body class="has-superbar">
@@ -49,6 +49,14 @@
 
 					<li  >
 						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/authentication.html">Authentication</a>
 					</li>
 
 				
@@ -352,7 +360,7 @@
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
 				
-					<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
+					<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>in-progress</code>, <code>failed</code>, <code>wc-active</code>, <code>wc-switched</code>, <code>wc-expired</code>, <code>wc-pending-cancel</code>, <code>wc-pending</code>, <code>wc-processing</code>, <code>wc-on-hold</code>, <code>wc-completed</code>, <code>wc-cancelled</code>, <code>wc-refunded</code>, <code>wc-failed</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code>, <code>wcm-active</code>, <code>wcm-free_trial</code>, <code>wcm-delayed</code>, <code>wcm-complimentary</code>, <code>wcm-pending</code>, <code>wcm-paused</code>, <code>wcm-expired</code>, <code>wcm-cancelled</code></p>
 				
 			</td>
 		</tr>
@@ -464,8 +472,6 @@
 				<p>The theme file to use to display the object.</p>
 				
 				<p class="context">Context: <code>view</code>, <code>edit</code></p>
-				
-					<p>One of: <code></code></p>
 				
 			</td>
 		</tr>
@@ -865,7 +871,7 @@
 						</p>
 					
 					
-						<p>One of: <code>author</code>, <code>date</code>, <code>id</code>, <code>include</code>, <code>modified</code>, <code>parent</code>, <code>relevance</code>, <code>slug</code>, <code>title</code></p>
+						<p>One of: <code>author</code>, <code>date</code>, <code>id</code>, <code>include</code>, <code>modified</code>, <code>parent</code>, <code>relevance</code>, <code>slug</code>, <code>include_slugs</code>, <code>title</code></p>
 					
 				</td>
 			</tr>
@@ -959,7 +965,7 @@
 					
 					
 					
-						<p>One of: <code>image</code>, <code>video</code>, <code>text</code>, <code>application</code>, <code>audio</code></p>
+						<p>One of: <code>image</code>, <code>video</code>, <code>audio</code>, <code>application</code></p>
 					
 				</td>
 			</tr>
@@ -1125,7 +1131,7 @@
 					
 					
 					
-						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
+						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>in-progress</code>, <code>failed</code>, <code>wc-active</code>, <code>wc-switched</code>, <code>wc-expired</code>, <code>wc-pending-cancel</code>, <code>wc-pending</code>, <code>wc-processing</code>, <code>wc-on-hold</code>, <code>wc-completed</code>, <code>wc-cancelled</code>, <code>wc-refunded</code>, <code>wc-failed</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code>, <code>wcm-active</code>, <code>wcm-free_trial</code>, <code>wcm-delayed</code>, <code>wcm-complimentary</code>, <code>wcm-pending</code>, <code>wcm-paused</code>, <code>wcm-expired</code>, <code>wcm-cancelled</code></p>
 					
 				</td>
 			</tr>
@@ -1226,8 +1232,6 @@
 					
 					
 					
-					
-						<p>One of: <code></code></p>
 					
 				</td>
 			</tr>
@@ -1392,7 +1396,7 @@
 					
 					
 					
-						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code></p>
+						<p>One of: <code>publish</code>, <code>future</code>, <code>draft</code>, <code>pending</code>, <code>private</code>, <code>in-progress</code>, <code>failed</code>, <code>wc-active</code>, <code>wc-switched</code>, <code>wc-expired</code>, <code>wc-pending-cancel</code>, <code>wc-pending</code>, <code>wc-processing</code>, <code>wc-on-hold</code>, <code>wc-completed</code>, <code>wc-cancelled</code>, <code>wc-refunded</code>, <code>wc-failed</code>, <code>queued</code>, <code>processing</code>, <code>hold</code>, <code>read</code>, <code>unread</code>, <code>wcm-active</code>, <code>wcm-free_trial</code>, <code>wcm-delayed</code>, <code>wcm-complimentary</code>, <code>wcm-pending</code>, <code>wcm-paused</code>, <code>wcm-expired</code>, <code>wcm-cancelled</code></p>
 					
 				</td>
 			</tr>
@@ -1493,8 +1497,6 @@
 					
 					
 					
-					
-						<p>One of: <code></code></p>
 					
 				</td>
 			</tr>

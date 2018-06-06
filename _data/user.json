@@ -87,6 +87,7 @@
                 "name",
                 "registered_date",
                 "slug",
+                "include_slugs",
                 "email",
                 "url"
               ],
@@ -108,6 +109,14 @@
               "items": {
                 "type": "string"
               }
+            },
+            "who": {
+              "required": false,
+              "enum": [
+                "authors"
+              ],
+              "description": "Limit result set to users who are considered authors.",
+              "type": "string"
             }
           }
         },
@@ -212,7 +221,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "user",
         "type": "object",
         "properties": {
@@ -454,7 +463,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/users"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/users"
       },
       "nicename": "/wpas-api/v1/users"
     },
@@ -622,7 +631,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "user",
         "type": "object",
         "properties": {
@@ -1014,7 +1023,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "user",
         "type": "object",
         "properties": {
@@ -1256,13 +1265,13 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/users/me"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/users/me"
       },
       "nicename": "/wpas-api/v1/users/me"
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "user",
     "type": "object",
     "properties": {

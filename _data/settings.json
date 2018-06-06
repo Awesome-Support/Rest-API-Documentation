@@ -109,15 +109,51 @@
               "description": "Show Third Party #2 Data in the Ticket List?",
               "type": "boolean"
             },
+            "show_open_date_in_activity_column": {
+              "required": false,
+              "description": "Show the open date in the activity column?",
+              "type": "boolean"
+            },
+            "show_open_date_gmt_in_activity_column": {
+              "required": false,
+              "description": "Show the open date in GMT in the activity column?",
+              "type": "boolean"
+            },
+            "show_close_date_gmt_in_activity_column": {
+              "required": false,
+              "description": "Show the close date in GMT in the activity column?",
+              "type": "boolean"
+            },
+            "show_length_of_time_ticket_was_opened": {
+              "required": false,
+              "description": "Show how long the ticket was opened?  Note that this applies to closed tickets only.",
+              "type": "boolean"
+            },
             "channel_show_in_ticket_list": {
               "required": false,
               "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
+              "type": "boolean"
+            },
+            "ticket_list_show_doc_tab": {
+              "required": false,
+              "description": "",
+              "type": "boolean"
+            },
+            "ticket_list_show_bulk_actions_tab": {
+              "required": false,
+              "description": "",
+              "type": "boolean"
+            },
+            "ticket_list_show_preferences_tab": {
+              "required": false,
+              "description": "",
               "type": "boolean"
             },
             "ticket_submit": {
               "required": false,
               "enum": [
                 "",
+                358,
                 286,
                 285,
                 284,
@@ -132,6 +168,7 @@
               "required": false,
               "enum": [
                 "",
+                358,
                 286,
                 285,
                 284,
@@ -152,8 +189,16 @@
               "description": "Do you like this plugin? Please help us spread the word by displaying a credit link at the bottom of your ticket submission page.",
               "type": "boolean"
             },
+            "remove_admin_ratings_request": {
+              "required": false,
+              "description": "Remove the rating request footer in the admin screen.",
+              "type": "boolean"
+            },
             "theme": {
               "required": false,
+              "enum": [
+                "default"
+              ],
               "description": "Which theme to use for the front-end.",
               "type": "string"
             },
@@ -334,13 +379,14 @@
             },
             "filesize_max": {
               "required": false,
-              "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+              "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1000M",
               "type": "string"
             },
             "login_page": {
               "required": false,
               "enum": [
                 "",
+                358,
                 286,
                 285,
                 284,
@@ -370,6 +416,80 @@
                 "guid"
               ],
               "description": "What to use for the indivdual ticket slug.  The default is the ticket topic transformed into a slug.",
+              "type": "string"
+            },
+            "unmask_attachment_links": {
+              "required": false,
+              "description": "There are some server configurations that do not work with our masked links. Try checking this box to make them work. This only works on NEW tickets.  Old tickets retain their prior links!",
+              "type": "boolean"
+            },
+            "select2_js_file": {
+              "required": false,
+              "enum": [
+                "full",
+                "full-min",
+                "partial",
+                "partial-min"
+              ],
+              "description": "Which select2 file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+              "type": "string"
+            },
+            "select2_css_file": {
+              "required": false,
+              "enum": [
+                "min",
+                "full"
+              ],
+              "description": "Which select2 css file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+              "type": "string"
+            },
+            "load_bs4_files_fe": {
+              "required": false,
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "description": "",
+              "type": "string"
+            },
+            "load_bs4_files_be": {
+              "required": false,
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "description": "",
+              "type": "string"
+            },
+            "bs4_theme": {
+              "required": false,
+              "enum": [
+                "default",
+                "awesome",
+                "cerulean",
+                "cosmo",
+                "cyborg",
+                "darkly",
+                "flatly",
+                "journal",
+                "litera",
+                "lumen",
+                "lux",
+                "materia",
+                "minty",
+                "pulse",
+                "sandstone",
+                "simplex",
+                "slate",
+                "solar",
+                "spacelab",
+                "united",
+                "yeti",
+                "custom"
+              ],
+              "description": "",
               "type": "string"
             },
             "secure_cookies": {
@@ -507,11 +627,60 @@
             "default": false,
             "enum": null
           },
+          "show_open_date_in_activity_column": {
+            "name": "Show Open Date ",
+            "type": "boolean",
+            "description": "Show the open date in the activity column?",
+            "default": false,
+            "enum": null
+          },
+          "show_open_date_gmt_in_activity_column": {
+            "name": "Show Open Date in GMT",
+            "type": "boolean",
+            "description": "Show the open date in GMT in the activity column?",
+            "default": false,
+            "enum": null
+          },
+          "show_close_date_gmt_in_activity_column": {
+            "name": "Show Close Date in GMT",
+            "type": "boolean",
+            "description": "Show the close date in GMT in the activity column?",
+            "default": false,
+            "enum": null
+          },
+          "show_length_of_time_ticket_was_opened": {
+            "name": "Show Length Of Time Ticket Was Opened",
+            "type": "boolean",
+            "description": "Show how long the ticket was opened?  Note that this applies to closed tickets only.",
+            "default": false,
+            "enum": null
+          },
           "channel_show_in_ticket_list": {
             "name": "Show Channel Field",
             "type": "boolean",
             "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
             "default": false,
+            "enum": null
+          },
+          "ticket_list_show_doc_tab": {
+            "name": "Show Documentation Tab",
+            "type": "boolean",
+            "description": "",
+            "default": true,
+            "enum": null
+          },
+          "ticket_list_show_bulk_actions_tab": {
+            "name": "Show Bulk Actions Tab",
+            "type": "boolean",
+            "description": "",
+            "default": true,
+            "enum": null
+          },
+          "ticket_list_show_preferences_tab": {
+            "name": "Show Preferences Tab",
+            "type": "boolean",
+            "description": "",
+            "default": true,
             "enum": null
           },
           "ticket_submit": {
@@ -521,6 +690,7 @@
             "default": "",
             "enum": [
               "",
+              358,
               286,
               285,
               284,
@@ -536,6 +706,7 @@
             "default": "",
             "enum": [
               "",
+              358,
               286,
               285,
               284,
@@ -558,12 +729,21 @@
             "default": false,
             "enum": null
           },
+          "remove_admin_ratings_request": {
+            "name": "Admin Rating Request",
+            "type": "boolean",
+            "description": "Remove the rating request footer in the admin screen.",
+            "default": false,
+            "enum": null
+          },
           "theme": {
             "name": "Theme",
             "type": "string",
             "description": "Which theme to use for the front-end.",
             "default": "default",
-            "enum": null
+            "enum": [
+              "default"
+            ]
           },
           "theme_stylesheet": {
             "name": "Theme Stylesheet",
@@ -813,7 +993,7 @@
           "filesize_max": {
             "name": "Maximum File Size",
             "type": "string",
-            "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+            "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1000M",
             "default": 2,
             "enum": null
           },
@@ -824,6 +1004,7 @@
             "default": "",
             "enum": [
               "",
+              358,
               286,
               285,
               284,
@@ -858,6 +1039,87 @@
               "guid"
             ]
           },
+          "unmask_attachment_links": {
+            "name": "Do Not Mask Attachment Links",
+            "type": "boolean",
+            "description": "There are some server configurations that do not work with our masked links. Try checking this box to make them work. This only works on NEW tickets.  Old tickets retain their prior links!",
+            "default": false,
+            "enum": null
+          },
+          "select2_js_file": {
+            "name": "Select2 JS File",
+            "type": "string",
+            "description": "Which select2 file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+            "default": "partial-min",
+            "enum": [
+              "full",
+              "full-min",
+              "partial",
+              "partial-min"
+            ]
+          },
+          "select2_css_file": {
+            "name": "Select2 CSS File",
+            "type": "string",
+            "description": "Which select2 css file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+            "default": "min",
+            "enum": [
+              "min",
+              "full"
+            ]
+          },
+          "load_bs4_files_fe": {
+            "name": "Load BootStrap Files on Front-end?",
+            "type": "string",
+            "description": "",
+            "default": "0",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "load_bs4_files_be": {
+            "name": "Load BootStrap Files on Back-end?",
+            "type": "string",
+            "description": "",
+            "default": "0",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "bs4_theme": {
+            "name": "Bootstrap 4 Theme",
+            "type": "string",
+            "description": "",
+            "default": "default",
+            "enum": [
+              "default",
+              "awesome",
+              "cerulean",
+              "cosmo",
+              "cyborg",
+              "darkly",
+              "flatly",
+              "journal",
+              "litera",
+              "lumen",
+              "lux",
+              "materia",
+              "minty",
+              "pulse",
+              "sandstone",
+              "simplex",
+              "slate",
+              "solar",
+              "spacelab",
+              "united",
+              "yeti",
+              "custom"
+            ]
+          },
           "secure_cookies": {
             "name": "Secure Cookies",
             "type": "boolean",
@@ -882,7 +1144,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/settings"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/settings"
       },
       "nicename": "/wpas-api/v1/settings"
     }
@@ -1004,11 +1266,60 @@
         "default": false,
         "enum": null
       },
+      "show_open_date_in_activity_column": {
+        "name": "Show Open Date ",
+        "type": "boolean",
+        "description": "Show the open date in the activity column?",
+        "default": false,
+        "enum": null
+      },
+      "show_open_date_gmt_in_activity_column": {
+        "name": "Show Open Date in GMT",
+        "type": "boolean",
+        "description": "Show the open date in GMT in the activity column?",
+        "default": false,
+        "enum": null
+      },
+      "show_close_date_gmt_in_activity_column": {
+        "name": "Show Close Date in GMT",
+        "type": "boolean",
+        "description": "Show the close date in GMT in the activity column?",
+        "default": false,
+        "enum": null
+      },
+      "show_length_of_time_ticket_was_opened": {
+        "name": "Show Length Of Time Ticket Was Opened",
+        "type": "boolean",
+        "description": "Show how long the ticket was opened?  Note that this applies to closed tickets only.",
+        "default": false,
+        "enum": null
+      },
       "channel_show_in_ticket_list": {
         "name": "Show Channel Field",
         "type": "boolean",
         "description": "Show Channel Field In Ticket List? (Channel allows you to select where a ticket originated - web, email, facebook etc.)",
         "default": false,
+        "enum": null
+      },
+      "ticket_list_show_doc_tab": {
+        "name": "Show Documentation Tab",
+        "type": "boolean",
+        "description": "",
+        "default": true,
+        "enum": null
+      },
+      "ticket_list_show_bulk_actions_tab": {
+        "name": "Show Bulk Actions Tab",
+        "type": "boolean",
+        "description": "",
+        "default": true,
+        "enum": null
+      },
+      "ticket_list_show_preferences_tab": {
+        "name": "Show Preferences Tab",
+        "type": "boolean",
+        "description": "",
+        "default": true,
         "enum": null
       },
       "ticket_submit": {
@@ -1018,6 +1329,7 @@
         "default": "",
         "enum": [
           "",
+          358,
           286,
           285,
           284,
@@ -1033,6 +1345,7 @@
         "default": "",
         "enum": [
           "",
+          358,
           286,
           285,
           284,
@@ -1055,12 +1368,21 @@
         "default": false,
         "enum": null
       },
+      "remove_admin_ratings_request": {
+        "name": "Admin Rating Request",
+        "type": "boolean",
+        "description": "Remove the rating request footer in the admin screen.",
+        "default": false,
+        "enum": null
+      },
       "theme": {
         "name": "Theme",
         "type": "string",
         "description": "Which theme to use for the front-end.",
         "default": "default",
-        "enum": null
+        "enum": [
+          "default"
+        ]
       },
       "theme_stylesheet": {
         "name": "Theme Stylesheet",
@@ -1310,7 +1632,7 @@
       "filesize_max": {
         "name": "Maximum File Size",
         "type": "string",
-        "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1024M",
+        "description": "What is the maximum size allowed for one file (in <code>MB</code>)? Your server allows up to 1000M",
         "default": 2,
         "enum": null
       },
@@ -1321,6 +1643,7 @@
         "default": "",
         "enum": [
           "",
+          358,
           286,
           285,
           284,
@@ -1353,6 +1676,87 @@
           "ticketid",
           "randomnumber",
           "guid"
+        ]
+      },
+      "unmask_attachment_links": {
+        "name": "Do Not Mask Attachment Links",
+        "type": "boolean",
+        "description": "There are some server configurations that do not work with our masked links. Try checking this box to make them work. This only works on NEW tickets.  Old tickets retain their prior links!",
+        "default": false,
+        "enum": null
+      },
+      "select2_js_file": {
+        "name": "Select2 JS File",
+        "type": "string",
+        "description": "Which select2 file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+        "default": "partial-min",
+        "enum": [
+          "full",
+          "full-min",
+          "partial",
+          "partial-min"
+        ]
+      },
+      "select2_css_file": {
+        "name": "Select2 CSS File",
+        "type": "string",
+        "description": "Which select2 css file should be loaded? Minimized version of files will load faster but cannot be used for debugging.",
+        "default": "min",
+        "enum": [
+          "min",
+          "full"
+        ]
+      },
+      "load_bs4_files_fe": {
+        "name": "Load BootStrap Files on Front-end?",
+        "type": "string",
+        "description": "",
+        "default": "0",
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "load_bs4_files_be": {
+        "name": "Load BootStrap Files on Back-end?",
+        "type": "string",
+        "description": "",
+        "default": "0",
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "bs4_theme": {
+        "name": "Bootstrap 4 Theme",
+        "type": "string",
+        "description": "",
+        "default": "default",
+        "enum": [
+          "default",
+          "awesome",
+          "cerulean",
+          "cosmo",
+          "cyborg",
+          "darkly",
+          "flatly",
+          "journal",
+          "litera",
+          "lumen",
+          "lux",
+          "materia",
+          "minty",
+          "pulse",
+          "sandstone",
+          "simplex",
+          "slate",
+          "solar",
+          "spacelab",
+          "united",
+          "yeti",
+          "custom"
         ]
       },
       "secure_cookies": {

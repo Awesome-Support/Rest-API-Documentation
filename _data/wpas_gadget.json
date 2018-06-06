@@ -1,7 +1,7 @@
 {
-  "name": "ticket_reply",
+  "name": "wpas_gadget",
   "routes": {
-    "/wpas-api/v1/tickets/<ticket_id>/replies": {
+    "/wpas-api/v1/remote-tickets": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -13,11 +13,6 @@
             "GET"
           ],
           "args": {
-            "ticket_id": {
-              "required": true,
-              "description": "Unique identifier for the ticket.",
-              "type": "integer"
-            },
             "context": {
               "required": false,
               "default": "view",
@@ -37,7 +32,7 @@
             },
             "per_page": {
               "required": false,
-              "default": 100,
+              "default": 10,
               "description": "Maximum number of items to be returned in result set.",
               "type": "integer"
             },
@@ -121,13 +116,49 @@
             },
             "status": {
               "required": false,
-              "default": "any",
-              "description": "Limit result set to items assigned one or more statuses.",
+              "default": "publish",
+              "description": "Limit result set to posts assigned one or more statuses.",
               "type": "array",
               "items": {
                 "enum": [
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "trash",
+                  "auto-draft",
+                  "inherit",
+                  "request-pending",
+                  "request-confirmed",
+                  "request-failed",
+                  "request-completed",
+                  "in-progress",
+                  "failed",
+                  "wc-active",
+                  "wc-switched",
+                  "wc-expired",
+                  "wc-pending-cancel",
+                  "wc-pending",
+                  "wc-processing",
+                  "wc-on-hold",
+                  "wc-completed",
+                  "wc-cancelled",
+                  "wc-refunded",
+                  "wc-failed",
+                  "queued",
+                  "processing",
+                  "hold",
                   "read",
                   "unread",
+                  "wcm-active",
+                  "wcm-free_trial",
+                  "wcm-delayed",
+                  "wcm-complimentary",
+                  "wcm-pending",
+                  "wcm-paused",
+                  "wcm-expired",
+                  "wcm-cancelled",
                   "any"
                 ],
                 "type": "string"
@@ -140,11 +171,6 @@
             "POST"
           ],
           "args": {
-            "ticket_id": {
-              "required": true,
-              "description": "Unique identifier for the ticket.",
-              "type": "integer"
-            },
             "date": {
               "required": false,
               "description": "The date the object was published, in the site's timezone.",
@@ -155,33 +181,75 @@
               "description": "The date the object was published, as GMT.",
               "type": "string"
             },
+            "slug": {
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
+            },
             "status": {
               "required": false,
-              "default": "unread",
               "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
+                "queued",
+                "processing",
+                "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
             },
-            "content": {
-              "required": true,
-              "description": "The content for the object.",
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "The title for the object.",
               "type": "object"
             },
-            "author": {
+            "template": {
               "required": false,
-              "default": 0,
-              "description": "The ID for the author of the object.",
-              "type": "integer"
+              "description": "The theme file to use to display the object.",
+              "type": "string"
+            },
+            "settings": {
+              "required": false,
+              "description": "The settings for this remote ticket form.",
+              "type": "array"
             }
           }
         }
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "ticket_reply",
+        "title": "wpas_gadget",
         "type": "object",
         "properties": {
           "date": {
@@ -241,6 +309,17 @@
             ],
             "readonly": true
           },
+          "link": {
+            "description": "URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "modified": {
             "description": "The date the object was last modified, in the site's timezone.",
             "type": "string",
@@ -268,15 +347,43 @@
               "view",
               "edit",
               "embed"
-            ],
-            "readonly": true
+            ]
           },
           "status": {
             "description": "A named status for the object.",
             "type": "string",
             "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
+              "queued",
+              "processing",
+              "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -293,33 +400,32 @@
             ],
             "readonly": true
           },
-          "content": {
-            "description": "The content for the object.",
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "title": {
+            "description": "The title for the object.",
             "type": "object",
             "context": [
               "view",
-              "edit"
+              "edit",
+              "embed"
             ],
             "properties": {
               "raw": {
-                "description": "Content for the object, as it exists in the database.",
+                "description": "Title for the object, as it exists in the database.",
                 "type": "string",
                 "context": [
                   "edit"
                 ]
               },
               "rendered": {
-                "description": "HTML content for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
-                "context": [
-                  "view",
-                  "edit"
-                ],
-                "readonly": true
-              },
-              "protected": {
-                "description": "Whether the content is protected with a password.",
-                "type": "boolean",
                 "context": [
                   "view",
                   "edit",
@@ -329,32 +435,31 @@
               }
             }
           },
-          "author": {
-            "description": "The ID for the author of the object.",
-            "type": "integer",
-            "context": [
-              "view",
-              "edit",
-              "embed"
-            ]
-          },
-          "parent": {
-            "description": "The ID for the ticket of the reply.",
-            "type": "integer",
-            "readonly": true,
+          "template": {
+            "description": "The theme file to use to display the object.",
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "title": {
-            "readonly": true
+          "settings": {
+            "description": "The settings for this remote ticket form.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
           }
         }
       },
-      "nicename": "/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies"
+      "_links": {
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/remote-tickets"
+      },
+      "nicename": "/wpas-api/v1/remote-tickets"
     },
-    "/wpas-api/v1/tickets/<ticket_id>/replies/<id>": {
+    "/wpas-api/v1/remote-tickets/<id>": {
       "namespace": "wpas-api/v1",
       "methods": [
         "GET",
@@ -369,14 +474,9 @@
             "GET"
           ],
           "args": {
-            "ticket_id": {
-              "required": true,
-              "description": "Unique identifier for the ticket.",
-              "type": "integer"
-            },
             "id": {
-              "required": true,
-              "description": "Unique identifier for the reply.",
+              "required": false,
+              "description": "Unique identifier for the object.",
               "type": "integer"
             },
             "context": {
@@ -389,6 +489,11 @@
               ],
               "description": "Scope under which the request is made; determines fields present in response.",
               "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "The password for the post if it is password protected.",
+              "type": "string"
             }
           }
         },
@@ -399,14 +504,9 @@
             "PATCH"
           ],
           "args": {
-            "ticket_id": {
-              "required": true,
-              "description": "Unique identifier for the ticket.",
-              "type": "integer"
-            },
             "id": {
-              "required": true,
-              "description": "Unique identifier for the reply.",
+              "required": false,
+              "description": "Unique identifier for the object.",
               "type": "integer"
             },
             "date": {
@@ -419,24 +519,68 @@
               "description": "The date the object was published, as GMT.",
               "type": "string"
             },
+            "slug": {
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
+            },
             "status": {
               "required": false,
               "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
+                "queued",
+                "processing",
+                "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
             },
-            "content": {
+            "password": {
               "required": false,
-              "description": "The content for the object.",
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
+            },
+            "title": {
+              "required": false,
+              "description": "The title for the object.",
               "type": "object"
             },
-            "author": {
+            "template": {
               "required": false,
-              "description": "The ID for the author of the object.",
-              "type": "integer"
+              "description": "The theme file to use to display the object.",
+              "type": "string"
+            },
+            "settings": {
+              "required": false,
+              "description": "The settings for this remote ticket form.",
+              "type": "array"
             }
           }
         },
@@ -445,14 +589,9 @@
             "DELETE"
           ],
           "args": {
-            "ticket_id": {
-              "required": true,
-              "description": "Unique identifier for the ticket.",
-              "type": "integer"
-            },
             "id": {
-              "required": true,
-              "description": "Unique identifier for the reply.",
+              "required": false,
+              "description": "Unique identifier for the object.",
               "type": "integer"
             },
             "force": {
@@ -466,7 +605,7 @@
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "ticket_reply",
+        "title": "wpas_gadget",
         "type": "object",
         "properties": {
           "date": {
@@ -526,6 +665,17 @@
             ],
             "readonly": true
           },
+          "link": {
+            "description": "URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "modified": {
             "description": "The date the object was last modified, in the site's timezone.",
             "type": "string",
@@ -553,15 +703,43 @@
               "view",
               "edit",
               "embed"
-            ],
-            "readonly": true
+            ]
           },
           "status": {
             "description": "A named status for the object.",
             "type": "string",
             "enum": [
+              "publish",
+              "future",
+              "draft",
+              "pending",
+              "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
+              "queued",
+              "processing",
+              "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -578,33 +756,32 @@
             ],
             "readonly": true
           },
-          "content": {
-            "description": "The content for the object.",
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "title": {
+            "description": "The title for the object.",
             "type": "object",
             "context": [
               "view",
-              "edit"
+              "edit",
+              "embed"
             ],
             "properties": {
               "raw": {
-                "description": "Content for the object, as it exists in the database.",
+                "description": "Title for the object, as it exists in the database.",
                 "type": "string",
                 "context": [
                   "edit"
                 ]
               },
               "rendered": {
-                "description": "HTML content for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
-                "context": [
-                  "view",
-                  "edit"
-                ],
-                "readonly": true
-              },
-              "protected": {
-                "description": "Whether the content is protected with a password.",
-                "type": "boolean",
                 "context": [
                   "view",
                   "edit",
@@ -614,35 +791,31 @@
               }
             }
           },
-          "author": {
-            "description": "The ID for the author of the object.",
-            "type": "integer",
-            "context": [
-              "view",
-              "edit",
-              "embed"
-            ]
-          },
-          "parent": {
-            "description": "The ID for the ticket of the reply.",
-            "type": "integer",
-            "readonly": true,
+          "template": {
+            "description": "The theme file to use to display the object.",
+            "type": "string",
             "context": [
               "view",
               "edit"
             ]
           },
-          "title": {
-            "readonly": true
+          "settings": {
+            "description": "The settings for this remote ticket form.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
           }
         }
       },
-      "nicename": "/wpas-api/v1/tickets/&lt;ticket_id&gt;/replies/&lt;id&gt;"
+      "nicename": "/wpas-api/v1/remote-tickets/&lt;id&gt;"
     }
   },
   "schema": {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "ticket_reply",
+    "title": "wpas_gadget",
     "type": "object",
     "properties": {
       "date": {
@@ -702,6 +875,17 @@
         ],
         "readonly": true
       },
+      "link": {
+        "description": "URL to the object.",
+        "type": "string",
+        "format": "uri",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
       "modified": {
         "description": "The date the object was last modified, in the site's timezone.",
         "type": "string",
@@ -729,15 +913,43 @@
           "view",
           "edit",
           "embed"
-        ],
-        "readonly": true
+        ]
       },
       "status": {
         "description": "A named status for the object.",
         "type": "string",
         "enum": [
+          "publish",
+          "future",
+          "draft",
+          "pending",
+          "private",
+          "in-progress",
+          "failed",
+          "wc-active",
+          "wc-switched",
+          "wc-expired",
+          "wc-pending-cancel",
+          "wc-pending",
+          "wc-processing",
+          "wc-on-hold",
+          "wc-completed",
+          "wc-cancelled",
+          "wc-refunded",
+          "wc-failed",
+          "queued",
+          "processing",
+          "hold",
           "read",
-          "unread"
+          "unread",
+          "wcm-active",
+          "wcm-free_trial",
+          "wcm-delayed",
+          "wcm-complimentary",
+          "wcm-pending",
+          "wcm-paused",
+          "wcm-expired",
+          "wcm-cancelled"
         ],
         "context": [
           "view",
@@ -754,33 +966,32 @@
         ],
         "readonly": true
       },
-      "content": {
-        "description": "The content for the object.",
+      "password": {
+        "description": "A password to protect access to the content and excerpt.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      },
+      "title": {
+        "description": "The title for the object.",
         "type": "object",
         "context": [
           "view",
-          "edit"
+          "edit",
+          "embed"
         ],
         "properties": {
           "raw": {
-            "description": "Content for the object, as it exists in the database.",
+            "description": "Title for the object, as it exists in the database.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "rendered": {
-            "description": "HTML content for the object, transformed for display.",
+            "description": "HTML title for the object, transformed for display.",
             "type": "string",
-            "context": [
-              "view",
-              "edit"
-            ],
-            "readonly": true
-          },
-          "protected": {
-            "description": "Whether the content is protected with a password.",
-            "type": "boolean",
             "context": [
               "view",
               "edit",
@@ -790,26 +1001,22 @@
           }
         }
       },
-      "author": {
-        "description": "The ID for the author of the object.",
-        "type": "integer",
-        "context": [
-          "view",
-          "edit",
-          "embed"
-        ]
-      },
-      "parent": {
-        "description": "The ID for the ticket of the reply.",
-        "type": "integer",
-        "readonly": true,
+      "template": {
+        "description": "The theme file to use to display the object.",
+        "type": "string",
         "context": [
           "view",
           "edit"
         ]
       },
-      "title": {
-        "readonly": true
+      "settings": {
+        "description": "The settings for this remote ticket form.",
+        "type": "array",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ]
       }
     }
   }

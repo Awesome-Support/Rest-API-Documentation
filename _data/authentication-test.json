@@ -34,7 +34,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/test-basic-authorization-header"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/test-basic-authorization-header"
       },
       "nicename": "/wpas-api/v1/test-basic-authorization-header"
     }

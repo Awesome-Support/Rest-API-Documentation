@@ -104,6 +104,7 @@
                 "parent",
                 "relevance",
                 "slug",
+                "include_slugs",
                 "title"
               ],
               "description": "Sort collection by object attribute.",
@@ -134,7 +135,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket_history",
         "type": "object",
         "properties": {
@@ -315,7 +316,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket_history",
         "type": "object",
         "properties": {
@@ -457,7 +458,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "ticket_history",
     "type": "object",
     "properties": {

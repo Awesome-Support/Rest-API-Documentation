@@ -1,13 +1,23 @@
 ---
+page: authentication
 title: Authentication
+layout: reference
 ---
+
+<section class="route">
+<div class="primary" markdown="1">
+<h1>{{ page.title }}</h1>
 
 There are several options for authenticating with the API. The basic choice boils
 down to:
 
 * Are you a plugin/theme running on the site? Use **cookie authentication**
 * Are you a desktop/web/mobile client accessing the site externally? Use **basic authentication**.
+</div>
+</section>
 
+<section class="route">
+<div class="primary" markdown="1">
 
 Cookie Authentication
 ---------------------
@@ -34,6 +44,9 @@ cookies. As a result this method is only applicable when the REST API is used in
 of WordPress and the current user is logged in. In addition, the current user must
 have the appropriate capability to perform the action being performed.
 
+</div>
+
+<div class="secondary" markdown="1">
 As an example, this is how the built-in Javascript client creates the nonce:
 
 ```php
@@ -73,33 +86,32 @@ $.ajax( {
 [nonces]: http://codex.wordpress.org/WordPress_Nonces
 [CSRF]: http://en.wikipedia.org/wiki/Cross-site_request_forgery
 
-Application Passwords and Basic Authentication
----------------------------------------------
-Basic authentication is an optional authentication handler for external clients.
-Due to the complexity of OAuth authentication, basic authentication can be
-useful during development. However, Basic authentication requires passing your
-username and password on every request, as well as giving your credentials to
-clients, so it is heavily discouraged for production use.
+</div>
+</section>
 
-Application passwords are used similarly, however instead of providing your normal
-account password, unique and easily revokable passwords are generated from your
-edit profile screen in the WordPress admin.  These application passwords are valid
-exclusively for the REST API and the legacy XML-RPC API and may not be used to log
-in to WordPress.
+<section class="route">
+<div class="primary" markdown="1">
 
-Both basic authentication and application passwords use [HTTP Basic Authentication][http-basic]
-(published as RFC2617) and are supported by the Awesome Support API.
+Basic Authentication
+--------------------
+[HTTP Basic Authentication][http-basic] (published as RFC2617) can be used to authenticate external services. It can use either the user's username and password or the username and API password (located in the user's edit screen).
+
+API passwords are the more secure method of authentication since they are unique, random, and easily revokable. Additionally, API passwords are valid only for the REST API and may not be used to log in to WordPress. Only use the user's password for authentication when the user will also be logging into the website.
 
 To use Basic authentication, simply pass the username and password with each
 request through the `Authorization` header. This value should be encoded (using
 base64 encoding) as per the HTTP Basic specification.
+
+</div>
+
+<div class="secondary" markdown="1">
 
 This is an example of how to update a post, using these authentications, via the
 WordPress HTTP API:
 
 ```php
 $headers = array (
-	'Authorization' => 'Basic ' . base64_encode( 'admin' . ':' . '12345' ),
+	'Authorization' => 'Basic ' . base64_encode( 'admin' . ':' . '0qND QR5t tX4y qa0S eb4c tjrq' ),
 );
 $url = rest_url( 'wpas-api/v1/tickets/1' );
 
@@ -118,3 +130,5 @@ $response = wp_remote_post( $url, array (
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
 [application-passwords]: https://github.com/georgestephanis/application-passwords
+</div>
+</section>

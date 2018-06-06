@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Authentication | Awersome Support REST API Documentation</title>
+
+<link rel="stylesheet" href="/assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="Awersome Support REST API Documentation" property="og:title" />
+<meta content="Documentation for version 1.0 of the Awesome Support REST API." name="description" />
+
+	</head>
+	<body class="has-superbar">
+		<header id="nav-bar">
+	<h1><a href="/">Awesome Support REST API</a></h1>
+	<nav>
+		<ul>
+			<li><a class="button download" href="https://getawesomesupport.com/">Download Awesome Support</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+		<section id="sidebar">
+			
+			<nav>
+
+	
+
+		
+
+			<h3>Introduction</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/">Introduction</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/global.html">Global Parameters</a>
+					</li>
+
+				
+
+					
+
+					<li  class="active"  >
+						<a href="/reference/authentication.html">Authentication</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>General</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/users/">Users</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/passwords/">User Passwords</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/settings/">Settings</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/attachments/">Attachments</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Post Types</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/tickets/">Tickets</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-replies/">Ticket Replies</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/ticket-history/">Ticket History</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+		
+
+			<h3>Taxonomies</h3>
+			<ul>
+				
+
+					
+
+					<li  >
+						<a href="/reference/departments/">Departments</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/products/">Products</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/tags/">Tags</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/channels/">Channels</a>
+					</li>
+
+				
+
+					
+
+					<li  >
+						<a href="/reference/priorities/">Priorities</a>
+					</li>
+
+				
+			</ul>
+
+		
+
+	
+
+</nav>
+
+		</section>
+
+		<section id="content">
+			<div class="background"><div class="primary"></div><div class="secondary"></div></div>
+
+			<section class="route">
+<div class="primary">
+    <h1>Authentication</h1>
+
+    <p>There are several options for authenticating with the API. The basic choice boils
+down to:</p>
+
+    <ul>
+      <li>Are you a plugin/theme running on the site? Use <strong>cookie authentication</strong></li>
+      <li>Are you a desktop/web/mobile client accessing the site externally? Use <strong>basic authentication</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="route">
+<div class="primary">
+
+    <h2 id="cookie-authentication">Cookie Authentication</h2>
+    <p>Cookie authentication is the basic authentication method included with
+WordPress. When you log in to your dashboard, this sets up the cookies correctly
+for you, so plugin and theme developers need only to have a logged-in user.</p>
+
+    <p>However, the REST API includes a technique called <a href="http://codex.wordpress.org/WordPress_Nonces">nonces</a> to avoid <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> issues.
+This prevents other sites from forcing you to perform actions without explicitly
+intending to do so. This requires slightly special handling for the API.</p>
+
+    <p>For developers using the built-in Javascript API, this is handled automatically
+for you. This is the recommended way to use the API for plugins and themes.
+Custom data models can extend <code class="highlighter-rouge">wp.api.models.Base</code> to ensure this is sent
+correctly for any custom requests.</p>
+
+    <p>For developers making manual Ajax requests, the nonce will need to be passed
+with each request. The API uses nonces with the action set to <code class="highlighter-rouge">wp_rest</code>. These
+can then be passed to the API via the <code class="highlighter-rouge">_wpnonce</code> data parameter (either POST
+data or in the query for GET requests), or via the <code class="highlighter-rouge">X-WP-Nonce</code> header.</p>
+
+    <p>It is important to keep in mind that this authentication method relies on WordPress
+cookies. As a result this method is only applicable when the REST API is used inside
+of WordPress and the current user is logged in. In addition, the current user must
+have the appropriate capability to perform the action being performed.</p>
+
+  </div>
+
+<div class="secondary">
+    <p>As an example, this is how the built-in Javascript client creates the nonce:</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nx">wp_localize_script</span><span class="p">(</span> <span class="s1">'wp-api'</span><span class="p">,</span> <span class="s1">'wpApiSettings'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'root'</span> <span class="o">=&gt;</span> <span class="nx">esc_url_raw</span><span class="p">(</span> <span class="nx">rest_url</span><span class="p">()</span> <span class="p">),</span> <span class="s1">'nonce'</span> <span class="o">=&gt;</span> <span class="nx">wp_create_nonce</span><span class="p">(</span> <span class="s1">'wp_rest'</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>This is then used in the base model:</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">options</span><span class="p">.</span><span class="nx">beforeSend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">'X-WP-Nonce'</span><span class="p">,</span> <span class="nx">wpApiSettings</span><span class="p">.</span><span class="nx">nonce</span><span class="p">);</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">beforeSend</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">beforeSend</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="kr">arguments</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+
+    <p>Here is an example of editing the title of a post, using jQuery AJAX:</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">url</span><span class="p">:</span> <span class="nx">wpApiSettings</span><span class="p">.</span><span class="nx">root</span> <span class="o">+</span> <span class="s1">'wpas-api/v1/tickets/1'</span><span class="p">,</span>
+    <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+    <span class="na">beforeSend</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">xhr</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span> <span class="s1">'X-WP-Nonce'</span><span class="p">,</span> <span class="nx">wpApiSettings</span><span class="p">.</span><span class="nx">nonce</span> <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">data</span><span class="p">:{</span>
+        <span class="s1">'title'</span> <span class="p">:</span> <span class="s1">'New Ticket Title'</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">).</span><span class="nx">done</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">response</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">response</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div>    </div>
+
+  </div>
+</section>
+
+<section class="route">
+<div class="primary">
+
+    <h2 id="basic-authentication">Basic Authentication</h2>
+    <p><a href="https://tools.ietf.org/html/rfc2617">HTTP Basic Authentication</a> (published as RFC2617) can be used to authenticate external services. It can use either the user’s username and password or the username and API password (located in the user’s edit screen).</p>
+
+    <p>API passwords are the more secure method of authentication since they are unique, random, and easily revokable. Additionally, API passwords are valid only for the REST API and may not be used to log in to WordPress. Only use the user’s password for authentication when the user will also be logging into the website.</p>
+
+    <p>To use Basic authentication, simply pass the username and password with each
+request through the <code class="highlighter-rouge">Authorization</code> header. This value should be encoded (using
+base64 encoding) as per the HTTP Basic specification.</p>
+
+  </div>
+
+<div class="secondary">
+
+    <p>This is an example of how to update a post, using these authentications, via the
+WordPress HTTP API:</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+	<span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'admin'</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="s1">'0qND QR5t tX4y qa0S eb4c tjrq'</span> <span class="p">),</span>
+<span class="p">);</span>
+<span class="nv">$url</span> <span class="o">=</span> <span class="nx">rest_url</span><span class="p">(</span> <span class="s1">'wpas-api/v1/tickets/1'</span> <span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+	<span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'Support Ticket Title'</span> 
+<span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="nv">$url</span><span class="p">,</span> <span class="k">array</span> <span class="p">(</span>
+    <span class="s1">'method'</span>  <span class="o">=&gt;</span> <span class="s1">'POST'</span><span class="p">,</span>
+    <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
+    <span class="s1">'body'</span>    <span class="o">=&gt;</span>  <span class="nv">$data</span>
+<span class="p">)</span> <span class="p">);</span>
+</code></pre></div>    </div>
+
+  </div>
+</section>
+
+		</section>
+
+		<script src="/assets/scripts/stick.js" async></script>
+<script type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ 'Lora:400,400italic:latin', 'Istok+Web:400,400italic,700,700italic:latin' ] }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+
+<script type="text/javascript">
+	var anchorForId = function( id ) {
+		var anchor = document.createElement( 'a' );
+
+		anchor.className = 'header-link';
+		anchor.href = '#' + id;
+		anchor.innerHTML = '<i class="link-icon"></i>';
+		anchor.title = 'Permalink';
+
+		return anchor;
+	};
+
+	var linkifyAnchors = function( level, containingElement ) {
+		var 	h,
+				headers = containingElement.getElementsByTagName( 'h' + level );
+
+		for( h = 0; h < headers.length; h++ ) {
+			var header = headers[ h ];
+
+			if( 'undefined' !== typeof header.id && '' !==  header.id ) {
+				header.appendChild( anchorForId( header.id ) );
+			}
+		}
+	};
+
+	document.onreadystatechange = function() {
+		if( 'complete' === this.readyState  ) {
+			var contentBlock = document.getElementById( 'content' );
+
+			if( !contentBlock ) {
+				return;
+			}
+
+			for( var level = 2; level <= 6; level++ ) {
+				linkifyAnchors( level, contentBlock );
+			}
+		}
+	};
+</script>
+
+	</body>
+</html>

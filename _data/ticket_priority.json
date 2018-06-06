@@ -81,6 +81,7 @@
                 "include",
                 "name",
                 "slug",
+                "include_slugs",
                 "term_group",
                 "description",
                 "count"
@@ -152,7 +153,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket_priority",
         "type": "object",
         "properties": {
@@ -222,6 +223,12 @@
               "nav_menu",
               "link_category",
               "post_format",
+              "action-group",
+              "product_type",
+              "product_visibility",
+              "product_cat",
+              "product_tag",
+              "product_shipping_class",
               "ticket-tag",
               "product",
               "department",
@@ -266,7 +273,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/ticket_priority"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/ticket_priority"
       },
       "nicename": "/wpas-api/v1/ticket_priority"
     },
@@ -366,7 +373,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket_priority",
         "type": "object",
         "properties": {
@@ -436,6 +443,12 @@
               "nav_menu",
               "link_category",
               "post_format",
+              "action-group",
+              "product_type",
+              "product_visibility",
+              "product_cat",
+              "product_tag",
+              "product_shipping_class",
               "ticket-tag",
               "product",
               "department",
@@ -483,7 +496,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "ticket_priority",
     "type": "object",
     "properties": {
@@ -553,6 +566,12 @@
           "nav_menu",
           "link_category",
           "post_format",
+          "action-group",
+          "product_type",
+          "product_visibility",
+          "product_cat",
+          "product_tag",
+          "product_shipping_class",
           "ticket-tag",
           "product",
           "department",

@@ -100,6 +100,7 @@
                 "parent",
                 "relevance",
                 "slug",
+                "include_slugs",
                 "title"
               ],
               "description": "Sort collection by object attribute.",
@@ -256,13 +257,13 @@
             "author": {
               "required": false,
               "default": "The ID of the current logged in client if applicable.",
-              "description": "The ID for the author of the object.",
+              "description": "The ID for the author of the object. Set to 0 for all authors.",
               "type": "integer"
             },
             "assignee": {
               "required": false,
               "default": "The ID of the current logged in agent if applicable.",
-              "description": "The agent assigned to this ticket",
+              "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
               "type": "integer"
             }
           }
@@ -296,11 +297,32 @@
                 "draft",
                 "pending",
                 "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
                 "queued",
                 "processing",
                 "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
@@ -359,13 +381,13 @@
             },
             "author": {
               "required": false,
-              "description": "The ID for the author of the object.",
+              "description": "The ID for the author of the object. Set to 0 for all authors.",
               "type": "integer"
             },
             "assignee": {
               "required": false,
-              "default": 4,
-              "description": "The agent assigned to this ticket",
+              "default": 5,
+              "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
               "type": "integer"
             },
             "secondary-assignee": {
@@ -423,7 +445,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket",
         "type": "object",
         "properties": {
@@ -533,11 +555,32 @@
               "draft",
               "pending",
               "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
               "queued",
               "processing",
               "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -685,7 +728,7 @@
             }
           },
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The ID for the author of the object. Set to 0 for all authors.",
             "type": "integer",
             "context": [
               "view",
@@ -695,7 +738,7 @@
             "query_cb": true
           },
           "assignee": {
-            "description": "The agent assigned to this ticket",
+            "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
             "type": "integer",
             "context": [
               "view",
@@ -829,7 +872,7 @@
         }
       },
       "_links": {
-        "self": "http://awesomesupport.dev/wp-json/wpas-api/v1/tickets"
+        "self": "http://awesomesupport.local/wp-json/wpas-api/v1/tickets"
       },
       "nicename": "/wpas-api/v1/tickets"
     },
@@ -901,11 +944,32 @@
                 "draft",
                 "pending",
                 "private",
+                "in-progress",
+                "failed",
+                "wc-active",
+                "wc-switched",
+                "wc-expired",
+                "wc-pending-cancel",
+                "wc-pending",
+                "wc-processing",
+                "wc-on-hold",
+                "wc-completed",
+                "wc-cancelled",
+                "wc-refunded",
+                "wc-failed",
                 "queued",
                 "processing",
                 "hold",
                 "read",
-                "unread"
+                "unread",
+                "wcm-active",
+                "wcm-free_trial",
+                "wcm-delayed",
+                "wcm-complimentary",
+                "wcm-pending",
+                "wcm-paused",
+                "wcm-expired",
+                "wcm-cancelled"
               ],
               "description": "A named status for the object.",
               "type": "string"
@@ -962,12 +1026,12 @@
             },
             "author": {
               "required": false,
-              "description": "The ID for the author of the object.",
+              "description": "The ID for the author of the object. Set to 0 for all authors.",
               "type": "integer"
             },
             "assignee": {
               "required": false,
-              "description": "The agent assigned to this ticket",
+              "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
               "type": "integer"
             },
             "secondary-assignee": {
@@ -1043,7 +1107,7 @@
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "ticket",
         "type": "object",
         "properties": {
@@ -1153,11 +1217,32 @@
               "draft",
               "pending",
               "private",
+              "in-progress",
+              "failed",
+              "wc-active",
+              "wc-switched",
+              "wc-expired",
+              "wc-pending-cancel",
+              "wc-pending",
+              "wc-processing",
+              "wc-on-hold",
+              "wc-completed",
+              "wc-cancelled",
+              "wc-refunded",
+              "wc-failed",
               "queued",
               "processing",
               "hold",
               "read",
-              "unread"
+              "unread",
+              "wcm-active",
+              "wcm-free_trial",
+              "wcm-delayed",
+              "wcm-complimentary",
+              "wcm-pending",
+              "wcm-paused",
+              "wcm-expired",
+              "wcm-cancelled"
             ],
             "context": [
               "view",
@@ -1305,7 +1390,7 @@
             }
           },
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The ID for the author of the object. Set to 0 for all authors.",
             "type": "integer",
             "context": [
               "view",
@@ -1315,7 +1400,7 @@
             "query_cb": true
           },
           "assignee": {
-            "description": "The agent assigned to this ticket",
+            "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
             "type": "integer",
             "context": [
               "view",
@@ -1452,7 +1537,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "ticket",
     "type": "object",
     "properties": {
@@ -1562,11 +1647,32 @@
           "draft",
           "pending",
           "private",
+          "in-progress",
+          "failed",
+          "wc-active",
+          "wc-switched",
+          "wc-expired",
+          "wc-pending-cancel",
+          "wc-pending",
+          "wc-processing",
+          "wc-on-hold",
+          "wc-completed",
+          "wc-cancelled",
+          "wc-refunded",
+          "wc-failed",
           "queued",
           "processing",
           "hold",
           "read",
-          "unread"
+          "unread",
+          "wcm-active",
+          "wcm-free_trial",
+          "wcm-delayed",
+          "wcm-complimentary",
+          "wcm-pending",
+          "wcm-paused",
+          "wcm-expired",
+          "wcm-cancelled"
         ],
         "context": [
           "view",
@@ -1714,7 +1820,7 @@
         }
       },
       "author": {
-        "description": "The ID for the author of the object.",
+        "description": "The ID for the author of the object. Set to 0 for all authors.",
         "type": "integer",
         "context": [
           "view",
@@ -1724,7 +1830,7 @@
         "query_cb": true
       },
       "assignee": {
-        "description": "The agent assigned to this ticket",
+        "description": "The agent assigned to this ticket. Set to 0 for all assignees.",
         "type": "integer",
         "context": [
           "view",

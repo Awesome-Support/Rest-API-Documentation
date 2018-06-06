@@ -4,7 +4,7 @@ require 'json'
 def add_simple_schemas(http)
   objects = {}
 
-  response = http.send_request('GET', 'http://awesomesupport.dev/wp-json/wpas-api/v1/?context=help')
+  response = http.send_request('GET', 'http://awesomesupport.local/wp-json/wpas-api/v1/?context=help')
   parsed_data = JSON.parse(response.body)
 
   parsed_data['routes'].each {
@@ -39,14 +39,14 @@ def add_simple_schemas(http)
 end
 
 def add_terms_schema(http)
-  response = http.send_request('OPTIONS', 'http://awesomesupport.dev/wp-json/wp/v2/terms/category')
+  response = http.send_request('OPTIONS', 'http://awesomesupport.local/wp-json/wp/v2/terms/category')
   file = File.new('_data/terms.json', 'w')
   parsed_data = JSON.parse(response.body)
   # puts data
   file.write(JSON.pretty_generate(parsed_data))
 end
 
-res = Net::HTTP.start("awesomesupport.dev", 80) {
+res = Net::HTTP.start("awesomesupport.local", 80) {
   |http|
   add_simple_schemas(http)
   #add_terms_schema(http)
